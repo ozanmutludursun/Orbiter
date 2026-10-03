@@ -158,8 +158,8 @@ class SourceTests(unittest.TestCase):
         import builtins
         original_import = builtins.__import__
         def limited_import(name, *args, **kwargs):
-            if name.startswith('xml'):
-                raise ModuleNotFoundError("No module named 'xml'")
+            if name.startswith(('xml', 'html')):
+                raise ModuleNotFoundError("No module named '" + name + "'")
             return original_import(name, *args, **kwargs)
         spec = importlib.util.spec_from_file_location('limited_source', Path(__file__).resolve().parents[1]/'defaults/orbiter_core/source.py')
         module = importlib.util.module_from_spec(spec)

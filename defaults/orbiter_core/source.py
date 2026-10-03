@@ -1,10 +1,8 @@
 """Read the official SSR data. No browser, third-party feed or executed JS."""
-import html
 import json
 import re
 import time
 import unicodedata
-from html.parser import HTMLParser
 
 SOURCE = 'https://arcraiders.com/map-conditions'
 REGIONS = ('europe', 'north-america', 'brazil', 'east-asia', 'oceania')
@@ -59,40 +57,27 @@ def safe_svg(raw):
     return ET.tostring(root, encoding='unicode')
 
 
-class Icons(HTMLParser):
+class Icons:
+    """Extract official icon candidates without html.parser in Decky's runtime.
+
+    Every candidate still passes the SVG allowlist; HTML is never rendered.
+    """
     def __init__(self):
-        super().__init__(convert_charrefs=True)
-        self.key = None
-        self.depth = 0
-        self.parts = []
         self.icons = {}
 
-    def handle_starttag(self, tag, attrs):
-        if tag == 'a':
-            href = dict(attrs).get('href', '')
-            match = re.fullmatch(r'/map-conditions/([a-z0-9-]+)', href)
-            self.key = match.group(1) if match else None
-        if tag == 'svg' and self.key and not self.depth:
-            self.depth = 1
-            self.parts = [self.get_starttag_text()]
-        elif self.depth:
-            self.depth += 1
-            self.parts.append(self.get_starttag_text())
-
-    def handle_startendtag(self, tag, attrs):
-        if self.depth:
-            self.parts.append(self.get_starttag_text())
-
-    def handle_endtag(self, tag):
-        if self.depth:
-            self.parts.append('</' + tag + '>')
-            self.depth -= 1
-            if not self.depth:
-                svg = safe_svg(''.join(self.parts))
+    def feed(self, page):
+        for anchor in re.finditer(r'<a\b([^>]*)>(.*?)</a\s*>', page, re.I | re.S):
+            href = re.search(r"\bhref\s*=\s*(['\"])(/map-conditions/[a-z0-9-]+)\1", anchor.group(1), re.I)
+            if not href:
+                continue
+            key = href.group(2).rsplit('/', 1)[1]
+            if key in self.icons:
+                continue
+            candidate = re.search(r'<svg\b[^>]*>.*?</svg\s*>', anchor.group(2), re.I | re.S)
+            if candidate:
+                svg = safe_svg(candidate.group(0))
                 if svg:
-                    self.icons.setdefault(self.key, svg)
-        if tag == 'a':
-            self.key = None
+                    self.icons[key] = svg
 
 
 def prop(streams, name):

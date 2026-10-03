@@ -118,7 +118,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
       <p className="orb-subtitle">Select the region you use in ARC Raiders. We’ll remember it on this device.</p>
       {regionChoice}
       <p className="orb-small" style={{marginTop:16}}>You can change this later in Settings. Times display in your local timezone.</p>
-    </> : <div className="orb-empty">{error?'Could not connect to Orbiter.':'Connecting to Orbiter…'}<p className="orb-small">Frontend v0.1.3</p>{!error && <Button onClick={() => run(transport.state)}>Check connection</Button>}</div>}
+    </> : <div className="orb-empty">{error?'Could not connect to Orbiter.':'Connecting to Orbiter…'}<p className="orb-small">Frontend v0.1.4</p>{!error && <Button onClick={() => run(transport.state)}>Check connection</Button>}</div>}
     {error && <div className="orb-message">{error}<Button onClick={() => run(transport.state)}>Retry</Button></div>}
   </Group>;
   return <Group className={`orbiter ${baseView==='schedule'?'orb-wide':''}`} onBack={view!==baseView?back:undefined}>
