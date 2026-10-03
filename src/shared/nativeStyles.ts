@@ -17,4 +17,8 @@ export const nativeStyles = `
 .orbiter .orb-map-expander{width:38px!important;max-width:38px;min-width:38px!important;flex:0 0 38px!important}
 .orbiter .orb-condition-toggle{width:0;flex:1 1 0!important}.orbiter .orb-footnote{flex-wrap:wrap}
 .orbiter .orb-message{overflow-wrap:anywhere}
+.orbiter .orb-inline-choice{margin:0}.orbiter .orb-inline-choice-trigger,.orbiter .orb-inline-choice-option{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.orbiter .orb-inline-choice-options{display:flex;flex-direction:column;gap:6px;margin-top:8px}.orbiter .orb-inline-choice-trigger .orb-disclosure-slot{width:16px;height:16px;flex:0 0 16px}
+.orbiter .orb-page-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}.orbiter .orb-page-head .orb-back{width:38px!important;height:38px;min-width:38px!important;max-width:38px;flex:0 0 38px!important;padding:0;margin:0}.orbiter .orb-page-head h1{flex:1;min-width:0}.orbiter .orb-page-head .orb-support{width:auto}
+.orbiter .orb-status{min-width:0;flex:1;flex-wrap:wrap}.orbiter .orb-tag{flex:none}.orbiter .orb-footnote{line-height:1.4}.orbiter .orb-setup-title{margin-top:0}
 `;
