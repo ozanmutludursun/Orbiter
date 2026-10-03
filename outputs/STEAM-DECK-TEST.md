@@ -4,7 +4,7 @@ Hedef cihaz: kullanıcının Steam Deck'i, SteamOS Gaming Mode, Decky Stable. Pa
 
 ## Kurulum
 
-1. `Orbiter-0.1.0-dev.zip` dosyasını Mac'ten Deck'in Downloads klasörüne aktar. USB bellek veya mevcut dosya aktarım yöntemin kullanılabilir. ZIP'i açma; source ZIP'i kurulum paketi değil.
+1. Deck'te Desktop Mode → Chrome → GitHub hesabına giriş yap. Private Orbiter reposunun [Development build](https://github.com/ozanmutludursun/Orbiter/releases/tag/dev) sayfasında Assets altındaki `orbiter.zip` dosyasını Downloads'a indir. ZIP'i açma; GitHub'ın Source code arşivleri kurulum paketi değil. Sonraki geliştirme güncellemelerinde aynı sayfadaki dosya yenilenir; mevcut Orbiter üzerine yeni ZIP'i kur ve ayarların korunduğunu doğrula.
 2. Gaming Mode'da **… → Decky → dişli → Developer** bölümüne gir. Developer bölümü görünmüyorsa Decky ayarlarından Developer Mode'u aç.
 3. **Install Plugin from ZIP File** alanındaki Browse/dosya seçimiyle bu ZIP'i seç ve Orbiter kurulumunu tamamla. Dil/sürüm nedeniyle etiketler biraz farklı olabilir.
 4. Decky listesinde Orbiter'i aç. Yeni kurulumda önce sunucu bölgesi seçimi görünür; seçimin kaydedilir ve ana panel açılır. Sonraki açılışta bu adım atlanır. Gerekirse Steam Deck'i yeniden başlatıp tekrar kontrol et.
