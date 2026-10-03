@@ -1,5 +1,5 @@
 import { definePlugin, callable, addEventListener, removeEventListener, routerHook, toaster } from '@decky/api';
-import { DialogButton, Focusable, Navigation, Router, useQuickAccessVisible } from '@decky/ui';
+import { DialogButton, DropdownItem, Focusable, Navigation, PanelSection, Router, ToggleField, useQuickAccessVisible } from '@decky/ui';
 import { useEffect } from 'react';
 import { OrbiterApp } from './shared/App';
 import type { Controls, Notice, Session, Settings, State, Transport } from './shared/types';
@@ -26,9 +26,12 @@ const transport: Transport = {state:getState, save, session: values => {
   return session(values);
 },refresh,openExternal:url=>Navigation.NavigateToExternalWeb(url)};
 const controls: Controls = {
+  native:true,
+  Toggle:props=><ToggleField {...props}/>,
+  Choice:({value,options,onChange,...props})=><DropdownItem {...props} selectedOption={value} rgOptions={options.map(o=>({label:o.label,data:o.value}))} onChange={option=>onChange(option.data)} strDefaultLabel="Choose region"/>,
   Button:({children,onClick,className,disabled,label})=><DialogButton className={'orb-button '+(className || '')} disabled={disabled} onClick={onClick} onOKActionDescription={label}>{children}</DialogButton>,
   Group:({children,className,onBack})=>className?.split(' ').includes('orbiter')
-    ? <div className={className}><Focusable onCancel={onBack} style={{display:'contents'}} flow-children="column">{children}</Focusable></div>
+    ? <div className={className}><PanelSection><Focusable onCancel={onBack} style={{display:'contents'}} flow-children="column">{children}</Focusable></PanelSection></div>
     : <Focusable className={className} onCancel={onBack} flow-children={/orb-flex|orb-row|orb-tabs|orb-filter-list|orb-condition-heading/.test(className || '')?'row':'column'}>{children}</Focusable>
 };
 function Content(){
@@ -38,7 +41,7 @@ function Content(){
 }
 function Schedule(){
   useEffect(()=>{routeOpen=true;void heartbeat();return()=>{routeOpen=false;void heartbeat();};},[]);
-  return <Focusable onCancel={()=>Navigation.NavigateBack()} style={{height:'100%',overflowY:'auto',background:'#1c2427'}}><OrbiterApp transport={transport} controls={controls} initialView="schedule"/></Focusable>;
+  return <Focusable onCancel={()=>Navigation.NavigateBack()} style={{height:'100%',overflowY:'auto'}}><OrbiterApp transport={transport} controls={controls} initialView="schedule"/></Focusable>;
 }
 function readGame(){
   try {const apps=Router.RunningApps;if(Array.isArray(apps)) game={running:apps.some(a=>Number(a.appid)===1808500),known:true};else game={running:false,known:false};}

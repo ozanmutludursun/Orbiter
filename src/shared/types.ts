@@ -9,4 +9,10 @@ export type State = {settings: Settings; data: {obtainedAt: number; serverNow: n
 export type Notice = {title: string; body: string; sound: boolean; seconds: number};
 export type Transport = {state(): Promise<State>; save(values: Partial<Settings>): Promise<State>; session(values: Partial<Session>): Promise<State>; refresh(): Promise<State>; openExternal(url: string): void};
 export type ControlProps = {children: ReactNode; onClick(): void; className?: string; disabled?: boolean; label?: string};
-export type Controls = {Button: ComponentType<ControlProps>; Group: ComponentType<{children: ReactNode; className?: string; onBack?(): void}>};
+export type Controls = {
+  native?: boolean;
+  Button: ComponentType<ControlProps>;
+  Group: ComponentType<{children: ReactNode; className?: string; onBack?(): void}>;
+  Toggle?: ComponentType<{label: string; description: string; checked: boolean; disabled?: boolean; onChange(value: boolean): void}>;
+  Choice?: ComponentType<{label: string; description?: string; value: string | number | null; options: {label: string; value: string | number}[]; disabled?: boolean; onChange(value: string | number): void}>;
+};

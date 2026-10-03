@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { REGIONS, type Condition, type Controls, type Event, type Region, type Settings, type State, type Transport } from './types';
 import { styles } from './styles';
+import { nativeStyles } from './nativeStyles';
 import { Chevron } from './Chevron';
 
 export const formatCountdown = (ms: number) => { const n = Math.max(0, Math.ceil(ms / 1000)); return n >= 3600 ? `${Math.floor(n/3600)}h ${Math.floor(n%3600/60)}m` : `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`; };
@@ -85,7 +86,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
     saveQueue.current = task;
     return task;
   };
-  const {Button, Group} = controls;
+  const {Button, Group, Toggle, Choice} = controls;
   const back = () => setView(view==='tracking'?'settings':baseView);
   const s = state?.settings;
   const conditions = state?.data?.conditions || [];
@@ -107,10 +108,10 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
       <Button className={`orb-star ${isTracked(s!,e)?'selected':''}`} label={`${isTracked(s!,e)?'Untrack':'Track'} ${c?.name}`} onClick={() => toggleCondition(e.conditionId)} disabled={busy}>{isTracked(s!,e)?'★':'☆'}</Button>
     </Group>;
   }) : <div className="orb-empty">{!s?.region ? 'Choose your server region first.' : trackedOnly ? 'No matching conditions. Adjust your tracking choices.' : live ? 'No active conditions in this region.' : 'No upcoming conditions in the published schedule.'}</div>;
-  const setting = (label: string, hint: string, key: keyof Settings) => <div className="orb-setting"><div className="orb-flex"><span>{label}</span><Button label={`${label}: ${s?.[key]?'On':'Off'}`} className={s?.[key]?'selected':''} disabled={busy} onClick={() => save({[key]:!s?.[key]})}>{s?.[key]?'On':'Off'}</Button></div><p>{hint}</p></div>;
-  const regionChoice = <Group className="orb-region-options">{Object.entries(REGIONS).map(([key,label]) => <Button key={key} className={s?.region===key?'selected':''} disabled={busy} onClick={() => save({region:key as Region})}><span>{label}</span><span className="orb-selection-mark" aria-hidden="true">{s?.region===key?'●':'○'}</span></Button>)}</Group>;
+  const setting = (label: string, hint: string, key: keyof Settings) => Toggle ? <Toggle label={label} description={hint} checked={!!s?.[key]} disabled={busy} onChange={value=>{void save({[key]:value});}}/> : <div className="orb-setting"><div className="orb-flex"><span>{label}</span><Button label={`${label}: ${s?.[key]?'On':'Off'}`} className={s?.[key]?'selected':''} disabled={busy} onClick={() => save({[key]:!s?.[key]})}>{s?.[key]?'On':'Off'}</Button></div><p>{hint}</p></div>;
+  const regionChoice = Choice ? <Choice label="Server region" description="Match your ARC Raiders server. Times use your local timezone." value={s?.region ?? null} options={Object.entries(REGIONS).map(([value,label])=>({value,label}))} disabled={busy} onChange={value=>{void save({region:value as Region});}}/> : <Group className="orb-region-options">{Object.entries(REGIONS).map(([key,label]) => <Button key={key} className={s?.region===key?'selected':''} disabled={busy} onClick={() => save({region:key as Region})}><span>{label}</span><span className="orb-selection-mark" aria-hidden="true">{s?.region===key?'●':'○'}</span></Button>)}</Group>;
   if(!state || !s?.region) return <Group className={`orbiter orb-setup ${baseView==='schedule'?'orb-wide':''}`}>
-    <style>{styles}</style>
+    <style>{controls.native?nativeStyles:styles}</style>
     <div className="orb-head"><div className="orb-brand"><span className="orb-symbol">◎</span><h1>Orbiter</h1></div></div>
     {state ? <>
       <h2 className="orb-setup-title">Choose your server region</h2>
@@ -121,7 +122,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
     {error && <div className="orb-message">{error}<Button onClick={() => run(transport.state)}>Retry</Button></div>}
   </Group>;
   return <Group className={`orbiter ${baseView==='schedule'?'orb-wide':''}`} onBack={view!==baseView?back:undefined}>
-    <style>{styles}</style>
+    <style>{controls.native?nativeStyles:styles}</style>
     <span ref={viewAnchor} aria-hidden="true"/>
     {view==='tracking' ? <>
       <Button className="orb-back" onClick={back}>← Settings</Button><h1>Conditions</h1><p className="orb-subtitle">Choose what to track and on which maps.</p>
@@ -146,26 +147,26 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
       </div>
     </> : view==='settings' ? <>
       <Button className="orb-back" onClick={back}>← Back</Button><div className="orb-head"><h1>Settings</h1>{state?.supportUrl && <Button className="orb-support" onClick={() => transport.openExternal(state.supportUrl!)}>Support ↗</Button>}</div><p className="orb-subtitle">Your schedule. Your interruptions.</p>
-      <div className="orb-setting"><h2>Activity</h2><div className="orb-options">{(['auto','always','panel'] as const).map(mode => <Button key={mode} className={s?.mode===mode?'selected':''} disabled={busy} onClick={() => save({mode})}>{({auto:'Gaming',always:'Always',panel:'Panel'})[mode]}</Button>)}</div><p>{s?.mode==='auto'?'Track while ARC Raiders is running. Opening the panel still checks the schedule when the game is closed.':s?.mode==='always'?'Track while Decky is running. Alerts in other games need a separate opt-in.':'Track and notify only while this view is open.'}</p></div>
+      <div className="orb-setting">{Choice ? <Choice label="Activity" description={s?.mode==='auto'?'Track while ARC Raiders is running. Opening the panel also checks the schedule.':s?.mode==='always'?'Track while Decky is running. Alerts in other games need a separate opt-in.':'Track and notify only while this view is open.'} value={s?.mode ?? 'auto'} options={[{value:'auto',label:'Gaming'},{value:'always',label:'Always'},{value:'panel',label:'Panel'}]} onChange={mode=>{void save({mode:mode as Settings['mode']});}}/> : <><h2>Activity</h2><div className="orb-options">{(['auto','always','panel'] as const).map(mode => <Button key={mode} className={s?.mode===mode?'selected':''} disabled={busy} onClick={() => save({mode})}>{({auto:'Gaming',always:'Always',panel:'Panel'})[mode]}</Button>)}</div><p>{s?.mode==='auto'?'Track while ARC Raiders is running. Opening the panel still checks the schedule when the game is closed.':s?.mode==='always'?'Track while Decky is running. Alerts in other games need a separate opt-in.':'Track and notify only while this view is open.'}</p></>}</div>
       {setting('Notifications','Opt-in reminders for the conditions you track.','notifications')}
       {s?.notifications && <div className="orb-notification-details">
-      <div className="orb-setting"><div className="orb-flex"><span>Advance reminder</span><Button disabled={busy} onClick={() => save({leadMinutes: [0,1,5,10,15,30,60][([0,1,5,10,15,30,60].indexOf(s?.leadMinutes || 0)+1)%7]})}>{s?.leadMinutes?`${s.leadMinutes} min`:'Off'} ↻</Button></div><p>Press to cycle the lead time.</p></div>
+      <div className="orb-setting">{Choice ? <Choice label="Advance reminder" value={s?.leadMinutes ?? 5} options={[0,1,5,10,15,30,60].map(value=>({value,label:value?`${value} min`:'Off'}))} onChange={value=>{void save({leadMinutes:Number(value)});}}/> : <><div className="orb-flex"><span>Advance reminder</span><Button disabled={busy} onClick={() => save({leadMinutes: [0,1,5,10,15,30,60][([0,1,5,10,15,30,60].indexOf(s?.leadMinutes || 0)+1)%7]})}>{s?.leadMinutes?`${s.leadMinutes} min`:'Off'} ↻</Button></div><p>Press to cycle the lead time.</p></>}</div>
       {setting('At start','Send a reminder when a condition starts.','atStart')}
       {setting('Notification sound','Silent by default.','sound')}
       {setting('Merge simultaneous alerts','One toast for conditions starting together.','merge')}
       {s?.mode==='always' && setting('Alerts outside ARC Raiders','Allow reminders when ARC Raiders is closed.','otherGames')}
-      <div className="orb-setting"><div className="orb-flex"><span>Toast duration</span><Button disabled={busy} onClick={() => save({toastSeconds: [3,6,10,15][([3,6,10,15].indexOf(s?.toastSeconds || 6)+1)%4]})}>{s?.toastSeconds || 6} sec ↻</Button></div></div>
+      <div className="orb-setting">{Choice ? <Choice label="Toast duration" value={s?.toastSeconds ?? 6} options={[3,6,10,15].map(value=>({value,label:`${value} sec`}))} onChange={value=>{void save({toastSeconds:Number(value)});}}/> : <div className="orb-flex"><span>Toast duration</span><Button disabled={busy} onClick={() => save({toastSeconds: [3,6,10,15][([3,6,10,15].indexOf(s?.toastSeconds || 6)+1)%4]})}>{s?.toastSeconds || 6} sec ↻</Button></div>}</div>
       </div>}
       <div className="orb-setting"><h2>Tracked conditions</h2><p>{s?.allConditions?'All conditions, including future additions.':`${conditions.filter(c => c.id in (s?.subscriptions || {})).length} of ${conditions.length} conditions selected.`}</p><Button className="orb-manage" onClick={() => setView('tracking')}>Manage conditions →</Button></div>
-      <div className="orb-setting"><h2>Server region</h2><Button className="orb-manage orb-disclosure" label="Server region" onClick={() => setRegionExpanded(!regionExpanded)}><span className="orb-disclosure-label">{s?.region?REGIONS[s.region]:'Choose region'}</span><Chevron open={regionExpanded || !s?.region}/></Button>{(regionExpanded || !s?.region) && regionChoice}<p>Match your ARC Raiders server. Times use your local timezone.</p></div>
+      <div className="orb-setting">{Choice ? regionChoice : <><h2>Server region</h2><Button className="orb-manage orb-disclosure" label="Server region" onClick={() => setRegionExpanded(!regionExpanded)}><span className="orb-disclosure-label">{s?.region?REGIONS[s.region]:'Choose region'}</span><Chevron open={regionExpanded || !s?.region}/></Button>{(regionExpanded || !s?.region) && regionChoice}<p>Match your ARC Raiders server. Times use your local timezone.</p></>}</div>
       <div className="orb-footer"><h2>About Orbiter</h2><p className="orb-subtitle">v{state?.version || '0.1.0'} · GPLv3<br/>Unofficial companion. Schedule and condition artwork from Embark’s ARC Raiders website. Timings may change.</p><Button onClick={() => transport.openExternal('https://arcraiders.com/map-conditions')}>Official schedule ↗</Button></div>
     </> : <>
       <div className="orb-head"><div className="orb-brand"><span className="orb-symbol">◎</span><h1>Orbiter</h1></div><Button className="orb-icon-button" label="Settings" onClick={() => setView('settings')}>⚙</Button></div>
       <div className="orb-flex"><div className="orb-status"><span className={`orb-dot ${state?.active?'':'idle'}`}/>{state?.session.muted?'Alerts muted':state?.active?'Tracking':s?.mode==='auto'?(state?.session.known?'Waiting for ARC':'Game detection unavailable'):'Paused'}</div><span className="orb-tag">{s?.region?REGIONS[s.region]:'Choose region'}</span></div>
       {(error || state?.error || state?.stale && state.data) && <div className="orb-message">{error || state?.error || 'Saved schedule is stale. Reminders are paused.'}<div style={{marginTop:8}}><Button disabled={busy} onClick={() => run(transport.refresh)}>Retry</Button></div></div>}
       {state?.demo && <div className="orb-message">Demo timeline · simulated event times</div>}
-      <Group className="orb-tabs"><Button className={!trackedOnly?'selected':''} onClick={() => setTrackedOnly(false)}>All conditions</Button><Button className={trackedOnly?'selected':''} onClick={() => setTrackedOnly(true)}>Tracked</Button></Group>
-      {view==='schedule' && <><h1>Map schedule</h1><p className="orb-subtitle">Local times · {s?.region ? REGIONS[s.region] : 'select a region'} · official published horizon</p><Group className="orb-filter-list">{['All maps',...(state?.data?.maps || [])].map(m => <Button key={m} className={map===m?'selected':''} onClick={() => setMap(m)}>{m}</Button>)}</Group></>}
+      <Group className="orb-tabs"><Button className={!trackedOnly?'selected':''} onClick={() => setTrackedOnly(false)}>{controls.native && !trackedOnly?'✓ ':''}All conditions</Button><Button className={trackedOnly?'selected':''} onClick={() => setTrackedOnly(true)}>{controls.native && trackedOnly?'✓ ':''}Tracked</Button></Group>
+      {view==='schedule' && <><h1>Map schedule</h1><p className="orb-subtitle">Local times · {s?.region ? REGIONS[s.region] : 'select a region'} · official published horizon</p><Group className="orb-filter-list">{['All maps',...(state?.data?.maps || [])].map(m => <Button key={m} className={map===m?'selected':''} onClick={() => setMap(m)}>{controls.native && map===m?'✓ ':''}{m}</Button>)}</Group></>}
       {!state && <div className="orb-empty">Connecting to Orbiter…</div>}
       {state && !state.data && <div className="orb-empty">{state.refreshing?'Fetching official schedule…':'No saved schedule yet.'}<Button disabled={busy} onClick={() => run(transport.refresh)}>Load schedule</Button></div>}
       {state?.data && <div className="orb-columns"><div className="orb-section"><div className="orb-section-head"><h2>Now active</h2><span>{active.length}</span></div>{rows(active,true,view==='schedule'?1000:6)}</div><div className="orb-section"><div className="orb-section-head"><h2>Coming up</h2><span>{view==='schedule'?upcoming.length:'Next '+Math.min(3,upcoming.length)}</span></div>{rows(upcoming,false,view==='schedule'?1000:3)}</div></div>}

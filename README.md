@@ -1,7 +1,7 @@
 # Orbiter
 
 An unofficial, minimal ARC Raiders map-condition companion for Decky Loader.
-Steam Deck / SteamOS Gaming Mode is the primary target. Version 0.1.1 is a development prototype. Initial testing on Decky Stable v3.2.9 stalled at startup; this build adds startup error reporting and connection timeouts and awaits device retesting. Not yet submitted to the Store.
+Steam Deck / SteamOS Gaming Mode is the primary target. Version 0.1.2 is a development prototype. Initial testing on Decky Stable v3.2.9 stalled at startup; this build includes startup error reporting, connection timeouts and native Steam settings controls and awaits device retesting. Not yet submitted to the Store.
 
 ## Try on a Mac
 
@@ -44,3 +44,5 @@ Data is read from structured SSR output in [the official page](https://arcraider
 Orbiter’s original code is licensed under **GPL-3.0-only**; see LICENSE. Third-party notices and artwork ownership are separate; see THIRD_PARTY_NOTICES.md. All core features are free. An optional Ko-fi link can be configured once the maintainer provides a real profile URL; no nag screens or support notifications.
 
 The Mac preview validates content and interaction; it cannot validate Steam controller focus, game detection or Steam toast placement. See `outputs/ROADMAP.md` for the device gates and subsequent work.
+
+The Deck build uses @decky/ui PanelSection, DialogButton, ToggleField, DropdownItem and Focusable. Steam owns their theme and focus appearance; plugin CSS supplies content layout only. The browser preview keeps a separate visual theme while sharing behavior and data.
