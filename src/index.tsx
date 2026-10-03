@@ -2,20 +2,13 @@ import { definePlugin, callable, addEventListener, removeEventListener, routerHo
 import { DialogButton, DropdownItem, Focusable, Navigation, PanelSection, Router, ToggleField, useQuickAccessVisible } from '@decky/ui';
 import { useEffect } from 'react';
 import { OrbiterApp } from './shared/App';
+import { backendRequest } from './shared/backendRequest';
 import type { Controls, Notice, Session, Settings, State, Transport } from './shared/types';
 
-async function backend<T>(request: Promise<T>, timeout = 8000): Promise<T> {
-  let timer: ReturnType<typeof setTimeout>;
-  try {
-    return await Promise.race([request, new Promise<never>((_, reject) => {
-      timer = setTimeout(() => reject(new Error('Orbiter backend did not respond. Try reloading the plugin.')), timeout);
-    })]);
-  } finally {clearTimeout(timer!);}
-}
-const getState = () => backend(callable<[],State>('get_state')());
-const save = (settings:Partial<Settings>) => backend(callable<[Partial<Settings>],State>('save_settings')(settings));
-const session = (values:Partial<Session>) => backend(callable<[Partial<Session>],State>('session')(values), 20000);
-const refresh = () => backend(callable<[],State>('refresh')(), 20000);
+const getState = () => backendRequest(() => callable<[],State>('get_state')());
+const save = (settings:Partial<Settings>) => backendRequest(() => callable<[Partial<Settings>],State>('save_settings')(settings));
+const session = (values:Partial<Session>) => backendRequest(() => callable<[Partial<Session>],State>('session')(values), 20000);
+const refresh = () => backendRequest(() => callable<[],State>('refresh')(), 20000);
 const ROUTE = '/orbiter/schedule';
 let panelOpen = false;
 let routeOpen = false;
