@@ -1,5 +1,6 @@
 import copy
 import json
+import logging
 import re
 import threading
 import time
@@ -129,8 +130,10 @@ class Engine:
                     write_json(self.runtime_dir / 'cache.json', data)
                     self.error = None
             except Exception as exc:
+                logging.getLogger('orbiter').exception('Official schedule fetch failed')
                 with self.lock:
-                    self.error = 'Official schedule unavailable. Last saved schedule is shown.'
+                    fallback = 'Last saved schedule is shown.' if self.data else 'No saved schedule yet.'
+                    self.error = f'Official schedule unavailable. {fallback} {type(exc).__name__}: {exc}'
             finally:
                 with self.lock:
                     self.refreshing = False
@@ -143,7 +146,7 @@ class Engine:
             now = self.clock()
             return {'settings': copy.deepcopy(self.settings), 'data': copy.deepcopy(self.data), 'session': dict(self.session),
                     'now': now, 'active': self.active(now), 'stale': self.stale(now), 'error': self.error,
-                    'refreshing': self.refreshing, 'demo': self.demo, 'version': '0.1.4', 'supportUrl': self.support_url}
+                    'refreshing': self.refreshing, 'demo': self.demo, 'version': '0.1.5', 'supportUrl': self.support_url}
 
     def tick(self):
         now = self.clock()

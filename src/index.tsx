@@ -20,8 +20,8 @@ const transport: Transport = {state:getState, save, session: values => {
 },refresh,openExternal:url=>Navigation.NavigateToExternalWeb(url)};
 const controls: Controls = {
   native:true,
-  Toggle:props=><ToggleField {...props}/>,
-  Choice:({value,options,onChange,...props})=><DropdownItem {...props} selectedOption={value} rgOptions={options.map(o=>({label:o.label,data:o.value}))} onChange={option=>onChange(option.data)} strDefaultLabel="Choose region"/>,
+  Toggle:props=><ToggleField {...props} childrenContainerWidth="min"/>,
+  Choice:({value,options,onChange,...props})=><DropdownItem {...props} layout="below" selectedOption={value} rgOptions={options.map(o=>({label:o.label,data:o.value}))} onChange={option=>onChange(option.data)} strDefaultLabel="Choose region"/>,
   Button:({children,onClick,className,disabled,label})=><DialogButton className={'orb-button '+(className || '')} disabled={disabled} onClick={onClick} onOKActionDescription={label}>{children}</DialogButton>,
   Group:({children,className,onBack})=>className?.split(' ').includes('orbiter')
     ? <div className={className}><PanelSection><Focusable onCancel={onBack} style={{display:'contents'}} flow-children="column">{children}</Focusable></PanelSection></div>

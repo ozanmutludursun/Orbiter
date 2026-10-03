@@ -132,10 +132,25 @@ class EngineTests(unittest.TestCase):
         def fail(old):
             raise ValueError('Broken upstream')
         self.engine.fetcher=fail
-        self.engine.refresh(True)
+        with self.assertLogs('orbiter', level='ERROR') as logs:
+            self.engine.refresh(True)
         self.assertEqual(self.engine.data['conditions'][0]['name'],'New Condition')
-        self.assertTrue(self.engine.error)
+        self.assertIn('ValueError: Broken upstream',self.engine.error)
+        self.assertIn('Last saved schedule is shown.', self.engine.error)
+        self.assertIn('Broken upstream', logs.output[0])
         self.assertIn('missing-today',self.engine.settings['subscriptions'])
+
+    def test_fetch_failure_without_cache_exposes_cause(self):
+        self.engine.data = None
+        def fail(old):
+            raise ModuleNotFoundError("No module named 'urllib.request'")
+        self.engine.fetcher = fail
+        with self.assertLogs('orbiter', level='ERROR'):
+            state = self.engine.refresh(True)
+        self.assertIsNone(state['data'])
+        self.assertIn('No saved schedule yet.', state['error'])
+        self.assertIn('urllib.request', state['error'])
+        self.assertNotIn('Last saved schedule is shown.', state['error'])
 
     def test_clock_reevaluated_after_network_request(self):
         self.enabled()
