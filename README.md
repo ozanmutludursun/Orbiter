@@ -1,7 +1,7 @@
 # Orbiter
 
 An unofficial, minimal ARC Raiders map-condition companion for Decky Loader.
-Steam Deck / SteamOS Gaming Mode is the primary target. Version 0.1.0 is a development prototype, not yet device-validated or submitted to the Store.
+Steam Deck / SteamOS Gaming Mode is the primary target. Version 0.1.1 is a development prototype. Initial testing on Decky Stable v3.2.9 stalled at startup; this build adds startup error reporting and connection timeouts and awaits device retesting. Not yet submitted to the Store.
 
 ## Try on a Mac
 

@@ -143,7 +143,7 @@ class Engine:
             now = self.clock()
             return {'settings': copy.deepcopy(self.settings), 'data': copy.deepcopy(self.data), 'session': dict(self.session),
                     'now': now, 'active': self.active(now), 'stale': self.stale(now), 'error': self.error,
-                    'refreshing': self.refreshing, 'demo': self.demo, 'version': '0.1.0', 'supportUrl': self.support_url}
+                    'refreshing': self.refreshing, 'demo': self.demo, 'version': '0.1.1', 'supportUrl': self.support_url}
 
     def tick(self):
         now = self.clock()

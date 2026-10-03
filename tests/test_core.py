@@ -3,6 +3,8 @@ import json
 import sys
 import tempfile
 import unittest
+import importlib.util
+from unittest.mock import patch
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'defaults'))
@@ -152,6 +154,21 @@ class EngineTests(unittest.TestCase):
 
 
 class SourceTests(unittest.TestCase):
+    def test_source_starts_when_frozen_runtime_has_no_xml_module(self):
+        import builtins
+        original_import = builtins.__import__
+        def limited_import(name, *args, **kwargs):
+            if name.startswith('xml'):
+                raise ModuleNotFoundError("No module named 'xml'")
+            return original_import(name, *args, **kwargs)
+        spec = importlib.util.spec_from_file_location('limited_source', Path(__file__).resolve().parents[1]/'defaults/orbiter_core/source.py')
+        module = importlib.util.module_from_spec(spec)
+        with patch('builtins.__import__', side_effect=limited_import):
+            spec.loader.exec_module(module)
+            self.assertIsNone(module.safe_svg('<svg><path d="M0 0"/></svg>'))
+            row={'conditionName':'New Condition','mapDisplayName':'New Map','startTimestamp':NOW,'endTimestamp':NOW+3600000}
+            self.assertEqual(module.parse_page(self.page([row]),NOW)['maps'], ['New Map'])
+
     def test_map_pairings_do_not_cross_conditions_or_guess_new_maps(self):
         data = snapshot()
         data['conditions'].append({'id':'other','name':'Other','kind':'minor','icon':None})

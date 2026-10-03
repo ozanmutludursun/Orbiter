@@ -1,6 +1,6 @@
 # Orbiter — ilk Steam Deck testi
 
-Hedef cihaz: kullanıcının Steam Deck'i, SteamOS Gaming Mode, Decky Stable. Paket 0.1.0 geliştirme build'i; cihaz test sonuçları henüz alınmadı.
+Hedef cihaz: kullanıcının Steam Deck'i, SteamOS Gaming Mode, Decky Stable v3.2.9. Paket 0.1.1 geliştirme build'i; ilk 0.1.0 cihaz denemesi “Connecting to Orbiter…” ekranında kaldı. Kesin kök neden cihaz logu olmadan doğrulanmadı. 0.1.1 XML ikon okuyucusunun eksikliğini açılıştan ayırır, backend açılış hatasını RPC üzerinden döndürür, frontend bağlantısına zaman aşımı ekler ve kök panel stilini native Focusable kutusundan ayırır. Mac'te 19 test geçti; cihazda yeniden doğrulama bekleniyor.
 
 ## Kurulum
 

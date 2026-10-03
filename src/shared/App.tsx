@@ -5,6 +5,7 @@ import { Chevron } from './Chevron';
 
 export const formatCountdown = (ms: number) => { const n = Math.max(0, Math.ceil(ms / 1000)); return n >= 3600 ? `${Math.floor(n/3600)}h ${Math.floor(n%3600/60)}m` : `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`; };
 const time = (ms: number) => new Date(ms).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+const connectionError = (error: unknown) => error instanceof Error ? error.message : typeof error==='string' ? error : 'Orbiter backend is unavailable.';
 const isTracked = (s: Settings, e: Event) => s.allConditions || (e.conditionId in s.subscriptions && (!s.subscriptions[e.conditionId].length || s.subscriptions[e.conditionId].includes(e.map)));
 export function ConditionIcon({condition}: {condition?: Condition}) {return condition?.icon ? <img className="orb-condition-icon" src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(condition.icon)}`} alt=""/> : <span className="orb-fallback">◇</span>;}
 
@@ -39,8 +40,13 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
       const startedAt = revision.current;
       return request().then(s => {if(startedAt===revision.current && !pendingSaves.current)apply(s);});
     };
-    const update = () => read(transport.state).catch(() => alive.current && setError('Orbiter backend is unavailable.'));
-    read(() => transport.session({panel:true})).catch(() => setError('Could not connect to Orbiter.'));
+    let polling = false;
+    const update = () => {
+      if(polling)return;
+      polling=true;
+      void read(transport.state).catch(err => alive.current && setError(connectionError(err))).finally(()=>{polling=false;});
+    };
+    read(() => transport.session({panel:true})).catch(err => alive.current && setError(connectionError(err)));
     update();
     const poll = setInterval(update, 3000);
     const timer = setInterval(() => setNow(anchor.current.server + performance.now() - anchor.current.local), 1000);
@@ -52,7 +58,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
     try {
       const result = await action();
       apply(pendingSaves.current && current.current ? {...result,settings:current.current.settings} : result);
-    } catch {setError('Could not save or refresh. Please try again.');}
+    } catch (err) {setError(connectionError(err));}
     finally {if(refreshing)setBusy(false);}
   };
   // Keep focusable controls mounted and enabled while saving. Serialize writes so
@@ -111,7 +117,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
       <p className="orb-subtitle">Select the region you use in ARC Raiders. We’ll remember it on this device.</p>
       {regionChoice}
       <p className="orb-small" style={{marginTop:16}}>You can change this later in Settings. Times display in your local timezone.</p>
-    </> : <div className="orb-empty">Connecting to Orbiter…</div>}
+    </> : <div className="orb-empty">{error?'Could not connect to Orbiter.':'Connecting to Orbiter…'}</div>}
     {error && <div className="orb-message">{error}<Button onClick={() => run(transport.state)}>Retry</Button></div>}
   </Group>;
   return <Group className={`orbiter ${baseView==='schedule'?'orb-wide':''}`} onBack={view!==baseView?back:undefined}>

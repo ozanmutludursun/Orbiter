@@ -4,8 +4,6 @@ import json
 import re
 import time
 import unicodedata
-import urllib.request
-import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 
 SOURCE = 'https://arcraiders.com/map-conditions'
@@ -19,6 +17,7 @@ def slug(name):
 
 
 def download(url):
+    import urllib.request
     if not url.startswith(SOURCE) or not re.fullmatch(r'https://arcraiders.com/map-conditions(?:/[a-z0-9-]+)?', url):
         raise ValueError('Non-official source rejected')
     request = urllib.request.Request(url, headers={'User-Agent': 'Orbiter/0.1 (Decky map-condition reader)', 'Accept': 'text/html'})
@@ -35,7 +34,12 @@ def safe_svg(raw):
     if len(raw) > 40_000 or '<!' in raw:
         return None
     try:
+        # Decky's frozen Python may omit XML modules. An unavailable icon must
+        # never prevent the schedule backend from starting.
+        import xml.etree.ElementTree as ET
         root = ET.fromstring(raw)
+    except ImportError:
+        return None
     except ET.ParseError:
         return None
     tags = {'svg', 'g', 'path', 'circle', 'rect', 'polygon', 'polyline', 'line', 'ellipse'}
