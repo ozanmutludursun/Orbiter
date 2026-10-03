@@ -1,0 +1,14 @@
+node_modules/
+dist/
+preview-dist/
+work/
+__pycache__/
+*.pyc
+outputs/*.zip
+outputs/*.png
+outputs/*.jpg
+outputs/*.jpeg
+outputs/rageworks-*-prompt.txt
+.DS_Store
+.env
+.env.*

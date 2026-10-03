@@ -1,0 +1,4 @@
+{
+  "name": "Orbiter", "author": "Orbiter contributors", "flags": [], "api_version": 1,
+  "publish": {"tags": ["utility", "notifications"], "description": "ARC Raiders map conditions, quietly in your Quick Access Menu."}
+}
