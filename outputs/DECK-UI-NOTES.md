@@ -58,3 +58,7 @@ Upcoming defaults to six hours, with 24-hour and full published horizon choices.
 ## 0.1.9: About and support
 
 About credits Ozan Mutlu Dursun (Rageworks) and explains the independent community project, lack of affiliation with Embark Studios, and official schedule/icon source. Source and Support actions are stacked with an 8px gap at the bottom of Settings. Until a real support URL is configured, Support displays an inline coming-soon message without opening a browser.
+
+## 0.1.10: system HTTPS trust store
+
+Device screenshot reports CERTIFICATE_VERIFY_FAILED / unable to get local issuer certificate. Explicitly load the OS CA bundle into a verified default SSLContext; Decky frozen Python's compiled paths can differ from SteamOS. Preserve hostname validation and CERT_REQUIRED. No unverified SSL fallback. Offline regression tests model an empty default trust store and ensure the host root is loaded and urllib receives the verified context.

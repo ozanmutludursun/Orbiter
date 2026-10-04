@@ -7,6 +7,24 @@ import unicodedata
 SOURCE = 'https://arcraiders.com/map-conditions'
 REGIONS = ('europe', 'north-america', 'brazil', 'east-asia', 'oceania')
 MAX_BYTES = 2_000_000
+SYSTEM_CA_FILES = (
+    '/etc/ssl/certs/ca-certificates.crt',  # SteamOS / Arch / Debian
+    '/etc/ssl/cert.pem',
+    '/etc/pki/tls/certs/ca-bundle.crt',
+    '/etc/ssl/ca-bundle.pem',
+)
+
+
+def tls_context():
+    """Frozen Python's compiled trust paths may not match the host OS."""
+    import os
+    import ssl
+    context = ssl.create_default_context()
+    for cafile in SYSTEM_CA_FILES:
+        if os.path.isfile(cafile):
+            context.load_verify_locations(cafile=cafile)
+            break
+    return context
 
 
 def slug(name):
@@ -19,7 +37,7 @@ def download(url):
     if not url.startswith(SOURCE) or not re.fullmatch(r'https://arcraiders.com/map-conditions(?:/[a-z0-9-]+)?', url):
         raise ValueError('Non-official source rejected')
     request = urllib.request.Request(url, headers={'User-Agent': 'Orbiter/0.1 (Decky map-condition reader)', 'Accept': 'text/html'})
-    with urllib.request.urlopen(request, timeout=12) as response:
+    with urllib.request.urlopen(request, timeout=12, context=tls_context()) as response:
         if not response.geturl().startswith(SOURCE):
             raise ValueError('Unexpected source redirect')
         data = response.read(MAX_BYTES + 1)
