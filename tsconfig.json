@@ -1,4 +1,4 @@
 {
-  "compilerOptions": {"target": "ES2022", "module": "ESNext", "moduleResolution": "Bundler", "jsx": "react-jsx", "strict": true, "esModuleInterop": true, "skipLibCheck": true, "lib": ["DOM", "ES2022"], "noEmit": true},
+  "compilerOptions": {"target": "ES2022", "module": "ESNext", "moduleResolution": "Bundler", "jsx": "react-jsx", "strict": true, "esModuleInterop": true, "resolveJsonModule": true, "skipLibCheck": true, "lib": ["DOM", "ES2022"], "noEmit": true},
   "include": ["src"]
 }

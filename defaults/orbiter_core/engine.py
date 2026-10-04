@@ -21,6 +21,8 @@ def read_json(path, fallback):
         return copy.deepcopy(fallback)
 
 
+VERSION = read_json(Path(__file__).resolve().parents[2] / 'package.json', {}).get('version', 'dev')
+
 def write_json(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_suffix('.tmp')
@@ -146,7 +148,7 @@ class Engine:
             now = self.clock()
             return {'settings': copy.deepcopy(self.settings), 'data': copy.deepcopy(self.data), 'session': dict(self.session),
                     'now': now, 'active': self.active(now), 'stale': self.stale(now), 'error': self.error,
-                    'refreshing': self.refreshing, 'demo': self.demo, 'version': '0.1.7', 'supportUrl': self.support_url}
+                    'refreshing': self.refreshing, 'demo': self.demo, 'version': VERSION, 'supportUrl': self.support_url}
 
     def tick(self):
         now = self.clock()

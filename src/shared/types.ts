@@ -8,11 +8,11 @@ export type Session = {running: boolean; known: boolean; panel: boolean; muted: 
 export type State = {settings: Settings; data: {obtainedAt: number; serverNow: number; events: Event[]; conditions: Condition[]; maps: string[]} | null; session: Session; now: number; active: boolean; stale: boolean; error: string | null; refreshing: boolean; demo: boolean; version: string; supportUrl: string | null};
 export type Notice = {title: string; body: string; sound: boolean; seconds: number};
 export type Transport = {state(): Promise<State>; save(values: Partial<Settings>): Promise<State>; session(values: Partial<Session>): Promise<State>; refresh(): Promise<State>; openExternal(url: string): void};
-export type ControlProps = {children: ReactNode; onClick(): void; className?: string; disabled?: boolean; label?: string};
+export type ControlProps = {children: ReactNode; onClick(): void; className?: string; disabled?: boolean; label?: string; actionDescription?: string; expanded?: boolean; pressed?: boolean};
 export type Controls = {
   native?: boolean;
   Button: ComponentType<ControlProps>;
   Group: ComponentType<{children: ReactNode; className?: string; onBack?(): void}>;
-  Toggle?: ComponentType<{label: string; description: string; checked: boolean; disabled?: boolean; onChange(value: boolean): void}>;
+  Toggle?: ComponentType<{label: string; description?: string; checked: boolean; disabled?: boolean; onChange(value: boolean): void}>;
   Choice?: ComponentType<{label: string; description?: string; value: string | number | null; options: {label: string; value: string | number}[]; disabled?: boolean; onChange(value: string | number): void}>;
 };

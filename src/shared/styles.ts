@@ -16,4 +16,7 @@ export const styles = `
 .orbiter.orb-wide{max-width:980px;margin:auto;padding:32px;min-height:100vh}.orbiter.orb-wide .orb-columns{display:grid;grid-template-columns:1fr 1fr;gap:32px}.orbiter.orb-wide .orb-name{font-size:15px}.orbiter.orb-wide .orb-map{font-size:12px}.orbiter .orb-filter-list{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.orbiter .orb-filter-list .orb-button{font-size:11px!important;padding:6px 9px!important}
 @media(max-width:650px){.orbiter.orb-wide{padding:20px}.orbiter.orb-wide .orb-columns{display:block}}
 .orbiter .orb-page-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}.orbiter .orb-page-head .orb-back{width:auto;margin:0}.orbiter .orb-page-head h1{flex:1}
+.orbiter .orb-inline-choice{margin:12px 0}.orbiter .orb-inline-choice-trigger,.orbiter .orb-inline-choice-option{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;min-height:38px!important;text-align:left;white-space:normal!important}
+.orbiter .orb-inline-choice-options{display:flex;flex-direction:column;gap:6px;margin-top:8px}.orbiter .orb-inline-choice-trigger .orb-disclosure-slot{width:16px;height:16px;flex:0 0 16px}
+.orbiter .orb-footer .orb-flex>.orb-icon-button{width:38px!important;height:38px!important;flex:0 0 38px!important}
 `;

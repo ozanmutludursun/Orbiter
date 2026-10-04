@@ -41,3 +41,16 @@ UI baseline: native typography/buttons/toggles; icon controls 38px (row stars 32
 ## 0.1.7: bound the full schedule
 
 Upcoming defaults to six hours, with 24-hour and full published horizon choices. Render twelve upcoming rows initially and expand twelve at a time; indicate visible/total count. Map, Tracked and time filters compose; changing them resets the visible count, polling does not. Active events are not limited by the future time window. Native map filter uses the same inline choice to avoid a wall of map buttons. Compact QAM view retains six active/three upcoming rows.
+
+## 0.1.8: functional copy and controller review
+
+- Apply approved short labels and remove repeated explanations/slogans. Keep Activity behavior, Track all future additions and local-time information only where useful.
+- Source/credit and license remain in About; main footer contains update time only.
+- Map schedule has one title; All/Tracked filters and 6h/24h/All ranges stay short.
+- Refresh is square alongside horizontal Mute alerts; native surfaces, toggle internals and focus ring remain Steam-owned.
+- Shared InlineChoice is used in native and browser adapters, so popup behavior is testable in the preview. B/Esc closes an expanded choice and stops propagation; Settings back also stops propagation to the route.
+- Accessible choice names include the field and selected value. Native A legends remain short Choose/Close/Select. Expanded and selected states are exposed.
+- Frontend and Python read package.json version; eliminate hard-coded preview/backend version strings. Version appears in About and connection errors, not normal loading.
+- No changes to official data parsing or notification policy. Real Deck focus/navigation and toggle verification still required.
+
+0.1.8 verification: 20 Python tests, 3 RPC tests, typecheck, preview/Decky builds passed. Browser preview confirmed region choices expand inside Settings, Esc collapses them without leaving Settings, Show more expands 12/22 to 22/22, and changing horizon to All resets to 12/129. Native Steam styles and gamepad focus require the real Deck; browser screenshots show the preview theme only.

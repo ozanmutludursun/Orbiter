@@ -1,8 +1,8 @@
 import { definePlugin, callable, addEventListener, removeEventListener, routerHook, toaster } from '@decky/api';
 import { DialogButton, Focusable, Navigation, PanelSection, Router, ToggleField, useQuickAccessVisible } from '@decky/ui';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { OrbiterApp } from './shared/App';
-import { Chevron } from './shared/Chevron';
+import { createInlineChoice } from './shared/InlineChoice';
 import { backendRequest } from './shared/backendRequest';
 import type { Controls, Notice, Session, Settings, State, Transport } from './shared/types';
 
@@ -19,31 +19,15 @@ const transport: Transport = {state:getState, save, session: values => {
   if ('panel' in values) {void heartbeat();return getState();}
   return session(values);
 },refresh,openExternal:url=>Navigation.NavigateToExternalWeb(url)};
-const InlineChoice: NonNullable<Controls['Choice']> = ({label,description,value,options,onChange,disabled}) => {
-  const [open,setOpen] = useState(false);
-  const selected = options.find(option=>option.value===value);
-  return <Focusable className="orb-inline-choice" flow-children="column" onCancel={open?event=>{event.stopPropagation();setOpen(false);}:undefined}>
-    <h2>{label}</h2>
-    {description && <p className="orb-subtitle">{description}</p>}
-    <DialogButton className="orb-button orb-inline-choice-trigger" disabled={disabled} onClick={()=>setOpen(!open)} onOKActionDescription={open?'Close choices':'Choose'}>
-      <span>{selected?.label || 'Choose region'}</span><Chevron open={open}/>
-    </DialogButton>
-    {open && <Focusable className="orb-inline-choice-options" flow-children="column">
-      {options.map(option=><DialogButton key={option.value} className="orb-button orb-inline-choice-option" disabled={disabled} onClick={()=>{onChange(option.value);setOpen(false);}} onOKActionDescription="Select">
-        <span>{option.label}</span><span aria-hidden="true">{value===option.value?'✓':'○'}</span>
-      </DialogButton>)}
-    </Focusable>}
-  </Focusable>;
-};
 const controls: Controls = {
   native:true,
   Toggle:props=><ToggleField {...props} childrenContainerWidth="min"/>,
-  Choice:InlineChoice,
-  Button:({children,onClick,className,disabled,label})=><DialogButton className={'orb-button '+(className || '')} disabled={disabled} onClick={onClick} onOKActionDescription={label}>{children}</DialogButton>,
+  Button:({children,onClick,className,disabled,label,actionDescription,expanded,pressed})=><DialogButton className={'orb-button '+(className || '')} disabled={disabled} onClick={onClick} aria-label={label} aria-expanded={expanded} aria-pressed={pressed} onOKActionDescription={actionDescription || label}>{children}</DialogButton>,
   Group:({children,className,onBack})=>className?.split(' ').includes('orbiter')
-    ? <div className={className}><PanelSection><Focusable onCancel={onBack} style={{display:'contents'}} flow-children="column">{children}</Focusable></PanelSection></div>
-    : <Focusable className={className} onCancel={onBack} flow-children={/orb-flex|orb-row|orb-tabs|orb-filter-list|orb-condition-heading|orb-page-head/.test(className || '')?'row':'column'}>{children}</Focusable>
+    ? <div className={className}><PanelSection><Focusable onCancel={onBack?event=>{event.stopPropagation();onBack();}:undefined} style={{display:'contents'}} flow-children="column">{children}</Focusable></PanelSection></div>
+    : <Focusable className={className} onCancel={onBack?event=>{event.stopPropagation();onBack();}:undefined} flow-children={/orb-flex|orb-row|orb-tabs|orb-filter-list|orb-condition-heading|orb-page-head/.test(className || '')?'row':'column'}>{children}</Focusable>
 };
+controls.Choice = createInlineChoice(controls);
 function Content(){
   const visible = useQuickAccessVisible();
   useEffect(()=>{panelOpen=visible;void heartbeat();return()=>{panelOpen=false;void heartbeat();};},[visible]);
