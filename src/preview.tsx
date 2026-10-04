@@ -11,9 +11,9 @@ async function api<T>(path: string, values?: unknown): Promise<T> {
   return response.json() as Promise<T>;
 }
 let panelVisible = false;
-const transport: Transport = {state:()=>api('state'),save:values=>api('settings',values),session:values=>{if(values.panel!==undefined)panelVisible=values.panel;return api('session',{...values,panel:panelVisible});},refresh:()=>api('refresh',{}),openExternal:url=>window.open(url,'_blank','noopener,noreferrer')};
+const transport: Transport = {state:()=>api('state'),save:values=>api('settings',values),session:values=>{if(values.panel!==undefined)panelVisible=values.panel;return api('session',{...values,panel:panelVisible});},refresh:()=>api('refresh',{}),testNotification:()=>api('test-notification',{}),openExternal:url=>window.open(url,'_blank','noopener,noreferrer')};
 const controls: Controls = {
-  Button: ({children,onClick,className,disabled,label,expanded,pressed}) => <button className={'orb-button '+(className || '')} disabled={disabled} onClick={onClick} aria-label={label} aria-expanded={expanded} aria-pressed={pressed}>{children}</button>,
+  Button: ({children,onClick,className,disabled,label,expanded,pressed,focusRef}) => <button ref={focusRef} className={'orb-button '+(className || '')} disabled={disabled} onClick={onClick} aria-label={label} aria-expanded={expanded} aria-pressed={pressed}>{children}</button>,
   Group: ({children,className,onBack}) => <div className={className} onKeyDown={e => {if(e.key==='Escape' && onBack){onBack();e.stopPropagation();}}}>{children}</div>
 };
 controls.Choice = createInlineChoice(controls);

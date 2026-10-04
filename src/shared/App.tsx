@@ -31,6 +31,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
   },[view]);
   const [now, setNow] = useState(Date.now());
   const [busy, setBusy] = useState(false);
+  const [testingNotification, setTestingNotification] = useState(false);
   const [error, setError] = useState<string>();
   const anchor = useRef({server: Date.now(), local: performance.now()});
   const alive = useRef(true);
@@ -91,6 +92,15 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
     return task;
   };
   const {Button, Group, Toggle, Choice} = controls;
+  const testNotification = async () => {
+    setTestingNotification(true);
+    setError(undefined);
+    try {
+      await saveQueue.current;
+      await transport.testNotification();
+    } catch (err) {if(alive.current)setError(connectionError(err));}
+    finally {if(alive.current)setTestingNotification(false);}
+  };
   const back = () => setView(view==='tracking'?'settings':baseView);
   const s = state?.settings;
   useEffect(() => {setUpcomingLimit(12);}, [map, trackedOnly, horizonHours, s?.region, view]);
@@ -118,6 +128,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
   }) : <div className="orb-empty">{!s?.region ? 'Select a region.' : trackedOnly ? 'No matching conditions.' : live ? 'No active conditions.' : view==='schedule' && horizonHours ? `No conditions in the next ${horizonHours}h.` : 'No upcoming conditions.'}</div>;
   const setting = (label: string, hint: string, key: keyof Settings) => Toggle ? <Toggle label={label} description={hint || undefined} checked={!!s?.[key]} disabled={busy} onChange={value=>{void save({[key]:value});}}/> : <div className="orb-setting"><div className="orb-flex"><span>{label}</span><Button label={`${label}: ${s?.[key]?'On':'Off'}`} className={s?.[key]?'selected':''} disabled={busy} onClick={() => save({[key]:!s?.[key]})}>{s?.[key]?'On':'Off'}</Button></div>{hint && <p>{hint}</p>}</div>;
   const regionChoice = Choice ? <Choice label="Server region" value={s?.region ?? null} options={Object.entries(REGIONS).map(([value,label])=>({value,label}))} disabled={busy} onChange={value=>{void save({region:value as Region});}}/> : <Group className="orb-region-options">{Object.entries(REGIONS).map(([key,label]) => <Button key={key} className={s?.region===key?'selected':''} disabled={busy} onClick={() => save({region:key as Region})}><span>{label}</span><span className="orb-selection-mark" aria-hidden="true">{s?.region===key?'●':'○'}</span></Button>)}</Group>;
+  const trackingFilter = <Group className="orb-tabs"><Button className={!trackedOnly?'selected':''} pressed={!trackedOnly} onClick={() => setTrackedOnly(false)}>{controls.native && !trackedOnly?'✓ ':''}All</Button><Button className={trackedOnly?'selected':''} pressed={trackedOnly} onClick={() => setTrackedOnly(true)}>{controls.native && trackedOnly?'✓ ':''}Tracked</Button></Group>;
   if(!state || !s?.region) return <Group className={`orbiter orb-setup ${baseView==='schedule'?'orb-wide':''}`}>
     <style>{controls.native?nativeStyles:styles}</style>
     {!controls.native && <div className="orb-head"><div className="orb-brand"><span className="orb-symbol">◎</span><h1>Orbiter</h1></div></div>}
@@ -158,6 +169,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
       <div className="orb-setting">{Choice ? <Choice label="Activity" description={s?.mode==='auto'?'While ARC Raiders runs, or this panel is open.':s?.mode==='always'?'While Decky runs.':'While this panel is open.'} value={s?.mode ?? 'auto'} options={[{value:'auto',label:'Gaming'},{value:'always',label:'Always'},{value:'panel',label:'Panel'}]} onChange={mode=>{void save({mode:mode as Settings['mode']});}}/> : <><h2>Activity</h2><div className="orb-options">{(['auto','always','panel'] as const).map(mode => <Button key={mode} className={s?.mode===mode?'selected':''} disabled={busy} onClick={() => save({mode})}>{({auto:'Gaming',always:'Always',panel:'Panel'})[mode]}</Button>)}</div><p>{s?.mode==='auto'?'While ARC Raiders runs, or this panel is open.':s?.mode==='always'?'While Decky runs.':'While this panel is open.'}</p></>}</div>
       {setting('Notifications','','notifications')}
       {s?.notifications && <div className="orb-notification-details">
+      <Button className="orb-test-notification" disabled={testingNotification} onClick={()=>{void testNotification();}}>{testingNotification?'Sending…':'Test notification'}</Button>
       <div className="orb-setting">{Choice ? <Choice label="Advance reminder" value={s?.leadMinutes ?? 5} options={[0,1,5,10,15,30,60].map(value=>({value,label:value?`${value} min`:'Off'}))} onChange={value=>{void save({leadMinutes:Number(value)});}}/> : <><div className="orb-flex"><span>Advance reminder</span><Button disabled={busy} onClick={() => save({leadMinutes: [0,1,5,10,15,30,60][([0,1,5,10,15,30,60].indexOf(s?.leadMinutes || 0)+1)%7]})}>{s?.leadMinutes?`${s.leadMinutes} min`:'Off'} ↻</Button></div><p>Press to cycle the lead time.</p></>}</div>
       {setting('At start','','atStart')}
       {setting('Sound','','sound')}
@@ -182,11 +194,14 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
       <div className="orb-flex"><div className="orb-status"><span className={`orb-dot ${state?.active?'':'idle'}`}/>{state.refreshing?'Loading schedule':!state.data || state.stale?'Schedule unavailable':state?.session.muted?'Alerts muted':state?.active?'Tracking':s?.mode==='auto'?(state?.session.known?'Waiting for ARC':'Game detection unavailable'):'Paused'}</div><span className="orb-tag">{s?.region?REGIONS[s.region]:'Choose region'}</span></div>
       {(error || state?.error || state?.stale && state.data) && <div className="orb-message">{error || state?.error || 'Saved schedule is stale. Reminders are paused.'}<div style={{marginTop:8}}><Button disabled={busy || state.refreshing} onClick={() => run(transport.refresh)}>{busy || state.refreshing?'Loading…':'Retry'}</Button></div></div>}
       {state?.demo && <div className="orb-message">Simulated times</div>}
-      {state.data && <Group className="orb-tabs"><Button className={!trackedOnly?'selected':''} onClick={() => setTrackedOnly(false)}>{controls.native && !trackedOnly?'✓ ':''}All</Button><Button className={trackedOnly?'selected':''} onClick={() => setTrackedOnly(true)}>{controls.native && trackedOnly?'✓ ':''}Tracked</Button></Group>}
-      {view==='schedule' && <><p className="orb-small">Local times</p>
-        {Choice ? <Choice label="Map" value={map} options={['All maps',...(state.data?.maps || [])].map(value=>({value,label:value}))} onChange={value=>setMap(String(value))}/> : <Group className="orb-filter-list">{['All maps',...(state.data?.maps || [])].map(m => <Button key={m} className={map===m?'selected':''} onClick={() => setMap(m)}>{m}</Button>)}</Group>}
-        <h2>Time range</h2><Group className="orb-tabs">{[{hours:6,label:'6h'},{hours:24,label:'24h'},{hours:0,label:'All'}].map(range=><Button key={range.hours} className={horizonHours===range.hours?'selected':''} onClick={()=>setHorizonHours(range.hours)}>{controls.native && horizonHours===range.hours?'✓ ':''}{range.label}</Button>)}</Group>
-      </>}
+      {state.data && (view==='schedule' ? <>
+        <Group className="orb-schedule-filters">
+          <div className="orb-schedule-scope"><h2>Show</h2>{trackingFilter}</div>
+          <div className="orb-schedule-map">{Choice ? <Choice label="Map" value={map} options={['All maps',...(state.data?.maps || [])].map(value=>({value,label:value}))} onChange={value=>setMap(String(value))}/> : <Group className="orb-filter-list">{['All maps',...(state.data?.maps || [])].map(m => <Button key={m} className={map===m?'selected':''} onClick={() => setMap(m)}>{m}</Button>)}</Group>}</div>
+          <div className="orb-schedule-range"><h2>Next</h2><Group className="orb-tabs">{[{hours:6,label:'6h'},{hours:24,label:'24h'},{hours:0,label:'All'}].map(range=><Button key={range.hours} className={horizonHours===range.hours?'selected':''} pressed={horizonHours===range.hours} onClick={()=>setHorizonHours(range.hours)}>{controls.native && horizonHours===range.hours?'✓ ':''}{range.label}</Button>)}</Group></div>
+        </Group>
+        <p className="orb-small orb-local-times">Local times</p>
+      </> : trackingFilter)}
       {!state && <div className="orb-empty">Connecting to Orbiter…</div>}
       {!state.data && !state.error && !error && <div className="orb-empty"><p>{state.refreshing?'Fetching official schedule…':'No saved schedule yet.'}</p><Button disabled={busy || state.refreshing} onClick={() => run(transport.refresh)}>{busy || state.refreshing?'Loading…':'Load schedule'}</Button></div>}
       {state?.data && <div className="orb-columns"><div className="orb-section"><div className="orb-section-head"><h2>Active</h2><span>{active.length}</span></div>{rows(active,true,view==='schedule'?1000:6)}</div><div className="orb-section"><div className="orb-section-head"><h2>Coming up</h2><span className="orb-small">{view==='schedule'?`${Math.min(upcomingLimit,upcoming.length)} of ${upcoming.length}`:'Next '+Math.min(3,upcoming.length)}</span></div>{rows(upcoming,false,view==='schedule'?upcomingLimit:3)}

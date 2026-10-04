@@ -3,6 +3,7 @@ import json
 import re
 import time
 import unicodedata
+from .svg import safe_svg
 
 SOURCE = 'https://arcraiders.com/map-conditions'
 REGIONS = ('europe', 'north-america', 'brazil', 'east-asia', 'oceania')
@@ -44,35 +45,6 @@ def download(url):
     if len(data) > MAX_BYTES:
         raise ValueError('Source response too large')
     return data.decode('utf-8')
-
-
-def safe_svg(raw):
-    if len(raw) > 40_000 or '<!' in raw:
-        return None
-    try:
-        # Decky's frozen Python may omit XML modules. An unavailable icon must
-        # never prevent the schedule backend from starting.
-        import xml.etree.ElementTree as ET
-        root = ET.fromstring(raw)
-    except ImportError:
-        return None
-    except ET.ParseError:
-        return None
-    tags = {'svg', 'g', 'path', 'circle', 'rect', 'polygon', 'polyline', 'line', 'ellipse'}
-    attrs = {'viewBox', 'd', 'fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'fill-rule', 'clip-rule', 'opacity', 'fill-opacity', 'stroke-opacity', 'transform', 'cx', 'cy', 'r', 'rx', 'ry', 'x', 'y', 'x1', 'x2', 'y1', 'y2', 'width', 'height', 'points'}
-    for node in root.iter():
-        node.tag = node.tag.split('}')[-1]
-        if node.tag not in tags:
-            return None
-        node.attrib = {k: v for k, v in node.attrib.items() if k in attrs and not re.search(r'url\s*\(|https?:|javascript:', v, re.I)}
-        for key in ('fill', 'stroke'):
-            if node.get(key) == 'currentColor':
-                node.set(key, '#ebe4d4')
-    if root.tag != 'svg':
-        return None
-    root.set('xmlns', 'http://www.w3.org/2000/svg')
-    root.set('fill', root.get('fill', '#ebe4d4'))
-    return ET.tostring(root, encoding='unicode')
 
 
 class Icons:

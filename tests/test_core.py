@@ -102,6 +102,16 @@ class EngineTests(unittest.TestCase):
         another = Engine(self.temp.name, clock=lambda:self.now)
         self.assertEqual(another.data['conditions'][0]['maps'], ['New Map'])
 
+    def test_missing_icons_in_fresh_cache_trigger_only_one_early_refresh(self):
+        (Path(self.temp.name)/'cache.json').write_text(json.dumps(snapshot()))
+        fetcher = unittest.mock.Mock(return_value=snapshot())
+        another = Engine(self.temp.name,clock=lambda:self.now,fetcher=fetcher)
+        self.assertTrue(another.icon_refresh_pending)
+        another.refresh()
+        self.assertFalse(another.icon_refresh_pending)
+        another.refresh()
+        self.assertEqual(fetcher.call_count,1)
+
     def test_merged_and_lead(self):
         self.engine.data=snapshot(NOW+65_000)
         self.engine.data['events'].append({**self.engine.data['events'][0],'map':'Another Map'})
@@ -176,11 +186,15 @@ class SourceTests(unittest.TestCase):
             if name.startswith(('xml', 'html')):
                 raise ModuleNotFoundError("No module named '" + name + "'")
             return original_import(name, *args, **kwargs)
-        spec = importlib.util.spec_from_file_location('limited_source', Path(__file__).resolve().parents[1]/'defaults/orbiter_core/source.py')
+        spec = importlib.util.spec_from_file_location('orbiter_core.limited_source', Path(__file__).resolve().parents[1]/'defaults/orbiter_core/source.py')
         module = importlib.util.module_from_spec(spec)
         with patch('builtins.__import__', side_effect=limited_import):
             spec.loader.exec_module(module)
-            self.assertIsNone(module.safe_svg('<svg><path d="M0 0"/></svg>'))
+            self.assertIn('M0 0', module.safe_svg('<svg><path d="M0 0"/></svg>'))
+            icons = json.loads((Path(__file__).parent/'fixtures/official-condition-icons.json').read_text())
+            for name, svg in icons.items():
+                with self.subTest(condition=name):
+                    self.assertIsNotNone(module.safe_svg(svg))
             row={'conditionName':'New Condition','mapDisplayName':'New Map','startTimestamp':NOW,'endTimestamp':NOW+3600000}
             self.assertEqual(module.parse_page(self.page([row]),NOW)['maps'], ['New Map'])
 
@@ -218,6 +232,29 @@ class SourceTests(unittest.TestCase):
         parser.feed('<a href="/map-conditions/new-condition"><svg viewBox="0 0 24 24"><path d="M0 1"/></svg><button><svg><path d="M0 2"/></svg></button></a>')
         self.assertIn('M0 1',parser.icons['new-condition'])
         self.assertNotIn('M0 2',parser.icons['new-condition'])
+
+    def test_svg_rejects_active_content_entities_and_malformed_trees(self):
+        rejected = [
+            '<svg><foreignObject/></svg>', '<svg><image href="https://example.com"/></svg>',
+            '<svg><use href="#p"/></svg>', '<svg><animate/></svg>',
+            '<!DOCTYPE svg><svg/>', '<svg fill="&#106;avascript:bad"/>',
+            '<svg><g></svg>', '<svg/><svg/>', '<path/>', '<svg>text</svg>',
+            '<svg fill="red" fill="blue"/>', '<svg xmlns:x="bad"><x:path/></svg>',
+            '<svg><g/><', '<svg><path d=bad/></svg>', '<svg><g\x00/></svg>',
+            '<svg>' + '<g>' * 33 + '</g>' * 33 + '</svg>',
+            '<svg>' + '<path/>' * 513 + '</svg>',
+        ]
+        for svg in rejected:
+            with self.subTest(svg=svg[:80]):
+                self.assertIsNone(safe_svg(svg))
+
+    def test_svg_rebuilds_attributes_without_injection_or_external_styles(self):
+        import xml.etree.ElementTree as ET  # Test oracle; never needed in Decky.
+        svg = safe_svg('''<svg xmlns="evil" onload="bad()"><path d='M0 0 " onload="bad' style="fill:red" fill="url(https://example.com)" stroke="currentColor"/></svg>''')
+        root = ET.fromstring(svg)
+        self.assertEqual(root.tag, '{http://www.w3.org/2000/svg}svg')
+        path = list(root)[0]
+        self.assertEqual(path.attrib, {'d':'M0 0 " onload="bad', 'stroke':'#ebe4d4'})
 
 
 if __name__=='__main__':unittest.main()

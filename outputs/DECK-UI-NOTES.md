@@ -62,3 +62,17 @@ About credits Ozan Mutlu Dursun (Rageworks) and explains the independent communi
 ## 0.1.10: system HTTPS trust store
 
 Device screenshot reports CERTIFICATE_VERIFY_FAILED / unable to get local issuer certificate. Explicitly load the OS CA bundle into a verified default SSLContext; Decky frozen Python's compiled paths can differ from SteamOS. Preserve hostname validation and CERT_REQUIRED. No unverified SSL fallback. Offline regression tests model an empty default trust store and ensure the host root is loaded and urllib receives the verified context.
+
+## 0.1.11: review after successful device fetch
+
+Evidence: four user photos of 0.1.10 on 2026-10-04. Official data loads, countdowns advance between frames, native star focus produces the expected Untrack legend, and map choices stay inside the full schedule. Icons all show the diamond fallback. Star buttons are horizontal, row gaps are generous, and full-screen filters consume excessive vertical space. No toast is visible in the evidence.
+
+- Replace optional XML parsing with a restricted shape-only SVG reader using the already available regex module. Rebuild allowed elements/attributes, reject entities, active SVG, malformed trees and excessive size/depth. No embedded icon catalog: new artwork still comes from the official website. A fresh older cache with missing icons gets one early repair refresh, then resumes the normal cadence.
+- One 38×38 geometry rule covers star, cog, refresh, map-expander and back buttons. Enforce both dimensions, minimum/maximum dimensions and padding; preserve Steam surfaces/focus/toggle internals. Reduce row padding from 12 to 8px and section/filter gaps.
+- Full schedule puts Show, Map and Next in a bounded three-field toolbar. Map options scroll within 176px; narrow layouts stack the fields. Remove the QAM PanelSection wrapper from the full-screen route. Upcoming paging/filter semantics stay unchanged.
+- Choice selection or B/Esc collapse restores focus to its trigger. Browser keyboard verification passes; real gamepad focus remains a device check.
+- Add Test notification immediately below the Notifications toggle when enabled. Uses the real RPC → decky.emit → existing toaster listener; inherits sound/duration without changing event times, mute or dedup history.
+
+Validation: 27 Python tests and 3 RPC tests passed; typecheck and both builds passed. Live HTTPS fetching with XML/HTML imports blocked returned 157 events, 14 conditions and 14 icons. Browser verified map filtering, bounded option scrolling, keyboard reachability, focus restoration and a backend-driven simulated toast. Screenshot artifacts show the preview theme, not Steam's native theme.
+
+Device retest: 14 official icons, square focused/unfocused actions, four active rows/readable panel spacing, toolbar/map-list controller navigation, B collapse/back, and Settings → Notifications → Test notification (selected sound and duration). Scheduled delivery and game detection still need separate device checks.

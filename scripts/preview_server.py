@@ -71,10 +71,14 @@ class Handler(SimpleHTTPRequestHandler):
                 result = engine.update_settings(values)
             elif self.path == '/api/session':
                 result = engine.update_session(values)
-                if values.get('panel') and engine.stale(engine.clock()):
+                if values.get('panel') and (engine.stale(engine.clock()) or engine.icon_refresh_pending):
                     result = engine.refresh()
             elif self.path == '/api/refresh':
                 result = engine.refresh(True)
+            elif self.path == '/api/test-notification':
+                with engine.lock:
+                    notifications.append(engine.test_notification())
+                result = None
             elif self.path == '/api/demo':
                 with engine.lock:
                     if values.get('enabled'):

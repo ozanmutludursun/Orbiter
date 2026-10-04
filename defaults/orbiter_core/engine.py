@@ -69,6 +69,9 @@ class Engine:
             self.data = None
         if self.data:
             source.remember_condition_maps(self.data)
+        # Repair a fresh cache created by an older build without SVG support.
+        # Try once per launch, then keep the normal five-minute refresh cadence.
+        self.icon_refresh_pending = bool(self.data and any(not c.get('icon') for c in self.data['conditions']))
         self.sent = read_json(self.runtime_dir / 'sent.json', {})
         if not isinstance(self.sent, dict):
             self.sent = {}
@@ -92,6 +95,15 @@ class Engine:
 
     def notify_allowed(self, now):
         return self.active(now) and self.settings['notifications'] and self.settings['region'] and not self.session['muted'] and not self.stale(now) and (self.session['running'] or self.settings['otherGames'] or self.settings['mode'] == 'panel')
+
+    def test_notification(self):
+        # An explicit test bypasses event timing/activity/mute, not the opt-in.
+        # It never touches the schedule or notification deduplication history.
+        with self.lock:
+            if not self.settings['notifications']:
+                raise ValueError('Enable notifications before testing.')
+            return {'title': 'Orbiter', 'body': 'Test notification',
+                    'sound': self.settings['sound'], 'seconds': self.settings['toastSeconds']}
 
     def update_session(self, values):
         with self.lock:
@@ -118,12 +130,13 @@ class Engine:
         try:
             now = self.clock()
             with self.lock:
-                if self.demo or (not force and self.data and now - self.data['obtainedAt'] < REFRESH_MS):
+                if self.demo or (not force and not self.icon_refresh_pending and self.data and now - self.data['obtainedAt'] < REFRESH_MS):
                     return self.state()
                 # Bound retries even when several panels reopen during an outage.
                 if not force and now - self.last_attempt < 60_000:
                     return self.state()
                 self.last_attempt = now
+                self.icon_refresh_pending = False
                 self.refreshing = True
             try:
                 data = source.remember_condition_maps(self.fetcher(self.data), self.data)

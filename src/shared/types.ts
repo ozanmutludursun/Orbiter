@@ -7,8 +7,8 @@ export type Event = {conditionId: string; map: string; times: Partial<Record<Reg
 export type Session = {running: boolean; known: boolean; panel: boolean; muted: boolean};
 export type State = {settings: Settings; data: {obtainedAt: number; serverNow: number; events: Event[]; conditions: Condition[]; maps: string[]} | null; session: Session; now: number; active: boolean; stale: boolean; error: string | null; refreshing: boolean; demo: boolean; version: string; supportUrl: string | null};
 export type Notice = {title: string; body: string; sound: boolean; seconds: number};
-export type Transport = {state(): Promise<State>; save(values: Partial<Settings>): Promise<State>; session(values: Partial<Session>): Promise<State>; refresh(): Promise<State>; openExternal(url: string): void};
-export type ControlProps = {children: ReactNode; onClick(): void; className?: string; disabled?: boolean; label?: string; actionDescription?: string; expanded?: boolean; pressed?: boolean};
+export type Transport = {state(): Promise<State>; save(values: Partial<Settings>): Promise<State>; session(values: Partial<Session>): Promise<State>; refresh(): Promise<State>; testNotification(): Promise<void>; openExternal(url: string): void};
+export type ControlProps = {children: ReactNode; onClick(): void; className?: string; disabled?: boolean; label?: string; actionDescription?: string; expanded?: boolean; pressed?: boolean; focusRef?(node: HTMLElement | null): void};
 export type Controls = {
   native?: boolean;
   Button: ComponentType<ControlProps>;

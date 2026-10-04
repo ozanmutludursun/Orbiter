@@ -1,6 +1,13 @@
 # Orbiter — ilk Steam Deck testi
 
-Hedef cihaz: kullanıcının Steam Deck'i, SteamOS Gaming Mode, Decky Stable v3.2.9. Paket 0.1.2 geliştirme build'i; ilk 0.1.0 cihaz denemesi “Connecting to Orbiter…” ekranında kaldı. Kesin kök neden cihaz logu olmadan doğrulanmadı. 0.1.1 XML ikon okuyucusunun eksikliğini açılıştan ayırır, backend açılış hatasını RPC üzerinden döndürür, frontend bağlantısına zaman aşımı ekler ve kök panel stilini native Focusable kutusundan ayırır. 0.1.2 bunlara native PanelSection, ToggleField ve DropdownItem ekler; Steam tema/odak görünümü ezilmez, Mac önizleme teması ayrı kalır. Mac'te 19 test geçti; cihazda yeniden doğrulama bekleniyor.
+Hedef cihaz: kullanıcının Steam Deck'i, SteamOS Gaming Mode, Decky Stable v3.2.9. Güncel paket 0.1.11. 0.1.10 cihaz fotoğraflarında veri yükleme, sayaç ve controller odağı çalışıyor; ikonlar yedek simgede kalıyor. Bu tur ikonları, kare aksiyonları, kompakt filtreleri ve gerçek toast yolunu doğruluyor. Mac önizlemesi Steam görünümünü ve gamepad odağını doğrulayamaz.
+
+## 0.1.11 hızlı kontrol
+
+1. Yeni orbiter.zip'i mevcut kurulumun üzerine yükle; Settings → About'ta v0.1.11 gör. Eski backend kalırsa Deck'i yeniden başlat.
+2. Aktif ve yaklaşan condition ikonlarını kontrol et. Yıldız/cog/refresh/back kontrolleri odaklı ve odaksız kare kalmalı. Dört aktif satırın okunurluğunu ve takip yıldızlarının çalışmasını kontrol et.
+3. Full schedule'da Show/Map/Next filtreleri aynı kompakt şeritte olmalı. Harita listesi küçük bir alanda kaymalı; gamepad ile son haritaya ulaşılmalı. A seçimden sonra, B kapattıktan sonra odak harita alanında kalmalı.
+4. Settings → Notifications'ı aç → Test notification. Gerçek Steam toast'ı görünmeli; Sound ve Toast duration değiştirip tekrar dene. Test, oyun kapalıyken ve mute açıkken de bilerek gönderilir. Normal uyarı politikası değişmez. Yalnızca bu test için açtıysan Notifications'ı sonra kapat.
 
 ## Kurulum
 
@@ -25,7 +32,7 @@ ZIP açılabilirliği, gerekli frontend/backend dosyaları, lisans ve root/debug
 
 ## İkinci tur: ilk tur geçtikten sonra
 
-- Bildirimleri aç, takip edilen yaklaşan bir condition için advance reminder ve başlangıç uyarısını dene. Panel kapalıyken gerçek Steam toast'ını, sessizliği ve süreyi kontrol et. Takvimde yakın bir başlangıç yoksa gerçek event'i beklemek gerekir; cihaz build'inde Mac demo timeline yok.
+- Önce Test notification ile gerçek Steam toast yolunu kontrol et. Ardından takip edilen yaklaşan bir condition için advance reminder ve başlangıç uyarısını dene. Panel kapalıyken gerçek Steam toast'ını, sessizliği ve süreyi kontrol et. Zamanlanmış uyarı testi için gerçek event'i beklemek gerekir; cihaz build'inde Mac demo timeline yok.
 - Oturumluk mute, Always'de diğer oyunlarda izin ve Panel modunda panel kapanması.
 - Offline: son takvim korunmalı; veri eskidiğinde stale görünmeli ve yeni bildirim çıkmamalı.
 - Uyku/uyanma ve plugin/Steam UI reload: kaçırılan uyarılar topluca gelmemeli, aynı uyarı tekrar gönderilmemeli.

@@ -18,14 +18,16 @@ const heartbeat = () => session({...game,panel:panelOpen || routeOpen}).catch(()
 const transport: Transport = {state:getState, save, session: values => {
   if ('panel' in values) {void heartbeat();return getState();}
   return session(values);
-},refresh,openExternal:url=>Navigation.NavigateToExternalWeb(url)};
+},refresh,testNotification:()=>backendRequest(()=>callable<[],void>('test_notification')()),openExternal:url=>Navigation.NavigateToExternalWeb(url)};
 const controls: Controls = {
   native:true,
   Toggle:props=><ToggleField {...props} childrenContainerWidth="min"/>,
-  Button:({children,onClick,className,disabled,label,actionDescription,expanded,pressed})=><DialogButton className={'orb-button '+(className || '')} disabled={disabled} onClick={onClick} aria-label={label} aria-expanded={expanded} aria-pressed={pressed} onOKActionDescription={actionDescription || label}>{children}</DialogButton>,
+  Button:({children,onClick,className,disabled,label,actionDescription,expanded,pressed,focusRef})=><DialogButton ref={focusRef} className={'orb-button '+(className || '')} disabled={disabled} onClick={onClick} aria-label={label} aria-expanded={expanded} aria-pressed={pressed} onOKActionDescription={actionDescription || label}>{children}</DialogButton>,
   Group:({children,className,onBack})=>className?.split(' ').includes('orbiter')
-    ? <div className={className}><PanelSection><Focusable onCancel={onBack?event=>{event.stopPropagation();onBack();}:undefined} style={{display:'contents'}} flow-children="column">{children}</Focusable></PanelSection></div>
-    : <Focusable className={className} onCancel={onBack?event=>{event.stopPropagation();onBack();}:undefined} flow-children={/orb-flex|orb-row|orb-tabs|orb-filter-list|orb-condition-heading|orb-page-head/.test(className || '')?'row':'column'}>{children}</Focusable>
+    ? <div className={className}>{className.split(' ').includes('orb-wide')
+      ? <Focusable onCancel={onBack?event=>{event.stopPropagation();onBack();}:undefined} flow-children="column">{children}</Focusable>
+      : <PanelSection><Focusable onCancel={onBack?event=>{event.stopPropagation();onBack();}:undefined} style={{display:'contents'}} flow-children="column">{children}</Focusable></PanelSection>}</div>
+    : <Focusable className={className} onCancel={onBack?event=>{event.stopPropagation();onBack();}:undefined} flow-children={/orb-flex|orb-row|orb-tabs|orb-filter-list|orb-condition-heading|orb-page-head|orb-schedule-filters/.test(className || '')?'row':'column'}>{children}</Focusable>
 };
 controls.Choice = createInlineChoice(controls);
 function Content(){

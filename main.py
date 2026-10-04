@@ -51,12 +51,15 @@ class Plugin:
     async def session(self, session):
         self._engine()
         state = self.engine.update_session(session)
-        if session.get('panel') and self.engine.stale(self.engine.clock()):
+        if session.get('panel') and (self.engine.stale(self.engine.clock()) or self.engine.icon_refresh_pending):
             return await asyncio.to_thread(self.engine.refresh)
         return state
 
     async def refresh(self):
         return await asyncio.to_thread(self._engine().refresh, True)
+
+    async def test_notification(self):
+        await decky.emit('orbiter_notification', self._engine().test_notification())
 
     async def _unload(self):
         if not getattr(self, 'task', None):
