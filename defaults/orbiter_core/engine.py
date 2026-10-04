@@ -102,8 +102,32 @@ class Engine:
         with self.lock:
             if not self.settings['notifications']:
                 raise ValueError('Enable notifications before testing.')
+            region = self.settings['region']
+            events = []
+            now = self.clock()
+            for event in (self.data or {}).get('events', []):
+                times = event['times'].get(region)
+                maps = self.settings['subscriptions'].get(event['conditionId'])
+                tracked = self.settings['allConditions'] or (maps is not None and (not maps or event['map'] in maps))
+                if times and times[1] > now and tracked:
+                    events.append(event)
+            # Prefer the next tracked start, then an active tracked condition.
+            events.sort(key=lambda event: (event['times'][region][0] <= now, event['times'][region][0]))
+            if events:
+                return self._notice('Test · ARC Raiders', events[:1])
             return {'title': 'Orbiter', 'body': 'Test notification',
                     'sound': self.settings['sound'], 'seconds': self.settings['toastSeconds']}
+
+    def _notice(self, title, items):
+        conditions = {c['id']: c for c in (self.data or {}).get('conditions', [])}
+        rows = []
+        for item in items:
+            key = item['conditionId']
+            condition = conditions.get(key, {})
+            rows.append({'conditionId':key, 'name':condition.get('name',key),
+                         'map':item['map'], 'icon':condition.get('icon')})
+        return {'title':title, 'body':'\n'.join(row['name'] + ' · ' + row['map'] for row in rows),
+                'items':rows, 'sound':self.settings['sound'], 'seconds':self.settings['toastSeconds']}
 
     def update_session(self, values):
         with self.lock:
@@ -175,7 +199,6 @@ class Engine:
                 return []
             settings = self.settings
             region = settings['region']
-            names = {c['id']: c['name'] for c in self.data['conditions']}
             due = []
             for event in self.data['events']:
                 key, map_name = event['conditionId'], event['map']
@@ -192,7 +215,7 @@ class Engine:
                     identity = '|'.join(map(str, [region, key, map_name, start, kind]))
                     if previous < at <= now and end > now and identity not in self.sent:
                         self.sent[identity] = end
-                        due.append({'name': names.get(key, key), 'map': map_name, 'kind': kind, 'start': start})
+                        due.append({'conditionId': key, 'map': map_name, 'kind': kind, 'start': start})
             self.sent = {k: v for k, v in self.sent.items() if isinstance(v, (int, float)) and v > now}
             if due:
                 write_json(self.runtime_dir / 'sent.json', self.sent)
@@ -204,5 +227,5 @@ class Engine:
             for items in groups.values():
                 first = items[0]
                 title = ('Starting now' if first['kind'] == 'start' else 'In %s min' % settings['leadMinutes']) + ' · ARC Raiders'
-                result.append({'title': title, 'body': '\n'.join(i['name'] + ' · ' + i['map'] for i in items), 'sound': settings['sound'], 'seconds': settings['toastSeconds']})
+                result.append(self._notice(title, items))
             return result

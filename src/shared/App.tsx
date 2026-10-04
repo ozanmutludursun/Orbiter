@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { REGIONS, type Condition, type Controls, type Event, type Region, type Settings, type State, type Transport } from './types';
+import { REGIONS, type Controls, type Event, type Region, type Settings, type State, type Transport } from './types';
+import { ConditionIcon } from './ConditionIcon';
 import { styles } from './styles';
 import { nativeStyles } from './nativeStyles';
 import { Chevron } from './Chevron';
@@ -9,7 +10,6 @@ export const formatCountdown = (ms: number) => { const n = Math.max(0, Math.ceil
 const time = (ms: number) => new Date(ms).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
 const connectionError = (error: unknown) => error instanceof Error ? error.message : typeof error==='string' ? error : 'Orbiter backend is unavailable.';
 const isTracked = (s: Settings, e: Event) => s.allConditions || (e.conditionId in s.subscriptions && (!s.subscriptions[e.conditionId].length || s.subscriptions[e.conditionId].includes(e.map)));
-export function ConditionIcon({condition}: {condition?: Condition}) {return condition?.icon ? <img className="orb-condition-icon" src={`data:image/svg+xml;charset=utf-8,${encodeURIComponent(condition.icon)}`} alt=""/> : <span className="orb-fallback">◇</span>;}
 
 export function OrbiterApp({transport, controls, initialView = 'panel', layout, openSchedule}: {transport: Transport; controls: Controls; initialView?: 'panel'|'schedule'; layout?: 'panel'|'schedule'; openSchedule?(): void}) {
   const [state, setState] = useState<State>();
@@ -21,6 +21,8 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
   const [horizonHours, setHorizonHours] = useState(6);
   const [upcomingLimit, setUpcomingLimit] = useState(12);
   const [expanded, setExpanded] = useState<string>();
+  const mapTriggers = useRef<Record<string, HTMLElement | null>>({});
+  const closeMaps = (id: string) => {setExpanded(undefined);mapTriggers.current[id]?.focus();};
   const [regionExpanded, setRegionExpanded] = useState(false);
   const [supportPending, setSupportPending] = useState(false);
   const viewAnchor = useRef<HTMLSpanElement>(null);
@@ -91,7 +93,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
     saveQueue.current = task;
     return task;
   };
-  const {Button, Group, Toggle, Choice} = controls;
+  const {Button, Group, Item, Toggle, Choice} = controls;
   const testNotification = async () => {
     setTestingNotification(true);
     setError(undefined);
@@ -123,7 +125,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
     return <Group className={`orb-row ${live ? 'orb-live' : ''}`} key={`${e.conditionId}-${e.map}-${start}-${i}`}>
       <ConditionIcon condition={c}/><div className="orb-details"><div className="orb-name">{c?.name || e.conditionId}</div><div className="orb-map">{e.map}</div></div>
       <div className="orb-time"><small>{live?'ENDS IN':'STARTS IN'}</small><strong>{formatCountdown((live?end:start)-now)}</strong>{view==='schedule' && <small>{time(start)}–{time(end)}</small>}</div>
-      <Button className={`orb-star ${isTracked(s!,e)?'selected':''}`} label={`${isTracked(s!,e)?'Untrack':'Track'} ${c?.name}`} onClick={() => toggleCondition(e.conditionId)} disabled={busy}>{isTracked(s!,e)?'★':'☆'}</Button>
+      <Button className={`orb-star ${isTracked(s!,e)?'selected':''}`} label={`${isTracked(s!,e)?'Untrack':'Track'} ${c?.name}`} actionDescription={isTracked(s!,e)?'Untrack':'Track'} onClick={() => toggleCondition(e.conditionId)} disabled={busy}>{isTracked(s!,e)?'★':'☆'}</Button>
     </Group>;
   }) : <div className="orb-empty">{!s?.region ? 'Select a region.' : trackedOnly ? 'No matching conditions.' : live ? 'No active conditions.' : view==='schedule' && horizonHours ? `No conditions in the next ${horizonHours}h.` : 'No upcoming conditions.'}</div>;
   const setting = (label: string, hint: string, key: keyof Settings) => Toggle ? <Toggle label={label} description={hint || undefined} checked={!!s?.[key]} disabled={busy} onChange={value=>{void save({[key]:value});}}/> : <div className="orb-setting"><div className="orb-flex"><span>{label}</span><Button label={`${label}: ${s?.[key]?'On':'Off'}`} className={s?.[key]?'selected':''} disabled={busy} onClick={() => save({[key]:!s?.[key]})}>{s?.[key]?'On':'Off'}</Button></div>{hint && <p>{hint}</p>}</div>;
@@ -145,13 +147,15 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
     {view==='tracking' ? <>
       <Group className="orb-page-head"><Button className="orb-back" label="Back to Settings" onClick={back}>{controls.native?'←':'← Settings'}</Button><h1>Conditions</h1></Group>
       <div className="orb-section">
-        {state.data && <><Button className={s?.allConditions?'selected':''} disabled={busy} onClick={() => save({allConditions:!s?.allConditions})}>{s?.allConditions?'✓ Track all':'Track all'}</Button>{s.allConditions && <p className="orb-small">Includes new conditions.</p>}</>}
+        {state.data && (Toggle ? <Toggle label="Track all" description={s.allConditions?'Includes new conditions.':undefined} checked={s.allConditions} disabled={busy} onChange={value=>{void save({allConditions:value});}}/> : <><Button className={s?.allConditions?'selected':''} disabled={busy} onClick={() => save({allConditions:!s?.allConditions})}>{s?.allConditions?'✓ Track all':'Track all'}</Button>{s.allConditions && <p className="orb-small">Includes new conditions.</p>}</>)}
         {!state.data && <div className="orb-empty"><p>Load schedule to select conditions.</p><Button disabled={busy || state.refreshing} onClick={() => run(transport.refresh)}>{busy || state.refreshing?'Loading…':'Load schedule'}</Button></div>}
         <div className="orb-condition-list">{conditions.map(c => {
           const tracked = !!s && (s.allConditions || c.id in s.subscriptions);
           const maps = s?.allConditions ? [] : s?.subscriptions[c.id] || [];
-          return <div className={`orb-condition-choice ${expanded===c.id?'expanded':''}`} key={c.id}>
-          <Group className="orb-condition-heading"><Button className={`orb-condition-toggle ${tracked?'selected':''}`} label={`${tracked?'Untrack':'Track'} ${c.name}`} disabled={busy} onClick={() => toggleCondition(c.id)}><ConditionIcon condition={c}/><span className="orb-condition-copy"><span className="orb-choice-name">{c.name}</span><span className="orb-choice-summary">{!tracked?'Not tracked':!maps.length?'All maps':maps.length===1?maps[0]:`${maps.length} maps`}</span></span><span className="orb-selection-mark" aria-hidden="true">{tracked?'✓':'+'}</span></Button><Button className="orb-map-expander" label={`${expanded===c.id?'Close':'Map'} choices for ${c.name}`} onClick={() => setExpanded(expanded===c.id?undefined:c.id)}><Chevron open={expanded===c.id}/></Button></Group>
+          return <Group className={`orb-condition-choice ${expanded===c.id?'expanded':''}`} key={c.id} onBack={expanded===c.id?()=>closeMaps(c.id):undefined}>
+          <Item icon={<ConditionIcon condition={c}/>} label={<span className="orb-choice-name">{c.name}</span>} description={<span className="orb-choice-summary">{!tracked?'Not tracked':!maps.length?'All maps':maps.length===1?maps[0]:`${maps.length} maps`}</span>}>
+            <Group className="orb-condition-actions"><Button className={`orb-star ${tracked?'selected':''}`} label={`${tracked?'Untrack':'Track'} ${c.name}`} actionDescription={tracked?'Untrack':'Track'} pressed={tracked} disabled={busy} onClick={() => toggleCondition(c.id)}>{tracked?'★':'☆'}</Button><Button className="orb-map-expander" focusRef={node=>{mapTriggers.current[c.id]=node;}} label={`${expanded===c.id?'Close':'Map'} choices for ${c.name}`} actionDescription={expanded===c.id?'Close maps':'Maps'} expanded={expanded===c.id} onClick={() => expanded===c.id?closeMaps(c.id):setExpanded(c.id)}><Chevron open={expanded===c.id}/></Button></Group>
+          </Item>
           {expanded===c.id && <Group className="orb-map-options"><h2>Maps</h2>{['All maps',...(c.maps ?? [...new Set(state?.data?.events.filter(e => e.conditionId===c.id).map(e => e.map))].sort())].map(m => {
             const chosen = s?.allConditions ? [] : s?.subscriptions[c.id] || [];
             const selected = s?.allConditions || c.id in (s?.subscriptions || {});
@@ -162,7 +166,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
               void save({allConditions:false, subscriptions});
             }}><span>{m}</span><span className="orb-selection-mark" aria-hidden="true">{selected && (m==='All maps'?!chosen.length:chosen.includes(m))?'✓':'○'}</span></Button>;
           })}</Group>}
-        </div>;})}</div>
+        </Group>;})}</div>
       </div>
     </> : view==='settings' ? <>
       <Group className="orb-page-head"><Button className="orb-back" label="Back to schedule" onClick={back}>{controls.native?'←':'← Back'}</Button><h1>Settings</h1></Group>

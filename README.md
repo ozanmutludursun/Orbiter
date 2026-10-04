@@ -1,7 +1,7 @@
 # Orbiter
 
 An unofficial, minimal ARC Raiders map-condition companion for Decky Loader.
-Steam Deck / SteamOS Gaming Mode is the primary target. Version 0.1.11 is a development build. Live schedules, countdowns and controller focus have been observed on Decky Stable v3.2.9; this build fixes icon parsing in frozen Python, compacts the schedule filters and adds a manual notification test. Native geometry and toast delivery await device retesting. Not yet submitted to the Store.
+Steam Deck / SteamOS Gaming Mode is the primary target. Version 0.1.12 is a development build. Live schedules, countdowns, official icons and the manual Steam notification test have been observed on Decky Stable v3.2.9. This build compacts condition selection into native rows, bounds panel scrolling below Decky's header, and adds official icons and map names to notification content. The new native layout and scheduled delivery still need device testing. Not yet submitted to the Store.
 
 ## Try on a Mac
 
@@ -22,7 +22,7 @@ Choose your server region. “ARC running” simulates game lifecycle; “Live s
 - Other modes: while Decky runs, or only while the panel/schedule is open. Notifications start disabled. Sound is off by default.
 - Active conditions and upcoming starts; full schedule, tracked-only and map filters. New names/artwork come from the official site. All-conditions tracking includes additions; individual selections do not.
 - Per-condition map choices, lead time, start reminders, toast duration, merged simultaneous events, session mute, and a separate opt-in for alerts outside ARC Raiders.
-- Test notification uses the same backend event and Steam toaster as scheduled alerts, with the selected sound and duration. This explicit test requires Notifications enabled, but bypasses activity, mute, data freshness and event timing. It does not alter notification history or schedule times.
+- Alerts include condition names, maps and official icons. Merged alerts preserve each condition's artwork; missing artwork uses a neutral fallback. Test notification previews a tracked upcoming or active condition when one is available, using the same backend event and Steam toaster as scheduled alerts, with the selected sound and duration. This explicit test requires Notifications enabled, but bypasses activity, mute, data freshness and event timing. It does not alter notification history or schedule times.
 - Five-minute schedule refresh while tracking, 20-minute stale threshold, last-good cache, 12-second HTTP timeout, bounded missing-icon requests. No per-second network requests to the provider.
 - No replay of missed reminders after sleep/clock jumps/reload; persisted notification identities prevent duplicate deliveries. UI heartbeat expires after 35 seconds.
 
@@ -40,10 +40,10 @@ The package is generated under `outputs`. It uses the official Decky Rollup tool
 
 ## Source and rights
 
-Data is read from structured SSR output in [the official page](https://arcraiders.com/map-conditions). This is not a documented public API contract. If the website changes format, Orbiter may need an update. Condition icons are sanitized inline SVGs from the official condition links. Missing icons use a neutral fallback. Schedule timing may change; the plugin cannot distinguish a raid from the lobby.
+Data is read from structured SSR output in [the official page](https://arcraiders.com/map-conditions). This is not a documented public API contract. If the website changes format, Orbiter may need an update. Condition icons are sanitized SVGs from the official condition links, rendered as image masks that inherit the current text color. Missing icons use a neutral fallback. Schedule timing may change; the plugin cannot distinguish a raid from the lobby.
 
-Orbiter’s original code is licensed under **GPL-3.0-only**; see LICENSE. Third-party notices and artwork ownership are separate; see THIRD_PARTY_NOTICES.md. All core features are free. An optional Ko-fi link can be configured once the maintainer provides a real profile URL; no nag screens or support notifications.
+Orbiter’s original code is licensed under **GPL-3.0-only**; see LICENSE. Third-party notices and artwork ownership are separate; see THIRD_PARTY_NOTICES.md. All core features are free. An optional support link can be configured once the maintainer provides a real profile URL; no nag screens or support notifications.
 
 The Mac preview validates content and interaction; it cannot validate Steam controller focus, game detection or Steam toast placement. See `outputs/ROADMAP.md` for the device gates and subsequent work.
 
-The Deck build uses @decky/ui PanelSection, DialogButton, ToggleField and Focusable. Choice lists expand within the plugin; the full-screen route has its own compact filter toolbar. Steam owns theme and focus appearance; plugin CSS supplies content layout and button geometry. The browser preview keeps a separate visual theme while sharing behavior and data.
+The Deck build uses @decky/ui PanelSection, PanelSectionRow, Field, DialogButton, ToggleField and Focusable. Condition selection uses native rows with small track/map actions; choice lists expand within the plugin. The full-screen route has its own compact filter toolbar. Steam owns theme and focus appearance; plugin CSS supplies content layout and button geometry. The browser preview keeps a separate visual theme while sharing behavior and data.

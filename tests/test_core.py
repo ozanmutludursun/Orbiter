@@ -52,10 +52,12 @@ class EngineTests(unittest.TestCase):
 
     def test_dynamic_content_start_and_reload_dedup(self):
         self.enabled()
+        self.engine.data['conditions'][0]['icon'] = '<svg><path d="M0 0"/></svg>'
         notices = self.advance(10_000)
         self.assertEqual(len(notices),1)
         self.assertIn('New Condition · New Map',notices[0]['body'])
         self.assertFalse(notices[0]['sound'])
+        self.assertEqual(notices[0]['items'], [{'conditionId':'new-condition','name':'New Condition','map':'New Map','icon':'<svg><path d="M0 0"/></svg>'}])
         another = Engine(self.temp.name, clock=lambda:self.now)
         self.assertEqual(another.settings['region'],'europe')
         self.assertTrue(another.sent)
@@ -120,6 +122,34 @@ class EngineTests(unittest.TestCase):
         self.assertEqual(len(notices),1)
         self.assertEqual(len(notices[0]['body'].splitlines()),2)
         self.assertIn('In 1 min',notices[0]['title'])
+
+    def test_merged_notice_keeps_each_condition_icon_and_map(self):
+        self.engine.data=snapshot(NOW+65_000)
+        self.engine.data['conditions'][0]['icon']='<svg><circle r="1"/></svg>'
+        self.engine.data['conditions'].append({'id':'other','name':'Other Condition','icon':'<svg><rect width="1"/></svg>'})
+        self.engine.data['events'].append({**self.engine.data['events'][0],'conditionId':'other','map':'Other Map'})
+        self.enabled(leadMinutes=1)
+        notices=self.advance(5000)
+        self.assertEqual(len(notices),1)
+        self.assertEqual([row['conditionId'] for row in notices[0]['items']],['new-condition','other'])
+        self.assertEqual([row['map'] for row in notices[0]['items']],['New Map','Other Map'])
+        self.assertIn('circle',notices[0]['items'][0]['icon'])
+        self.assertIn('rect',notices[0]['items'][1]['icon'])
+
+    def test_manual_notice_previews_a_tracked_event_without_rewriting_schedule(self):
+        self.engine.data['conditions'][0]['icon']='<svg><circle r="1"/></svg>'
+        self.engine.data['events'].append({**self.engine.data['events'][0],'map':'Other Map'})
+        self.enabled(allConditions=False,subscriptions={'new-condition':['Other Map']},sound=True,toastSeconds=10)
+        self.engine.update_session({'running':False,'muted':True})
+        previous=copy.deepcopy(self.engine.data)
+        notice=self.engine.test_notification()
+        self.assertEqual(notice['title'],'Test · ARC Raiders')
+        self.assertEqual(notice['body'],'New Condition · Other Map')
+        self.assertIn('circle',notice['items'][0]['icon'])
+        self.assertTrue(notice['sound'])
+        self.assertEqual(notice['seconds'],10)
+        self.assertEqual(self.engine.data,previous)
+        self.assertEqual(self.engine.sent,{})
 
     def test_modes_mute_and_heartbeat(self):
         self.enabled(mode='always')

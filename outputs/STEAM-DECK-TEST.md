@@ -1,13 +1,14 @@
 # Orbiter — ilk Steam Deck testi
 
-Hedef cihaz: kullanıcının Steam Deck'i, SteamOS Gaming Mode, Decky Stable v3.2.9. Güncel paket 0.1.11. 0.1.10 cihaz fotoğraflarında veri yükleme, sayaç ve controller odağı çalışıyor; ikonlar yedek simgede kalıyor. Bu tur ikonları, kare aksiyonları, kompakt filtreleri ve gerçek toast yolunu doğruluyor. Mac önizlemesi Steam görünümünü ve gamepad odağını doğrulayamaz.
+Hedef cihaz: kullanıcının Steam Deck'i, SteamOS Gaming Mode, Decky Stable v3.2.9. Güncel paket 0.1.12. Önceki cihaz testinde veri, sayaçlar, resmi ikonlar ve manuel Steam toast'ı çalıştı. Bu tur kompakt native satırları, başlık altındaki kaydırmayı ve ikonlu bildirim içeriğini doğruluyor. Mac önizlemesi Steam görünümünü ve gamepad odağını doğrulayamaz.
 
-## 0.1.11 hızlı kontrol
+## 0.1.12 hızlı kontrol
 
-1. Yeni orbiter.zip'i mevcut kurulumun üzerine yükle; Settings → About'ta v0.1.11 gör. Eski backend kalırsa Deck'i yeniden başlat.
-2. Aktif ve yaklaşan condition ikonlarını kontrol et. Yıldız/cog/refresh/back kontrolleri odaklı ve odaksız kare kalmalı. Dört aktif satırın okunurluğunu ve takip yıldızlarının çalışmasını kontrol et.
-3. Full schedule'da Show/Map/Next filtreleri aynı kompakt şeritte olmalı. Harita listesi küçük bir alanda kaymalı; gamepad ile son haritaya ulaşılmalı. A seçimden sonra, B kapattıktan sonra odak harita alanında kalmalı.
-4. Settings → Notifications'ı aç → Test notification. Gerçek Steam toast'ı görünmeli; Sound ve Toast duration değiştirip tekrar dene. Test, oyun kapalıyken ve mute açıkken de bilerek gönderilir. Normal uyarı politikası değişmez. Yalnızca bu test için açtıysan Notifications'ı sonra kapat.
+1. Yeni orbiter.zip'i mevcut kurulumun üzerine yükle; Settings → About'ta v0.1.12 gör. Eski backend kalırsa Deck'i yeniden başlat.
+2. Paneli en üste getir, sonra listenin sonuna kadar controller ile kaydır. Orbiter başlığı altında boşluk olmalı; içerik başlıkla veya alttaki A/B alanıyla çakışmamalı. Yıldız/cog/refresh/back kontrolleri odaklı ve odaksız 32px kare kalmalı.
+3. Conditions'ta büyük condition butonları yerine ikon, ad, harita özeti ve iki küçük aksiyon içeren native satırlar görünmeli. Uzun adlar okunmalı. Yıldız takip durumunu değiştirmeli; ok haritaları panel içinde açmalı. B önce haritaları kapatıp odağı oka geri vermeli, sonra Settings'a dönmeli. Track all native toggle'ı yeni condition'ları kapsamalı.
+4. Settings → Notifications → Test notification. Artık takip edilen bir upcoming/active condition'ın resmi ikonu ve condition + map metni görünmeli. Sound ve Toast duration ayarları korunmalı. Takip edilen güncel event yoksa genel test mesajı gösterilir. Test oyun kapalıyken ve mute açıkken de bilerek gönderilir; normal uyarı politikası değişmez.
+5. Normal bildirim için takip edilen bir event'i bekle: Gaming'de ARC açık olmalı, Notifications açık olmalı ve mute kapalı olmalı. Advance reminder veya At start ayarına göre gerçek Steam toast'ını panel kapalıyken kontrol et. Farklı condition'lar birleşirse her satır kendi ikon/ad/haritasını taşımalı. Otomatik teslimatın cihaz doğrulaması henüz tamamlanmadı.
 
 ## Kurulum
 
