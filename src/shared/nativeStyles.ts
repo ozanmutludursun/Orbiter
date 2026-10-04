@@ -22,4 +22,5 @@ export const nativeStyles = `
 .orbiter .orb-page-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}.orbiter .orb-page-head .orb-back{width:38px!important;height:38px;min-width:38px!important;max-width:38px;flex:0 0 38px!important;padding:0;margin:0}.orbiter .orb-page-head h1{flex:1;min-width:0}.orbiter .orb-page-head .orb-support{width:auto}
 .orbiter .orb-status{min-width:0;flex:1;flex-wrap:wrap}.orbiter .orb-tag{flex:none}.orbiter .orb-footnote{line-height:1.4}.orbiter .orb-setup-title{margin-top:0}
 .orbiter .orb-flex>.orb-icon-button{width:38px!important;max-width:38px;flex:0 0 38px!important}
+.orbiter .orb-about-actions{display:flex;flex-direction:column;gap:8px;margin-top:12px}.orbiter .orb-about-actions>.orb-button{width:100%}.orbiter .orb-about-author{font-size:13px;line-height:1.5}
 `;

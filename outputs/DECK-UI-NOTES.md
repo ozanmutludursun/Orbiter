@@ -54,3 +54,7 @@ Upcoming defaults to six hours, with 24-hour and full published horizon choices.
 - No changes to official data parsing or notification policy. Real Deck focus/navigation and toggle verification still required.
 
 0.1.8 verification: 20 Python tests, 3 RPC tests, typecheck, preview/Decky builds passed. Browser preview confirmed region choices expand inside Settings, Esc collapses them without leaving Settings, Show more expands 12/22 to 22/22, and changing horizon to All resets to 12/129. Native Steam styles and gamepad focus require the real Deck; browser screenshots show the preview theme only.
+
+## 0.1.9: About and support
+
+About credits Ozan Mutlu Dursun (Rageworks) and explains the independent community project, lack of affiliation with Embark Studios, and official schedule/icon source. Source and Support actions are stacked with an 8px gap at the bottom of Settings. Until a real support URL is configured, Support displays an inline coming-soon message without opening a browser.

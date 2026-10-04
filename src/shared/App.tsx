@@ -22,6 +22,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
   const [upcomingLimit, setUpcomingLimit] = useState(12);
   const [expanded, setExpanded] = useState<string>();
   const [regionExpanded, setRegionExpanded] = useState(false);
+  const [supportPending, setSupportPending] = useState(false);
   const viewAnchor = useRef<HTMLSpanElement>(null);
   useLayoutEffect(() => {
     for(let el=viewAnchor.current?.parentElement;el;el=el.parentElement){
@@ -153,7 +154,7 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
         </div>;})}</div>
       </div>
     </> : view==='settings' ? <>
-      <Group className="orb-page-head"><Button className="orb-back" label="Back to schedule" onClick={back}>{controls.native?'←':'← Back'}</Button><h1>Settings</h1>{state?.supportUrl && <Button className="orb-support" onClick={() => transport.openExternal(state.supportUrl!)}>Support ↗</Button>}</Group>
+      <Group className="orb-page-head"><Button className="orb-back" label="Back to schedule" onClick={back}>{controls.native?'←':'← Back'}</Button><h1>Settings</h1></Group>
       <div className="orb-setting">{Choice ? <Choice label="Activity" description={s?.mode==='auto'?'While ARC Raiders runs, or this panel is open.':s?.mode==='always'?'While Decky runs.':'While this panel is open.'} value={s?.mode ?? 'auto'} options={[{value:'auto',label:'Gaming'},{value:'always',label:'Always'},{value:'panel',label:'Panel'}]} onChange={mode=>{void save({mode:mode as Settings['mode']});}}/> : <><h2>Activity</h2><div className="orb-options">{(['auto','always','panel'] as const).map(mode => <Button key={mode} className={s?.mode===mode?'selected':''} disabled={busy} onClick={() => save({mode})}>{({auto:'Gaming',always:'Always',panel:'Panel'})[mode]}</Button>)}</div><p>{s?.mode==='auto'?'While ARC Raiders runs, or this panel is open.':s?.mode==='always'?'While Decky runs.':'While this panel is open.'}</p></>}</div>
       {setting('Notifications','','notifications')}
       {s?.notifications && <div className="orb-notification-details">
@@ -166,7 +167,16 @@ export function OrbiterApp({transport, controls, initialView = 'panel', layout, 
       </div>}
       <div className="orb-setting"><h2>Tracked conditions</h2><p>{s?.allConditions?'All conditions':`${conditions.filter(c => c.id in (s?.subscriptions || {})).length} of ${conditions.length} conditions selected.`}</p><Button className="orb-manage" onClick={() => setView('tracking')}>Conditions →</Button></div>
       <div className="orb-setting">{Choice ? regionChoice : <><h2>Server region</h2><Button className="orb-manage orb-disclosure" label="Server region" onClick={() => setRegionExpanded(!regionExpanded)}><span className="orb-disclosure-label">{s?.region?REGIONS[s.region]:'Choose region'}</span><Chevron open={regionExpanded || !s?.region}/></Button>{(regionExpanded || !s?.region) && regionChoice}</>}</div>
-      <div className="orb-footer"><h2>About Orbiter</h2><p className="orb-subtitle">v{VERSION} · GPLv3<br/>Unofficial · Data & artwork: Embark.</p><Button onClick={() => transport.openExternal('https://arcraiders.com/map-conditions')}>ARC Raiders website ↗</Button></div>
+      <div className="orb-footer"><h2>About Orbiter</h2>
+        <p className="orb-small">v{VERSION} · GPLv3</p>
+        <p className="orb-about-author">Created by Ozan Mutlu Dursun (Rageworks).</p>
+        <p className="orb-small">Orbiter is an unofficial community project and is not affiliated with Embark Studios. Map schedules and condition icons are sourced from the official ARC Raiders website.</p>
+        <Group className="orb-about-actions">
+          <Button onClick={() => transport.openExternal('https://arcraiders.com/map-conditions')}>ARC Raiders website ↗</Button>
+          <Button onClick={() => state.supportUrl?transport.openExternal(state.supportUrl):setSupportPending(true)}>{state.supportUrl?'Support ↗':'Support'}</Button>
+        </Group>
+        {supportPending && !state.supportUrl && <p className="orb-small" role="status">Support link coming soon.</p>}
+      </div>
     </> : <>
       <div className="orb-head"><div className="orb-brand"><span className="orb-symbol">◎</span><h1>{view==='schedule'?'Map schedule':controls.native?'ARC Raiders':'Orbiter'}</h1></div><Button className="orb-icon-button" label="Settings" onClick={() => setView('settings')}>⚙</Button></div>
       <div className="orb-flex"><div className="orb-status"><span className={`orb-dot ${state?.active?'':'idle'}`}/>{state.refreshing?'Loading schedule':!state.data || state.stale?'Schedule unavailable':state?.session.muted?'Alerts muted':state?.active?'Tracking':s?.mode==='auto'?(state?.session.known?'Waiting for ARC':'Game detection unavailable'):'Paused'}</div><span className="orb-tag">{s?.region?REGIONS[s.region]:'Choose region'}</span></div>
