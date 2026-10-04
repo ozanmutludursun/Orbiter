@@ -37,3 +37,7 @@ Region, activity, reminder lead time and toast duration now expand inline. Steam
 - Photo 8: native toggle keeps Steam sizing and focus styles; no universal CSS rules for its internals.
 
 UI baseline: native typography/buttons/toggles; icon controls 38px (row stars 32px), 8px row gaps, inline vertical choices with one fixed chevron, subordinate help text, selection state distinct from fetch/activity state. The focus and toggle geometry check on the real Deck remains necessary.
+
+## 0.1.7: bound the full schedule
+
+Upcoming defaults to six hours, with 24-hour and full published horizon choices. Render twelve upcoming rows initially and expand twelve at a time; indicate visible/total count. Map, Tracked and time filters compose; changing them resets the visible count, polling does not. Active events are not limited by the future time window. Native map filter uses the same inline choice to avoid a wall of map buttons. Compact QAM view retains six active/three upcoming rows.
