@@ -1,0 +1,8 @@
+name = "orbiter-decky-store"
+main = "worker.mjs"
+compatibility_date = "2026-10-09"
+workers_dev = true
+
+[vars]
+# Proposed public distribution repository; deploy only after it is approved and created.
+ORBITER_MANIFEST_URL = "https://raw.githubusercontent.com/ozanmutludursun/orbiter-updates/main/orbiter.json"

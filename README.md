@@ -36,7 +36,7 @@ npm run build:preview
 npm run package
 ```
 
-The package is generated under `outputs`. It uses the official Decky Rollup tooling and standard-library Python only. No root flag, native binary, added service or independent updater. Decky source review and real-device tests are still required before Store submission. The Store is the intended release/update channel, and manual ZIPs are for development.
+The package is generated under `outputs`. It uses the official Decky Rollup tooling and standard-library Python only. No root flag, native binary, added service or independent updater. A custom Decky store is prepared for native updates while retaining the official catalogue for other plugins; see [distribution setup](distribution/README.md). It is not deployed yet. The current official Store checklist excludes submissions where generative AI wrote a majority of the code, so official submission is not currently an available route for this project. Manual ZIPs remain available during setup.
 
 ## Source and rights
 

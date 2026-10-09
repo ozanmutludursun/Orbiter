@@ -1,12 +1,12 @@
 # Orbiter — uygulanabilir yol haritası
 
-Güncelleme: 3 Ekim 2026. İlk geliştirme prototipi 0.1.0 hazır; Steam Deck kurulumu ve Store gönderimi yapılmadı.
+Güncelleme: 9 Ekim 2026. 0.1.13 geliştirme sürümü yayımlandı; canlı takvim, ikonlar ve manuel notification testi Decky Stable v3.2.9 üzerinde gözlendi. Doğal notification akışı ve son kompakt layout için cihaz doğrulaması devam ediyor. Özel Decky update kanalı hazırlandı; henüz yayında değil.
 
 ## Netleşen kararlar
 
 - Birincil hedef Steam Deck / SteamOS Gaming Mode. Diğer Decky ortamları çalışırsa uyumlu; ilk sürümü engelleyen destek hedefleri değil.
 - Tek veri kaynağı resmî arcraiders.com takvimi. MetaForge yok. SSR içindeki yapılandırılmış takvim, bölgesel zamanlar ve condition bağlantılarındaki SVG ikonlar okunuyor. Dokümante edilmiş public API sözleşmesi değil; format değişirse release çıkarırız.
-- Orijinal kod GPL-3.0-only, temel işlevler ücretsiz; Ko-fi Hakkında bölümünde isteğe bağlı link. Store ana dağıtım/update hedefi. GPL, fork/yeniden dağıtıma izin verir ve dağıtılan türevlerin kaynak/lisans yükümlülüklerini korur; fork'u yasaklama modeli değil.
+- Orijinal kod GPL-3.0-only, temel işlevler ücretsiz; gerçek adres netleşene kadar Support alanı placeholder. Ana repo private kalacak; açık dağıtım ZIP'i ve karşılık gelen GPL kaynak paketi için ayrı repo ve kullanıcı onayı gerekiyor. Özel store, resmî kataloğu koruyarak Decky'nin yerleşik updater'ını kullanacak. GPL, fork/yeniden dağıtıma izin verir ve dağıtılan türevlerin kaynak/lisans yükümlülüklerini korur.
 - Kompakt QAM paneli; ayarlar ayrı içerik, geniş takvim ayrı Decky route'u. Mac önizlemesi aynı React bileşenlerini ve Python çekirdeğini kullanıyor.
 - Otomatik mod ARC Raiders App ID 1808500'e bağlı. Bildirimler varsayılan kapalı, ses kapalı; bölge ilk kullanımda kullanıcı tarafından seçilir.
 
@@ -20,7 +20,7 @@ Tamamlanma kanıtı: canlı resmî veri ve 14 condition ikonunun okunması; Type
 
 ## 2. Steam Deck entegrasyonunu doğrula — sıradaki adım
 
-Geliştirme ZIP'ini cihazda dene. Store release'i veya cihaz kurulumunu bu çalışma oturumunda yapmadık.
+Geliştirme ZIP'i cihazda çalışıyor. Son kompakt layout ve doğal bildirim akışını doğrula; ilk HTTPS/backend kurulum sorunları giderildi.
 
 1. SteamOS Gaming Mode + Decky Stable'da plugin yükle. Root/debug bayrağı olmadan backend'in açıldığını ve resmî HTTPS erişimini doğrula.
 2. 1280×800 QAM panelini, kaydırmayı, tüm kontrolleri D-pad/joystick/A/B ile dene. Settings dönüşü, geniş takvim route'u ve odağın kaybolmaması yayından önce gerekli.
@@ -35,13 +35,17 @@ Tamamlanma ölçütü: bu akışların gerçek cihazda kaydı; özellikle contro
 - Panel yoğunluğu/okunabilirliği ve notification tercihlerini gerçek oynama sırasında düzelt.
 - Map/condition ad değişikliklerinin takip tercihlerine etkisini gözlemle. Kalıcı upstream ID yok; condition slug kullanılıyor. Günlük takvimden kaybolan tercih silinmez.
 - Stale eşiği (20 dk), refresh (5 dk), lead time seçenekleri ve eşzamanlı toast sınırlarını gerçek kullanımda değerlendir. Yeni özellik eklemeyi öncelik yapma.
-- Ko-fi gerçek profil adresini yapılandır; placeholder veya support bildirimi koyma.
+- Türkiye'de kullanılabilir ödeme kanalı netleşince Support'a gerçek adres bağla. Support bildirimi/nag ekranı yok.
 - Gerekirse dil tercihi ekle; ilk arayüz İngilizce.
 
-## 4. Release hazırlığı ve Store — beta sonrası
+## 4. Release hazırlığı ve Decky update kanalı
 
-- Public kaynak repo, README, lisans/üçüncü taraf notices, issue adresi ve Store görselini tamamla. ZIP'e ayar/live cache taşıma; güncellemeler Decky settings/runtime dizinlerini korumalı.
-- GPL ve funding modelini mevcut GPL/Ko-fi Store plugin örnekleriyle doğruladık. Nihai kabul Store review sürecine bağlı; ekibe soru gönderilmeyecek.
+9 Ekim 2026 kontrolünde resmî Store addition checklist'i, kodun çoğunluğunun üretken AI tarafından yazılmamış olmasını istiyor. Bu projede o beyan verilemiyor; resmî Store'a şu an gönderim yapılmayacak. Politika değişirse tekrar değerlendirilecek.
+
+`distribution/README.md`: mevcut private repoyu açmadan, ayrı public dağıtım reposunda sürümlü ZIP + GPL kaynak ZIP'i; resmî plugin kataloğu ile Orbiter'ı birleştiren CORS uyumlu Cloudflare Worker. Kullanıcı Decky'de özel store adresini bir kez girer; sonraki sürümleri Decky'nin update ekranından kurar. Diğer plugin'lerin update listeleri korunur. Paket hazırlama ve store protokol testleri mevcut; public yayın ve hosting onayı/deployment, anonim indirme/hash doğrulaması ve gerçek Deck update testi henüz tamamlanmadı.
+
+- Public dağıtım reposu, eşleşen GPL kaynak ZIP'i, README ve lisans/üçüncü taraf notices'i tamamla. ZIP'e ayar/live cache taşıma; güncellemeler Decky settings/runtime dizinlerini korumalı. Ana geliştirme reposu ve geçmişi private kalır.
+- Kaynak/lisans paketini her kurulum ZIP'i ile birlikte yayımla; ekibe soru gönderilmeyecek.
 - Güncel submission/review politikasını gönderim öncesinde tekrar oku. Otomatik anlık push yok; submodule/commit güncellemesi review'dan geçiyor.
 - Build dev bağımlılıklarının npm audit uyarılarını yeniden değerlendir. Mevcut 7 high uyarı @decky/rollup → glob/braces build zincirinde; production dependency audit temiz. Bilinen bu durumu release notlarında kaybetme.
 - Temiz kurulum, update, disable/unload ve uninstall testlerinden sonra 1.0 adayı. Store gönderimi ayrı yayın adımı.
