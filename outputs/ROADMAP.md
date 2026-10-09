@@ -44,7 +44,8 @@ Tamamlanma ölçütü: bu akışların gerçek cihazda kaydı; özellikle contro
 
 `distribution/README.md`: public Orbiter reposunda sürümlü ZIP + GPL kaynak ZIP'i; resmî plugin kataloğu ile Orbiter'ı birleştiren CORS uyumlu Cloudflare Worker. Kullanıcı Decky'de özel store adresini bir kez girer; sonraki sürümleri Decky'nin update ekranından kurar. Diğer plugin'lerin update listeleri korunur. Paket hazırlama ve store protokol testleri mevcut; public yayın onaylandı, hosting/deployment ve gerçek Deck update testi henüz tamamlanmadı.
 
-- Public repo, eşleşen GPL kaynak ZIP'i, README ve lisans/üçüncü taraf notices'i koru. ZIP'e ayar/live cache taşıma; güncellemeler Decky settings/runtime dizinlerini korumalı. Repo görünürlüğü kullanıcı onayıyla public olarak değiştirilecek.
+- Orbiter reposu kullanıcı onayıyla public yapıldı; 0.1.14 ZIP + GPL kaynak ZIP'i yayımlandı ve anonim indirme/hash doğrulandı. ZIP'e ayar/live cache taşıma; güncellemeler Decky settings/runtime dizinlerini korumalı.
+- Hosting maliyeti sıfır kalacak: yalnızca Workers Free, domain/depolama/paid plan yok. Günlük hesap kotası 100.000 istek, CPU 10 ms/istek. Worker dry-run build'i geçti; hesap girişinden sonra Free plan doğrulaması ve deployment yapılacak.
 - Kaynak/lisans paketini her kurulum ZIP'i ile birlikte yayımla; ekibe soru gönderilmeyecek.
 - Güncel submission/review politikasını gönderim öncesinde tekrar oku. Otomatik anlık push yok; submodule/commit güncellemesi review'dan geçiyor.
 - Build dev bağımlılıklarının npm audit uyarılarını yeniden değerlendir. Mevcut 7 high uyarı @decky/rollup → glob/braces build zincirinde; production dependency audit temiz. Bilinen bu durumu release notlarında kaybetme.

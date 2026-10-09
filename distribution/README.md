@@ -5,6 +5,10 @@ Versioned packages, corresponding GPL source and release metadata use that same
 repository. The Worker is prepared but **not deployed**; a custom store endpoint
 still requires hosting setup.
 
+Release [0.1.14](https://github.com/ozanmutludursun/Orbiter/releases/tag/v0.1.14)
+is published with both ZIPs; anonymous downloads and hashes were verified.
+The public manifest merged successfully with all 110 official catalogue entries.
+
 Decky Stable v3.2.9 supports custom stores and native update prompts. This Worker
 merges the live official catalogue with one Orbiter release. It does not modify
 other plugins or add an updater/service to Orbiter. Install statistics are ignored;
@@ -30,7 +34,11 @@ excluded. Worker deployment requires the owner's hosting account.
    plugin version for subsequent releases.
 5. With the owner's Cloudflare account, deploy `worker.mjs` using
    `wrangler.toml` from this directory. Confirm `ORBITER_MANIFEST_URL` matches
-   the public repository. Keep credentials out of the repository.
+   the public repository. **Use Workers Free only:** the owner explicitly requires
+   zero hosting spend. Confirm the account's Workers plan before deploying; do not
+   enable Paid, add paid resources, purchase a domain, or change existing account
+   subscriptions. ZIPs stay on GitHub; this Worker only combines two public JSON
+   feeds, with no storage bindings. Keep credentials out of the repository.
 6. Verify the deployed URL: CORS OPTIONS accepts `X-Decky-Version`, GET returns
    the official catalogue plus exactly one Orbiter, and the Orbiter version/hash
    match the published ZIP. The URL is the deployed Worker's `/plugins` endpoint.
@@ -85,5 +93,16 @@ Protocol references: [Decky v3.2.9 store client](https://github.com/SteamDeckHom
 The Worker supports the Decky browser's CORS preflight, forwards only the two
 catalogue sorting parameters and Decky version, and accepts HTTPS artifacts with
 a SHA-256 digest. It has fixed catalogue/manifest upstreams; it is not an open
-proxy. It validates its upstreams and bounds request waits. Live deployment,
-anonymous asset download and an actual Deck update remain activation gates.
+proxy. It validates its upstreams and bounds request waits. Live deployment
+and an actual Deck update remain activation gates. Anonymous ZIP downloads and
+the catalogue merge have passed.
+
+Cloudflare [pricing](https://developers.cloudflare.com/workers/platform/pricing/)
+and [limits](https://developers.cloudflare.com/workers/platform/limits/) checked
+9 October 2026: Workers Free includes 100,000 requests/day per account and 10 ms
+CPU/request. The daily allowance is shared with other Workers on the account;
+over-quota requests fail instead of requiring us to enable a paid plan.
+Wrangler 4.149.0 was installed in ignored `work/store-tools`; a dry-run built
+the 3.57 KiB Worker successfully. Neither browser nor CLI was signed in, so
+deployment awaits account login and Free-plan verification. Temporary preview
+accounts are not used for this permanent update endpoint.
