@@ -1,0 +1,18 @@
+{
+  "id": -1,
+  "name": "Orbiter",
+  "author": "Ozan Mutlu Dursun (Rageworks)",
+  "description": "ARC Raiders conditions and reminders in your Quick Access Menu.",
+  "tags": [
+    "utility",
+    "notifications"
+  ],
+  "image_url": "",
+  "versions": [
+    {
+      "name": "0.1.14",
+      "hash": "12e2b09e2c082ae1a54dc1ab995409536271a8fd0a0fd430b030c247b398afa4",
+      "artifact": "https://github.com/ozanmutludursun/Orbiter/releases/download/v0.1.14/orbiter.zip"
+    }
+  ]
+}
