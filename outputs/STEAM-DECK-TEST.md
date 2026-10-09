@@ -1,6 +1,13 @@
 # Orbiter — ilk Steam Deck testi
 
-Hedef cihaz: kullanıcının Steam Deck'i, SteamOS Gaming Mode, Decky Stable v3.2.9. Güncel paket 0.1.12. Önceki cihaz testinde veri, sayaçlar, resmi ikonlar ve manuel Steam toast'ı çalıştı. Bu tur kompakt native satırları, başlık altındaki kaydırmayı ve ikonlu bildirim içeriğini doğruluyor. Mac önizlemesi Steam görünümünü ve gamepad odağını doğrulayamaz.
+Hedef cihaz: kullanıcının Steam Deck'i, SteamOS Gaming Mode, Decky Stable v3.2.9. Güncel paket 0.1.13. Önceki cihaz testinde veri, sayaçlar, resmi ikonlar ve manuel Steam toast'ı çalıştı. Bu tur kompakt native satırları, başlık altındaki kaydırmayı ve ikonlu bildirim içeriğini doğruluyor. Mac önizlemesi Steam görünümünü ve gamepad odağını doğrulayamaz.
+
+## 0.1.13 veri düzeltmesi
+
+1. Yeni orbiter.zip'i mevcut kurulumun üzerine yükle; Settings → About'ta v0.1.13 gör. Eski backend kalırsa Deck'i yeniden başlat.
+2. Refresh ile resmi takvimi yenile. Schedule unavailable / str has no attribute get hatası kalkmalı. Full schedule → Map içinde Pendola Pass görünmeli; seçince bu haritaya ait resmi kayıtlar gelmeli.
+3. Conditions'ta ARC Frigate, Redirection ve Uncovered Caches görünmeli. Redirection'ın gözlemlenen harita listesinde Pendola Pass olmalı; diğer haritalar tahmin edilerek eklenmemeli. Eski region ve takip tercihleri korunmalı. Track all açıksa yeni condition'lar otomatik kapsanır, bireysel seçimler korunur.
+4. Aşağıdaki 0.1.12 native UI ve doğal bildirim kontrolleri hâlâ geçerli; bu build onların düzenini değiştirmiyor.
 
 ## 0.1.12 hızlı kontrol
 

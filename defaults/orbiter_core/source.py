@@ -70,41 +70,67 @@ class Icons:
                     self.icons[key] = svg
 
 
-def prop(streams, name):
-    needle = '"' + name + '":'
-    for stream in streams:
-        if needle in stream:
-            return json.JSONDecoder().raw_decode(stream.split(needle, 1)[1].lstrip())[0]
-    raise ValueError('Official schedule field missing: ' + name)
+def prop(stream, name, optional=False):
+    match = re.search('"' + re.escape(name) + r'"\s*:\s*', stream)
+    if not match:
+        if optional:
+            return None
+        raise ValueError('Official schedule field missing: ' + name)
+    try:
+        return json.JSONDecoder().raw_decode(stream[match.end():])[0]
+    except ValueError as exc:
+        raise ValueError('Official schedule field invalid: ' + name) from exc
+
+
+def timestamp(value):
+    # Positive, finite Unix milliseconds within JavaScript Date's range.
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and 0 < value <= 8_640_000_000_000_000
 
 
 def parse_page(page, obtained_at=None):
-    streams = [json.loads(s) for s in re.findall(r'self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)', page)]
-    raw = prop(streams, 'liveEntries')
-    items = prop(streams, 'conditionItems')
-    server_now = prop(streams, 'serverNow')
-    if not isinstance(raw, list) or not raw or len(raw) > 5000 or not isinstance(server_now, (float, int)):
+    chunks = re.findall(r'self\.__next_f\.push\(\s*\[\s*1\s*,\s*("(?:[^"\\]|\\.)*")\s*\]\s*\)', page)
+    # Flight text may split a JSON value between pushes; decode strings before
+    # joining them. We read data only, never evaluate React/JavaScript code.
+    stream = ''.join(json.loads(chunk) for chunk in chunks)
+    raw = prop(stream, 'liveEntries')
+    items = prop(stream, 'conditionItems', optional=True)
+    server_now = prop(stream, 'serverNow')
+    if not isinstance(raw, list) or not raw or len(raw) > 5000 or not timestamp(server_now):
         raise ValueError('Official schedule format changed or is empty')
     parser = Icons()
     parser.feed(page)
     catalog = {}
-    for item in items:
+    # Event names remain sufficient when optional catalog metadata is absent.
+    for item in items if isinstance(items, list) else []:
+        if not isinstance(item, dict):
+            continue
         name = item.get('name')
         if isinstance(name, str) and 0 < len(name) < 150:
             key = slug(name)
             catalog[key] = {'id': key, 'name': name, 'kind': item.get('type', 'unknown'), 'icon': parser.icons.get(key)}
     events = []
     for row in raw:
+        if not isinstance(row, dict):
+            continue
         name, map_name = row.get('conditionName'), row.get('mapDisplayName')
-        if not isinstance(name, str) or not isinstance(map_name, str):
+        if not isinstance(name, str) or not isinstance(map_name, str) or not 0 < len(name) < 150 or not 0 < len(map_name) < 150:
             continue
         key = slug(name)
         catalog.setdefault(key, {'id': key, 'name': name, 'kind': 'unknown', 'icon': parser.icons.get(key)})
         times = {}
-        regional = row.get('regionTimestamps') or {}
+        regional = row.get('regionTimestamps')
+        # React serializes undefined as "$undefined". Like the official client,
+        # absent regional overrides use the event's shared start/end timestamps.
+        if regional is None or regional == '$undefined':
+            regional = {}
+        elif not isinstance(regional, dict):
+            continue  # Unknown shapes/references must not invent regional times.
+        shared = [row.get('startTimestamp'), row.get('endTimestamp')]
         for region in REGIONS:
-            pair = regional.get(region, [row.get('startTimestamp'), row.get('endTimestamp')])
-            if isinstance(pair, list) and len(pair) == 2 and all(isinstance(t, (int, float)) and not isinstance(t, bool) for t in pair) and 0 < pair[1] - pair[0] <= 86400000:
+            pair = regional.get(region)
+            if pair is None or pair == '$undefined':
+                pair = shared
+            if isinstance(pair, list) and len(pair) == 2 and all(timestamp(t) for t in pair) and 0 < pair[1] - pair[0] <= 86400000:
                 times[region] = pair
         if times:
             events.append({'conditionId': key, 'map': map_name, 'times': times})

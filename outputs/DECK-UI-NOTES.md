@@ -90,3 +90,15 @@ Primary source review: [MagicPods headphone tab](https://github.com/steam3d/Magi
 - Backend notices carry condition ID/name/map/artwork. Single-condition alerts use the official toast icon; merged different conditions render each icon beside its own name/map. Manual test previews one tracked upcoming/active event without rewriting times or notification history, falling back to the generic test only when no matching event exists.
 
 Validation: 29 Python tests, 7 Node tests, typecheck and both builds passed. Browser verified compact rows, SVG image masks, inline map choices, Escape close/focus restoration, and a backend-driven test toast with Lush Blooms artwork and Buried City text. Preview screenshots show the browser theme only. New native layout and automatically scheduled Steam notifications require the next device check.
+
+## 0.1.13: October schedule update regression
+
+User reports a schedule error after new content appeared. On 2026-10-09, the unchanged 0.1.12 parser reproduced `AttributeError: 'str' object has no attribute 'get'` from the live official page. All six Redirection/Pendola Pass records used `regionTimestamps: "$undefined"`; the parser assumed every present value was a dictionary. New names themselves were not hard-coded or blocked.
+
+The official client chunk linked by that page, `/_next/static/chunks/347-75fc8020b7782807.js`, applies `entry.regionTimestamps?.[region]` and uses the shared event start/end when no regional override exists. Orbiter now handles absent/null/React-undefined overrides the same way. It retains valid regional offsets and refuses to guess unsupported explicit shapes or invalid timestamps. Malformed individual records do not discard valid records; essential schedule/clock schema failures still preserve the last-good cache through the existing engine.
+
+Data strings are decoded and joined before field extraction, supporting JSON split across SSR pushes and whitespace changes. Optional condition catalog metadata can be derived from valid event names. There is no embedded new-map or condition allowlist, no change to UI layout or notification policy, and no preference reset.
+
+A test-only capture preserves all 170 published records from the failing page. Eight new regressions cover the full capture, chunk boundaries, optional/undefined fields, valid offsets, malformed rows, required schema validation, and old-cache refresh preserving preferences and observed pairings. The install ZIP excludes all fixtures.
+
+Validation: 37 Python and 7 Node tests passed; TypeScript typecheck, preview/Decky builds and install ZIP checks passed. A separate live HTTPS fetch with XML/HTML imports blocked returned 166 events, 16 conditions and 16 icons at that later published window. Browser preview loaded without errors and showed Redirection and ARC Frigate under the Pendola Pass map filter, retaining the prior individual tracking selections. Counts naturally vary as the published window advances. The new parser still needs a real Deck refresh check; the previous native UI/device gates remain unchanged.

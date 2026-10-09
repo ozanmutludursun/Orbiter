@@ -1,0 +1,4219 @@
+{
+  "liveEntries": [
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791514800000,
+      "endTimestamp": 1791518400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791540000000,
+          1791543600000
+        ],
+        "brazil": [
+          1791536400000,
+          1791540000000
+        ],
+        "east-asia": [
+          1791496800000,
+          1791500400000
+        ],
+        "oceania": [
+          1791482400000,
+          1791486000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791514800000,
+      "endTimestamp": 1791518400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791540000000,
+          1791543600000
+        ],
+        "brazil": [
+          1791536400000,
+          1791540000000
+        ],
+        "east-asia": [
+          1791496800000,
+          1791500400000
+        ],
+        "oceania": [
+          1791482400000,
+          1791486000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791514800000,
+      "endTimestamp": 1791518400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791540000000,
+          1791543600000
+        ],
+        "brazil": [
+          1791536400000,
+          1791540000000
+        ],
+        "east-asia": [
+          1791496800000,
+          1791500400000
+        ],
+        "oceania": [
+          1791482400000,
+          1791486000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791514800000,
+      "endTimestamp": 1791518400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791540000000,
+          1791543600000
+        ],
+        "brazil": [
+          1791536400000,
+          1791540000000
+        ],
+        "east-asia": [
+          1791496800000,
+          1791500400000
+        ],
+        "oceania": [
+          1791482400000,
+          1791486000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791518400000,
+      "endTimestamp": 1791522000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791543600000,
+          1791547200000
+        ],
+        "brazil": [
+          1791540000000,
+          1791543600000
+        ],
+        "east-asia": [
+          1791500400000,
+          1791504000000
+        ],
+        "oceania": [
+          1791486000000,
+          1791489600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791518400000,
+      "endTimestamp": 1791522000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791543600000,
+          1791547200000
+        ],
+        "brazil": [
+          1791540000000,
+          1791543600000
+        ],
+        "east-asia": [
+          1791500400000,
+          1791504000000
+        ],
+        "oceania": [
+          1791486000000,
+          1791489600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Launch Tower Loot",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791518400000,
+      "endTimestamp": 1791522000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791543600000,
+          1791547200000
+        ],
+        "brazil": [
+          1791540000000,
+          1791543600000
+        ],
+        "east-asia": [
+          1791500400000,
+          1791504000000
+        ],
+        "oceania": [
+          1791486000000,
+          1791489600000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791518400000,
+      "endTimestamp": 1791522000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791543600000,
+          1791547200000
+        ],
+        "brazil": [
+          1791540000000,
+          1791543600000
+        ],
+        "east-asia": [
+          1791500400000,
+          1791504000000
+        ],
+        "oceania": [
+          1791486000000,
+          1791489600000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791522000000,
+      "endTimestamp": 1791525600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791547200000,
+          1791550800000
+        ],
+        "brazil": [
+          1791543600000,
+          1791547200000
+        ],
+        "east-asia": [
+          1791504000000,
+          1791507600000
+        ],
+        "oceania": [
+          1791489600000,
+          1791493200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791522000000,
+      "endTimestamp": 1791525600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791547200000,
+          1791550800000
+        ],
+        "brazil": [
+          1791543600000,
+          1791547200000
+        ],
+        "east-asia": [
+          1791504000000,
+          1791507600000
+        ],
+        "oceania": [
+          1791489600000,
+          1791493200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791522000000,
+      "endTimestamp": 1791525600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791547200000,
+          1791550800000
+        ],
+        "brazil": [
+          1791543600000,
+          1791547200000
+        ],
+        "east-asia": [
+          1791504000000,
+          1791507600000
+        ],
+        "oceania": [
+          1791489600000,
+          1791493200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791522000000,
+      "endTimestamp": 1791525600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791547200000,
+          1791550800000
+        ],
+        "brazil": [
+          1791543600000,
+          1791547200000
+        ],
+        "east-asia": [
+          1791504000000,
+          1791507600000
+        ],
+        "oceania": [
+          1791489600000,
+          1791493200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791525600000,
+      "endTimestamp": 1791529200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791550800000,
+          1791554400000
+        ],
+        "brazil": [
+          1791547200000,
+          1791550800000
+        ],
+        "east-asia": [
+          1791507600000,
+          1791511200000
+        ],
+        "oceania": [
+          1791493200000,
+          1791496800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791525600000,
+      "endTimestamp": 1791529200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791550800000,
+          1791554400000
+        ],
+        "brazil": [
+          1791547200000,
+          1791550800000
+        ],
+        "east-asia": [
+          1791507600000,
+          1791511200000
+        ],
+        "oceania": [
+          1791493200000,
+          1791496800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791525600000,
+      "endTimestamp": 1791529200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791550800000,
+          1791554400000
+        ],
+        "brazil": [
+          1791547200000,
+          1791550800000
+        ],
+        "east-asia": [
+          1791507600000,
+          1791511200000
+        ],
+        "oceania": [
+          1791493200000,
+          1791496800000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791525600000,
+      "endTimestamp": 1791529200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791550800000,
+          1791554400000
+        ],
+        "brazil": [
+          1791547200000,
+          1791550800000
+        ],
+        "east-asia": [
+          1791507600000,
+          1791511200000
+        ],
+        "oceania": [
+          1791493200000,
+          1791496800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791529200000,
+      "endTimestamp": 1791532800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791554400000,
+          1791558000000
+        ],
+        "brazil": [
+          1791550800000,
+          1791554400000
+        ],
+        "east-asia": [
+          1791511200000,
+          1791514800000
+        ],
+        "oceania": [
+          1791496800000,
+          1791500400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791529200000,
+      "endTimestamp": 1791532800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791554400000,
+          1791558000000
+        ],
+        "brazil": [
+          1791550800000,
+          1791554400000
+        ],
+        "east-asia": [
+          1791511200000,
+          1791514800000
+        ],
+        "oceania": [
+          1791496800000,
+          1791500400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Launch Tower Loot",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791529200000,
+      "endTimestamp": 1791532800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791554400000,
+          1791558000000
+        ],
+        "brazil": [
+          1791550800000,
+          1791554400000
+        ],
+        "east-asia": [
+          1791511200000,
+          1791514800000
+        ],
+        "oceania": [
+          1791496800000,
+          1791500400000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791529200000,
+      "endTimestamp": 1791532800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791554400000,
+          1791558000000
+        ],
+        "brazil": [
+          1791550800000,
+          1791554400000
+        ],
+        "east-asia": [
+          1791511200000,
+          1791514800000
+        ],
+        "oceania": [
+          1791496800000,
+          1791500400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791532800000,
+      "endTimestamp": 1791536400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791558000000,
+          1791561600000
+        ],
+        "brazil": [
+          1791554400000,
+          1791558000000
+        ],
+        "east-asia": [
+          1791514800000,
+          1791518400000
+        ],
+        "oceania": [
+          1791500400000,
+          1791504000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791532800000,
+      "endTimestamp": 1791536400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791558000000,
+          1791561600000
+        ],
+        "brazil": [
+          1791554400000,
+          1791558000000
+        ],
+        "east-asia": [
+          1791514800000,
+          1791518400000
+        ],
+        "oceania": [
+          1791500400000,
+          1791504000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791532800000,
+      "endTimestamp": 1791536400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791558000000,
+          1791561600000
+        ],
+        "brazil": [
+          1791554400000,
+          1791558000000
+        ],
+        "east-asia": [
+          1791514800000,
+          1791518400000
+        ],
+        "oceania": [
+          1791500400000,
+          1791504000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791532800000,
+      "endTimestamp": 1791536400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791558000000,
+          1791561600000
+        ],
+        "brazil": [
+          1791554400000,
+          1791558000000
+        ],
+        "east-asia": [
+          1791514800000,
+          1791518400000
+        ],
+        "oceania": [
+          1791500400000,
+          1791504000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791536400000,
+      "endTimestamp": 1791540000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791561600000,
+          1791565200000
+        ],
+        "brazil": [
+          1791558000000,
+          1791561600000
+        ],
+        "east-asia": [
+          1791518400000,
+          1791522000000
+        ],
+        "oceania": [
+          1791504000000,
+          1791507600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791536400000,
+      "endTimestamp": 1791540000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791561600000,
+          1791565200000
+        ],
+        "brazil": [
+          1791558000000,
+          1791561600000
+        ],
+        "east-asia": [
+          1791518400000,
+          1791522000000
+        ],
+        "oceania": [
+          1791504000000,
+          1791507600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791536400000,
+      "endTimestamp": 1791540000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791561600000,
+          1791565200000
+        ],
+        "brazil": [
+          1791558000000,
+          1791561600000
+        ],
+        "east-asia": [
+          1791518400000,
+          1791522000000
+        ],
+        "oceania": [
+          1791504000000,
+          1791507600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791536400000,
+      "endTimestamp": 1791540000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791561600000,
+          1791565200000
+        ],
+        "brazil": [
+          1791558000000,
+          1791561600000
+        ],
+        "east-asia": [
+          1791518400000,
+          1791522000000
+        ],
+        "oceania": [
+          1791504000000,
+          1791507600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791540000000,
+      "endTimestamp": 1791543600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791565200000,
+          1791568800000
+        ],
+        "brazil": [
+          1791561600000,
+          1791565200000
+        ],
+        "east-asia": [
+          1791522000000,
+          1791525600000
+        ],
+        "oceania": [
+          1791507600000,
+          1791511200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791540000000,
+      "endTimestamp": 1791543600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791565200000,
+          1791568800000
+        ],
+        "brazil": [
+          1791561600000,
+          1791565200000
+        ],
+        "east-asia": [
+          1791522000000,
+          1791525600000
+        ],
+        "oceania": [
+          1791507600000,
+          1791511200000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791540000000,
+      "endTimestamp": 1791543600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791565200000,
+          1791568800000
+        ],
+        "brazil": [
+          1791561600000,
+          1791565200000
+        ],
+        "east-asia": [
+          1791522000000,
+          1791525600000
+        ],
+        "oceania": [
+          1791507600000,
+          1791511200000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791543600000,
+      "endTimestamp": 1791547200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791568800000,
+          1791572400000
+        ],
+        "brazil": [
+          1791565200000,
+          1791568800000
+        ],
+        "east-asia": [
+          1791525600000,
+          1791529200000
+        ],
+        "oceania": [
+          1791511200000,
+          1791514800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791543600000,
+      "endTimestamp": 1791547200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791568800000,
+          1791572400000
+        ],
+        "brazil": [
+          1791565200000,
+          1791568800000
+        ],
+        "east-asia": [
+          1791525600000,
+          1791529200000
+        ],
+        "oceania": [
+          1791511200000,
+          1791514800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791543600000,
+      "endTimestamp": 1791547200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791568800000,
+          1791572400000
+        ],
+        "brazil": [
+          1791565200000,
+          1791568800000
+        ],
+        "east-asia": [
+          1791525600000,
+          1791529200000
+        ],
+        "oceania": [
+          1791511200000,
+          1791514800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791543600000,
+      "endTimestamp": 1791547200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791568800000,
+          1791572400000
+        ],
+        "brazil": [
+          1791565200000,
+          1791568800000
+        ],
+        "east-asia": [
+          1791525600000,
+          1791529200000
+        ],
+        "oceania": [
+          1791511200000,
+          1791514800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Redirection",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791547200000,
+      "endTimestamp": 1791550800000,
+      "regionTimestamps": "$undefined"
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791547200000,
+      "endTimestamp": 1791550800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791572400000,
+          1791576000000
+        ],
+        "brazil": [
+          1791568800000,
+          1791572400000
+        ],
+        "east-asia": [
+          1791529200000,
+          1791532800000
+        ],
+        "oceania": [
+          1791514800000,
+          1791518400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791547200000,
+      "endTimestamp": 1791550800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791572400000,
+          1791576000000
+        ],
+        "brazil": [
+          1791568800000,
+          1791572400000
+        ],
+        "east-asia": [
+          1791529200000,
+          1791532800000
+        ],
+        "oceania": [
+          1791514800000,
+          1791518400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791547200000,
+      "endTimestamp": 1791550800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791572400000,
+          1791576000000
+        ],
+        "brazil": [
+          1791568800000,
+          1791572400000
+        ],
+        "east-asia": [
+          1791529200000,
+          1791532800000
+        ],
+        "oceania": [
+          1791514800000,
+          1791518400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791547200000,
+      "endTimestamp": 1791550800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791572400000,
+          1791576000000
+        ],
+        "brazil": [
+          1791568800000,
+          1791572400000
+        ],
+        "east-asia": [
+          1791529200000,
+          1791532800000
+        ],
+        "oceania": [
+          1791514800000,
+          1791518400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791550800000,
+      "endTimestamp": 1791554400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791576000000,
+          1791579600000
+        ],
+        "brazil": [
+          1791572400000,
+          1791576000000
+        ],
+        "east-asia": [
+          1791532800000,
+          1791536400000
+        ],
+        "oceania": [
+          1791518400000,
+          1791522000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791550800000,
+      "endTimestamp": 1791554400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791576000000,
+          1791579600000
+        ],
+        "brazil": [
+          1791572400000,
+          1791576000000
+        ],
+        "east-asia": [
+          1791532800000,
+          1791536400000
+        ],
+        "oceania": [
+          1791518400000,
+          1791522000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Close Scrutiny",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791550800000,
+      "endTimestamp": 1791554400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791576000000,
+          1791579600000
+        ],
+        "brazil": [
+          1791572400000,
+          1791576000000
+        ],
+        "east-asia": [
+          1791532800000,
+          1791536400000
+        ],
+        "oceania": [
+          1791518400000,
+          1791522000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791550800000,
+      "endTimestamp": 1791554400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791576000000,
+          1791579600000
+        ],
+        "brazil": [
+          1791572400000,
+          1791576000000
+        ],
+        "east-asia": [
+          1791532800000,
+          1791536400000
+        ],
+        "oceania": [
+          1791518400000,
+          1791522000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791554400000,
+      "endTimestamp": 1791558000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791579600000,
+          1791583200000
+        ],
+        "brazil": [
+          1791576000000,
+          1791579600000
+        ],
+        "east-asia": [
+          1791536400000,
+          1791540000000
+        ],
+        "oceania": [
+          1791522000000,
+          1791525600000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791554400000,
+      "endTimestamp": 1791558000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791579600000,
+          1791583200000
+        ],
+        "brazil": [
+          1791576000000,
+          1791579600000
+        ],
+        "east-asia": [
+          1791536400000,
+          1791540000000
+        ],
+        "oceania": [
+          1791522000000,
+          1791525600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791554400000,
+      "endTimestamp": 1791558000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791579600000,
+          1791583200000
+        ],
+        "brazil": [
+          1791576000000,
+          1791579600000
+        ],
+        "east-asia": [
+          1791536400000,
+          1791540000000
+        ],
+        "oceania": [
+          1791522000000,
+          1791525600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791554400000,
+      "endTimestamp": 1791558000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791579600000,
+          1791583200000
+        ],
+        "brazil": [
+          1791576000000,
+          1791579600000
+        ],
+        "east-asia": [
+          1791536400000,
+          1791540000000
+        ],
+        "oceania": [
+          1791522000000,
+          1791525600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Redirection",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791558000000,
+      "endTimestamp": 1791561600000,
+      "regionTimestamps": "$undefined"
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791558000000,
+      "endTimestamp": 1791561600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791583200000,
+          1791586800000
+        ],
+        "brazil": [
+          1791579600000,
+          1791583200000
+        ],
+        "east-asia": [
+          1791540000000,
+          1791543600000
+        ],
+        "oceania": [
+          1791525600000,
+          1791529200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791558000000,
+      "endTimestamp": 1791561600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791583200000,
+          1791586800000
+        ],
+        "brazil": [
+          1791579600000,
+          1791583200000
+        ],
+        "east-asia": [
+          1791540000000,
+          1791543600000
+        ],
+        "oceania": [
+          1791525600000,
+          1791529200000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791558000000,
+      "endTimestamp": 1791561600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791583200000,
+          1791586800000
+        ],
+        "brazil": [
+          1791579600000,
+          1791583200000
+        ],
+        "east-asia": [
+          1791540000000,
+          1791543600000
+        ],
+        "oceania": [
+          1791525600000,
+          1791529200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791558000000,
+      "endTimestamp": 1791561600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791583200000,
+          1791586800000
+        ],
+        "brazil": [
+          1791579600000,
+          1791583200000
+        ],
+        "east-asia": [
+          1791540000000,
+          1791543600000
+        ],
+        "oceania": [
+          1791525600000,
+          1791529200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791561600000,
+      "endTimestamp": 1791565200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791586800000,
+          1791590400000
+        ],
+        "brazil": [
+          1791583200000,
+          1791586800000
+        ],
+        "east-asia": [
+          1791543600000,
+          1791547200000
+        ],
+        "oceania": [
+          1791529200000,
+          1791532800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791561600000,
+      "endTimestamp": 1791565200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791586800000,
+          1791590400000
+        ],
+        "brazil": [
+          1791583200000,
+          1791586800000
+        ],
+        "east-asia": [
+          1791543600000,
+          1791547200000
+        ],
+        "oceania": [
+          1791529200000,
+          1791532800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791561600000,
+      "endTimestamp": 1791565200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791586800000,
+          1791590400000
+        ],
+        "brazil": [
+          1791583200000,
+          1791586800000
+        ],
+        "east-asia": [
+          1791543600000,
+          1791547200000
+        ],
+        "oceania": [
+          1791529200000,
+          1791532800000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791561600000,
+      "endTimestamp": 1791565200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791586800000,
+          1791590400000
+        ],
+        "brazil": [
+          1791583200000,
+          1791586800000
+        ],
+        "east-asia": [
+          1791543600000,
+          1791547200000
+        ],
+        "oceania": [
+          1791529200000,
+          1791532800000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791565200000,
+      "endTimestamp": 1791568800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791590400000,
+          1791594000000
+        ],
+        "brazil": [
+          1791586800000,
+          1791590400000
+        ],
+        "east-asia": [
+          1791547200000,
+          1791550800000
+        ],
+        "oceania": [
+          1791532800000,
+          1791536400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791565200000,
+      "endTimestamp": 1791568800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791590400000,
+          1791594000000
+        ],
+        "brazil": [
+          1791586800000,
+          1791590400000
+        ],
+        "east-asia": [
+          1791547200000,
+          1791550800000
+        ],
+        "oceania": [
+          1791532800000,
+          1791536400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791565200000,
+      "endTimestamp": 1791568800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791590400000,
+          1791594000000
+        ],
+        "brazil": [
+          1791586800000,
+          1791590400000
+        ],
+        "east-asia": [
+          1791547200000,
+          1791550800000
+        ],
+        "oceania": [
+          1791532800000,
+          1791536400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791568800000,
+      "endTimestamp": 1791572400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791594000000,
+          1791597600000
+        ],
+        "brazil": [
+          1791590400000,
+          1791594000000
+        ],
+        "east-asia": [
+          1791550800000,
+          1791554400000
+        ],
+        "oceania": [
+          1791536400000,
+          1791540000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791568800000,
+      "endTimestamp": 1791572400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791594000000,
+          1791597600000
+        ],
+        "brazil": [
+          1791590400000,
+          1791594000000
+        ],
+        "east-asia": [
+          1791550800000,
+          1791554400000
+        ],
+        "oceania": [
+          1791536400000,
+          1791540000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791568800000,
+      "endTimestamp": 1791572400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791594000000,
+          1791597600000
+        ],
+        "brazil": [
+          1791590400000,
+          1791594000000
+        ],
+        "east-asia": [
+          1791550800000,
+          1791554400000
+        ],
+        "oceania": [
+          1791536400000,
+          1791540000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791568800000,
+      "endTimestamp": 1791572400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791594000000,
+          1791597600000
+        ],
+        "brazil": [
+          1791590400000,
+          1791594000000
+        ],
+        "east-asia": [
+          1791550800000,
+          1791554400000
+        ],
+        "oceania": [
+          1791536400000,
+          1791540000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791572400000,
+      "endTimestamp": 1791576000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791597600000,
+          1791601200000
+        ],
+        "brazil": [
+          1791594000000,
+          1791597600000
+        ],
+        "east-asia": [
+          1791554400000,
+          1791558000000
+        ],
+        "oceania": [
+          1791540000000,
+          1791543600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Redirection",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791572400000,
+      "endTimestamp": 1791576000000,
+      "regionTimestamps": "$undefined"
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791572400000,
+      "endTimestamp": 1791576000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791597600000,
+          1791601200000
+        ],
+        "brazil": [
+          1791594000000,
+          1791597600000
+        ],
+        "east-asia": [
+          1791554400000,
+          1791558000000
+        ],
+        "oceania": [
+          1791540000000,
+          1791543600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791572400000,
+      "endTimestamp": 1791576000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791597600000,
+          1791601200000
+        ],
+        "brazil": [
+          1791594000000,
+          1791597600000
+        ],
+        "east-asia": [
+          1791554400000,
+          1791558000000
+        ],
+        "oceania": [
+          1791540000000,
+          1791543600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791572400000,
+      "endTimestamp": 1791576000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791597600000,
+          1791601200000
+        ],
+        "brazil": [
+          1791594000000,
+          1791597600000
+        ],
+        "east-asia": [
+          1791554400000,
+          1791558000000
+        ],
+        "oceania": [
+          1791540000000,
+          1791543600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791576000000,
+      "endTimestamp": 1791579600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791601200000,
+          1791604800000
+        ],
+        "brazil": [
+          1791597600000,
+          1791601200000
+        ],
+        "east-asia": [
+          1791558000000,
+          1791561600000
+        ],
+        "oceania": [
+          1791543600000,
+          1791547200000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791576000000,
+      "endTimestamp": 1791579600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791601200000,
+          1791604800000
+        ],
+        "brazil": [
+          1791597600000,
+          1791601200000
+        ],
+        "east-asia": [
+          1791558000000,
+          1791561600000
+        ],
+        "oceania": [
+          1791543600000,
+          1791547200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791576000000,
+      "endTimestamp": 1791579600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791601200000,
+          1791604800000
+        ],
+        "brazil": [
+          1791597600000,
+          1791601200000
+        ],
+        "east-asia": [
+          1791558000000,
+          1791561600000
+        ],
+        "oceania": [
+          1791543600000,
+          1791547200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Hurricane",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791579600000,
+      "endTimestamp": 1791583200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791604800000,
+          1791608400000
+        ],
+        "brazil": [
+          1791601200000,
+          1791604800000
+        ],
+        "east-asia": [
+          1791561600000,
+          1791565200000
+        ],
+        "oceania": [
+          1791547200000,
+          1791550800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791579600000,
+      "endTimestamp": 1791583200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791604800000,
+          1791608400000
+        ],
+        "brazil": [
+          1791601200000,
+          1791604800000
+        ],
+        "east-asia": [
+          1791561600000,
+          1791565200000
+        ],
+        "oceania": [
+          1791547200000,
+          1791550800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791579600000,
+      "endTimestamp": 1791583200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791604800000,
+          1791608400000
+        ],
+        "brazil": [
+          1791601200000,
+          1791604800000
+        ],
+        "east-asia": [
+          1791561600000,
+          1791565200000
+        ],
+        "oceania": [
+          1791547200000,
+          1791550800000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791579600000,
+      "endTimestamp": 1791583200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791604800000,
+          1791608400000
+        ],
+        "brazil": [
+          1791601200000,
+          1791604800000
+        ],
+        "east-asia": [
+          1791561600000,
+          1791565200000
+        ],
+        "oceania": [
+          1791547200000,
+          1791550800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791579600000,
+      "endTimestamp": 1791583200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791604800000,
+          1791608400000
+        ],
+        "brazil": [
+          1791601200000,
+          1791604800000
+        ],
+        "east-asia": [
+          1791561600000,
+          1791565200000
+        ],
+        "oceania": [
+          1791547200000,
+          1791550800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Redirection",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791583200000,
+      "endTimestamp": 1791586800000,
+      "regionTimestamps": "$undefined"
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791583200000,
+      "endTimestamp": 1791586800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791608400000,
+          1791612000000
+        ],
+        "brazil": [
+          1791604800000,
+          1791608400000
+        ],
+        "east-asia": [
+          1791565200000,
+          1791568800000
+        ],
+        "oceania": [
+          1791550800000,
+          1791554400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791583200000,
+      "endTimestamp": 1791586800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791608400000,
+          1791612000000
+        ],
+        "brazil": [
+          1791604800000,
+          1791608400000
+        ],
+        "east-asia": [
+          1791565200000,
+          1791568800000
+        ],
+        "oceania": [
+          1791550800000,
+          1791554400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791583200000,
+      "endTimestamp": 1791586800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791608400000,
+          1791612000000
+        ],
+        "brazil": [
+          1791604800000,
+          1791608400000
+        ],
+        "east-asia": [
+          1791565200000,
+          1791568800000
+        ],
+        "oceania": [
+          1791550800000,
+          1791554400000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791583200000,
+      "endTimestamp": 1791586800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791608400000,
+          1791612000000
+        ],
+        "brazil": [
+          1791604800000,
+          1791608400000
+        ],
+        "east-asia": [
+          1791565200000,
+          1791568800000
+        ],
+        "oceania": [
+          1791550800000,
+          1791554400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791583200000,
+      "endTimestamp": 1791586800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791608400000,
+          1791612000000
+        ],
+        "brazil": [
+          1791604800000,
+          1791608400000
+        ],
+        "east-asia": [
+          1791565200000,
+          1791568800000
+        ],
+        "oceania": [
+          1791550800000,
+          1791554400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791586800000,
+      "endTimestamp": 1791590400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791612000000,
+          1791615600000
+        ],
+        "brazil": [
+          1791608400000,
+          1791612000000
+        ],
+        "east-asia": [
+          1791568800000,
+          1791572400000
+        ],
+        "oceania": [
+          1791554400000,
+          1791558000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791586800000,
+      "endTimestamp": 1791590400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791612000000,
+          1791615600000
+        ],
+        "brazil": [
+          1791608400000,
+          1791612000000
+        ],
+        "east-asia": [
+          1791568800000,
+          1791572400000
+        ],
+        "oceania": [
+          1791554400000,
+          1791558000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791586800000,
+      "endTimestamp": 1791590400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791612000000,
+          1791615600000
+        ],
+        "brazil": [
+          1791608400000,
+          1791612000000
+        ],
+        "east-asia": [
+          1791568800000,
+          1791572400000
+        ],
+        "oceania": [
+          1791554400000,
+          1791558000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791586800000,
+      "endTimestamp": 1791590400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791612000000,
+          1791615600000
+        ],
+        "brazil": [
+          1791608400000,
+          1791612000000
+        ],
+        "east-asia": [
+          1791568800000,
+          1791572400000
+        ],
+        "oceania": [
+          1791554400000,
+          1791558000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791590400000,
+      "endTimestamp": 1791594000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791615600000,
+          1791619200000
+        ],
+        "brazil": [
+          1791612000000,
+          1791615600000
+        ],
+        "east-asia": [
+          1791572400000,
+          1791576000000
+        ],
+        "oceania": [
+          1791558000000,
+          1791561600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791590400000,
+      "endTimestamp": 1791594000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791615600000,
+          1791619200000
+        ],
+        "brazil": [
+          1791612000000,
+          1791615600000
+        ],
+        "east-asia": [
+          1791572400000,
+          1791576000000
+        ],
+        "oceania": [
+          1791558000000,
+          1791561600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791590400000,
+      "endTimestamp": 1791594000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791615600000,
+          1791619200000
+        ],
+        "brazil": [
+          1791612000000,
+          1791615600000
+        ],
+        "east-asia": [
+          1791572400000,
+          1791576000000
+        ],
+        "oceania": [
+          1791558000000,
+          1791561600000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791594000000,
+      "endTimestamp": 1791597600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791619200000,
+          1791622800000
+        ],
+        "brazil": [
+          1791615600000,
+          1791619200000
+        ],
+        "east-asia": [
+          1791576000000,
+          1791579600000
+        ],
+        "oceania": [
+          1791561600000,
+          1791565200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791594000000,
+      "endTimestamp": 1791597600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791619200000,
+          1791622800000
+        ],
+        "brazil": [
+          1791615600000,
+          1791619200000
+        ],
+        "east-asia": [
+          1791576000000,
+          1791579600000
+        ],
+        "oceania": [
+          1791561600000,
+          1791565200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791594000000,
+      "endTimestamp": 1791597600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791619200000,
+          1791622800000
+        ],
+        "brazil": [
+          1791615600000,
+          1791619200000
+        ],
+        "east-asia": [
+          1791576000000,
+          1791579600000
+        ],
+        "oceania": [
+          1791561600000,
+          1791565200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791594000000,
+      "endTimestamp": 1791597600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791619200000,
+          1791622800000
+        ],
+        "brazil": [
+          1791615600000,
+          1791619200000
+        ],
+        "east-asia": [
+          1791576000000,
+          1791579600000
+        ],
+        "oceania": [
+          1791561600000,
+          1791565200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791597600000,
+      "endTimestamp": 1791601200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791622800000,
+          1791626400000
+        ],
+        "brazil": [
+          1791619200000,
+          1791622800000
+        ],
+        "east-asia": [
+          1791579600000,
+          1791583200000
+        ],
+        "oceania": [
+          1791565200000,
+          1791568800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Redirection",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791597600000,
+      "endTimestamp": 1791601200000,
+      "regionTimestamps": "$undefined"
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791597600000,
+      "endTimestamp": 1791601200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791622800000,
+          1791626400000
+        ],
+        "brazil": [
+          1791619200000,
+          1791622800000
+        ],
+        "east-asia": [
+          1791579600000,
+          1791583200000
+        ],
+        "oceania": [
+          1791565200000,
+          1791568800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791597600000,
+      "endTimestamp": 1791601200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791622800000,
+          1791626400000
+        ],
+        "brazil": [
+          1791619200000,
+          1791622800000
+        ],
+        "east-asia": [
+          1791579600000,
+          1791583200000
+        ],
+        "oceania": [
+          1791565200000,
+          1791568800000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791597600000,
+      "endTimestamp": 1791601200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791622800000,
+          1791626400000
+        ],
+        "brazil": [
+          1791619200000,
+          1791622800000
+        ],
+        "east-asia": [
+          1791579600000,
+          1791583200000
+        ],
+        "oceania": [
+          1791565200000,
+          1791568800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791601200000,
+      "endTimestamp": 1791604800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791626400000,
+          1791630000000
+        ],
+        "brazil": [
+          1791622800000,
+          1791626400000
+        ],
+        "east-asia": [
+          1791583200000,
+          1791586800000
+        ],
+        "oceania": [
+          1791568800000,
+          1791572400000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791601200000,
+      "endTimestamp": 1791604800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791626400000,
+          1791630000000
+        ],
+        "brazil": [
+          1791622800000,
+          1791626400000
+        ],
+        "east-asia": [
+          1791583200000,
+          1791586800000
+        ],
+        "oceania": [
+          1791568800000,
+          1791572400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791601200000,
+      "endTimestamp": 1791604800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791626400000,
+          1791630000000
+        ],
+        "brazil": [
+          1791622800000,
+          1791626400000
+        ],
+        "east-asia": [
+          1791583200000,
+          1791586800000
+        ],
+        "oceania": [
+          1791568800000,
+          1791572400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791601200000,
+      "endTimestamp": 1791604800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791626400000,
+          1791630000000
+        ],
+        "brazil": [
+          1791622800000,
+          1791626400000
+        ],
+        "east-asia": [
+          1791583200000,
+          1791586800000
+        ],
+        "oceania": [
+          1791568800000,
+          1791572400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791604800000,
+      "endTimestamp": 1791608400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791630000000,
+          1791633600000
+        ],
+        "brazil": [
+          1791626400000,
+          1791630000000
+        ],
+        "east-asia": [
+          1791586800000,
+          1791590400000
+        ],
+        "oceania": [
+          1791572400000,
+          1791576000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791604800000,
+      "endTimestamp": 1791608400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791630000000,
+          1791633600000
+        ],
+        "brazil": [
+          1791626400000,
+          1791630000000
+        ],
+        "east-asia": [
+          1791586800000,
+          1791590400000
+        ],
+        "oceania": [
+          1791572400000,
+          1791576000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791604800000,
+      "endTimestamp": 1791608400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791630000000,
+          1791633600000
+        ],
+        "brazil": [
+          1791626400000,
+          1791630000000
+        ],
+        "east-asia": [
+          1791586800000,
+          1791590400000
+        ],
+        "oceania": [
+          1791572400000,
+          1791576000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791604800000,
+      "endTimestamp": 1791608400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791630000000,
+          1791633600000
+        ],
+        "brazil": [
+          1791626400000,
+          1791630000000
+        ],
+        "east-asia": [
+          1791586800000,
+          1791590400000
+        ],
+        "oceania": [
+          1791572400000,
+          1791576000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791608400000,
+      "endTimestamp": 1791612000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791633600000,
+          1791637200000
+        ],
+        "brazil": [
+          1791630000000,
+          1791633600000
+        ],
+        "east-asia": [
+          1791590400000,
+          1791594000000
+        ],
+        "oceania": [
+          1791576000000,
+          1791579600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791608400000,
+      "endTimestamp": 1791612000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791633600000,
+          1791637200000
+        ],
+        "brazil": [
+          1791630000000,
+          1791633600000
+        ],
+        "east-asia": [
+          1791590400000,
+          1791594000000
+        ],
+        "oceania": [
+          1791576000000,
+          1791579600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Launch Tower Loot",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791608400000,
+      "endTimestamp": 1791612000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791633600000,
+          1791637200000
+        ],
+        "brazil": [
+          1791630000000,
+          1791633600000
+        ],
+        "east-asia": [
+          1791590400000,
+          1791594000000
+        ],
+        "oceania": [
+          1791576000000,
+          1791579600000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791608400000,
+      "endTimestamp": 1791612000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791633600000,
+          1791637200000
+        ],
+        "brazil": [
+          1791630000000,
+          1791633600000
+        ],
+        "east-asia": [
+          1791590400000,
+          1791594000000
+        ],
+        "oceania": [
+          1791576000000,
+          1791579600000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791612000000,
+      "endTimestamp": 1791615600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791637200000,
+          1791640800000
+        ],
+        "brazil": [
+          1791633600000,
+          1791637200000
+        ],
+        "east-asia": [
+          1791594000000,
+          1791597600000
+        ],
+        "oceania": [
+          1791579600000,
+          1791583200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791612000000,
+      "endTimestamp": 1791615600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791637200000,
+          1791640800000
+        ],
+        "brazil": [
+          1791633600000,
+          1791637200000
+        ],
+        "east-asia": [
+          1791594000000,
+          1791597600000
+        ],
+        "oceania": [
+          1791579600000,
+          1791583200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791612000000,
+      "endTimestamp": 1791615600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791637200000,
+          1791640800000
+        ],
+        "brazil": [
+          1791633600000,
+          1791637200000
+        ],
+        "east-asia": [
+          1791594000000,
+          1791597600000
+        ],
+        "oceania": [
+          1791579600000,
+          1791583200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791612000000,
+      "endTimestamp": 1791615600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791637200000,
+          1791640800000
+        ],
+        "brazil": [
+          1791633600000,
+          1791637200000
+        ],
+        "east-asia": [
+          1791594000000,
+          1791597600000
+        ],
+        "oceania": [
+          1791579600000,
+          1791583200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791615600000,
+      "endTimestamp": 1791619200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791640800000,
+          1791644400000
+        ],
+        "brazil": [
+          1791637200000,
+          1791640800000
+        ],
+        "east-asia": [
+          1791597600000,
+          1791601200000
+        ],
+        "oceania": [
+          1791583200000,
+          1791586800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791615600000,
+      "endTimestamp": 1791619200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791640800000,
+          1791644400000
+        ],
+        "brazil": [
+          1791637200000,
+          1791640800000
+        ],
+        "east-asia": [
+          1791597600000,
+          1791601200000
+        ],
+        "oceania": [
+          1791583200000,
+          1791586800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791615600000,
+      "endTimestamp": 1791619200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791640800000,
+          1791644400000
+        ],
+        "brazil": [
+          1791637200000,
+          1791640800000
+        ],
+        "east-asia": [
+          1791597600000,
+          1791601200000
+        ],
+        "oceania": [
+          1791583200000,
+          1791586800000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791615600000,
+      "endTimestamp": 1791619200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791640800000,
+          1791644400000
+        ],
+        "brazil": [
+          1791637200000,
+          1791640800000
+        ],
+        "east-asia": [
+          1791597600000,
+          1791601200000
+        ],
+        "oceania": [
+          1791583200000,
+          1791586800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791619200000,
+      "endTimestamp": 1791622800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791644400000,
+          1791648000000
+        ],
+        "brazil": [
+          1791640800000,
+          1791644400000
+        ],
+        "east-asia": [
+          1791601200000,
+          1791604800000
+        ],
+        "oceania": [
+          1791586800000,
+          1791590400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Redirection",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791619200000,
+      "endTimestamp": 1791622800000,
+      "regionTimestamps": "$undefined"
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791619200000,
+      "endTimestamp": 1791622800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791644400000,
+          1791648000000
+        ],
+        "brazil": [
+          1791640800000,
+          1791644400000
+        ],
+        "east-asia": [
+          1791601200000,
+          1791604800000
+        ],
+        "oceania": [
+          1791586800000,
+          1791590400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Launch Tower Loot",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791619200000,
+      "endTimestamp": 1791622800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791644400000,
+          1791648000000
+        ],
+        "brazil": [
+          1791640800000,
+          1791644400000
+        ],
+        "east-asia": [
+          1791601200000,
+          1791604800000
+        ],
+        "oceania": [
+          1791586800000,
+          1791590400000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791619200000,
+      "endTimestamp": 1791622800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791644400000,
+          1791648000000
+        ],
+        "brazil": [
+          1791640800000,
+          1791644400000
+        ],
+        "east-asia": [
+          1791601200000,
+          1791604800000
+        ],
+        "oceania": [
+          1791586800000,
+          1791590400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791622800000,
+      "endTimestamp": 1791626400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791648000000,
+          1791651600000
+        ],
+        "brazil": [
+          1791644400000,
+          1791648000000
+        ],
+        "east-asia": [
+          1791604800000,
+          1791608400000
+        ],
+        "oceania": [
+          1791590400000,
+          1791594000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791622800000,
+      "endTimestamp": 1791626400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791648000000,
+          1791651600000
+        ],
+        "brazil": [
+          1791644400000,
+          1791648000000
+        ],
+        "east-asia": [
+          1791604800000,
+          1791608400000
+        ],
+        "oceania": [
+          1791590400000,
+          1791594000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791622800000,
+      "endTimestamp": 1791626400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791648000000,
+          1791651600000
+        ],
+        "brazil": [
+          1791644400000,
+          1791648000000
+        ],
+        "east-asia": [
+          1791604800000,
+          1791608400000
+        ],
+        "oceania": [
+          1791590400000,
+          1791594000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791622800000,
+      "endTimestamp": 1791626400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791648000000,
+          1791651600000
+        ],
+        "brazil": [
+          1791644400000,
+          1791648000000
+        ],
+        "east-asia": [
+          1791604800000,
+          1791608400000
+        ],
+        "oceania": [
+          1791590400000,
+          1791594000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791626400000,
+      "endTimestamp": 1791630000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791651600000,
+          1791655200000
+        ],
+        "brazil": [
+          1791648000000,
+          1791651600000
+        ],
+        "east-asia": [
+          1791608400000,
+          1791612000000
+        ],
+        "oceania": [
+          1791594000000,
+          1791597600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791626400000,
+      "endTimestamp": 1791630000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791651600000,
+          1791655200000
+        ],
+        "brazil": [
+          1791648000000,
+          1791651600000
+        ],
+        "east-asia": [
+          1791608400000,
+          1791612000000
+        ],
+        "oceania": [
+          1791594000000,
+          1791597600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791626400000,
+      "endTimestamp": 1791630000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791651600000,
+          1791655200000
+        ],
+        "brazil": [
+          1791648000000,
+          1791651600000
+        ],
+        "east-asia": [
+          1791608400000,
+          1791612000000
+        ],
+        "oceania": [
+          1791594000000,
+          1791597600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791626400000,
+      "endTimestamp": 1791630000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791651600000,
+          1791655200000
+        ],
+        "brazil": [
+          1791648000000,
+          1791651600000
+        ],
+        "east-asia": [
+          1791608400000,
+          1791612000000
+        ],
+        "oceania": [
+          1791594000000,
+          1791597600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791630000000,
+      "endTimestamp": 1791633600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791655200000,
+          1791658800000
+        ],
+        "brazil": [
+          1791651600000,
+          1791655200000
+        ],
+        "east-asia": [
+          1791612000000,
+          1791615600000
+        ],
+        "oceania": [
+          1791597600000,
+          1791601200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791630000000,
+      "endTimestamp": 1791633600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791655200000,
+          1791658800000
+        ],
+        "brazil": [
+          1791651600000,
+          1791655200000
+        ],
+        "east-asia": [
+          1791612000000,
+          1791615600000
+        ],
+        "oceania": [
+          1791597600000,
+          1791601200000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791630000000,
+      "endTimestamp": 1791633600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791655200000,
+          1791658800000
+        ],
+        "brazil": [
+          1791651600000,
+          1791655200000
+        ],
+        "east-asia": [
+          1791612000000,
+          1791615600000
+        ],
+        "oceania": [
+          1791597600000,
+          1791601200000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791633600000,
+      "endTimestamp": 1791637200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791658800000,
+          1791662400000
+        ],
+        "brazil": [
+          1791655200000,
+          1791658800000
+        ],
+        "east-asia": [
+          1791615600000,
+          1791619200000
+        ],
+        "oceania": [
+          1791601200000,
+          1791604800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791633600000,
+      "endTimestamp": 1791637200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791658800000,
+          1791662400000
+        ],
+        "brazil": [
+          1791655200000,
+          1791658800000
+        ],
+        "east-asia": [
+          1791615600000,
+          1791619200000
+        ],
+        "oceania": [
+          1791601200000,
+          1791604800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791633600000,
+      "endTimestamp": 1791637200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791658800000,
+          1791662400000
+        ],
+        "brazil": [
+          1791655200000,
+          1791658800000
+        ],
+        "east-asia": [
+          1791615600000,
+          1791619200000
+        ],
+        "oceania": [
+          1791601200000,
+          1791604800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791633600000,
+      "endTimestamp": 1791637200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791658800000,
+          1791662400000
+        ],
+        "brazil": [
+          1791655200000,
+          1791658800000
+        ],
+        "east-asia": [
+          1791615600000,
+          1791619200000
+        ],
+        "oceania": [
+          1791601200000,
+          1791604800000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791637200000,
+      "endTimestamp": 1791640800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791662400000,
+          1791666000000
+        ],
+        "brazil": [
+          1791658800000,
+          1791662400000
+        ],
+        "east-asia": [
+          1791619200000,
+          1791622800000
+        ],
+        "oceania": [
+          1791604800000,
+          1791608400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791637200000,
+      "endTimestamp": 1791640800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791662400000,
+          1791666000000
+        ],
+        "brazil": [
+          1791658800000,
+          1791662400000
+        ],
+        "east-asia": [
+          1791619200000,
+          1791622800000
+        ],
+        "oceania": [
+          1791604800000,
+          1791608400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791637200000,
+      "endTimestamp": 1791640800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791662400000,
+          1791666000000
+        ],
+        "brazil": [
+          1791658800000,
+          1791662400000
+        ],
+        "east-asia": [
+          1791619200000,
+          1791622800000
+        ],
+        "oceania": [
+          1791604800000,
+          1791608400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791637200000,
+      "endTimestamp": 1791640800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791662400000,
+          1791666000000
+        ],
+        "brazil": [
+          1791658800000,
+          1791662400000
+        ],
+        "east-asia": [
+          1791619200000,
+          1791622800000
+        ],
+        "oceania": [
+          1791604800000,
+          1791608400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791640800000,
+      "endTimestamp": 1791644400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791666000000,
+          1791669600000
+        ],
+        "brazil": [
+          1791662400000,
+          1791666000000
+        ],
+        "east-asia": [
+          1791622800000,
+          1791626400000
+        ],
+        "oceania": [
+          1791608400000,
+          1791612000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791640800000,
+      "endTimestamp": 1791644400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791666000000,
+          1791669600000
+        ],
+        "brazil": [
+          1791662400000,
+          1791666000000
+        ],
+        "east-asia": [
+          1791622800000,
+          1791626400000
+        ],
+        "oceania": [
+          1791608400000,
+          1791612000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791640800000,
+      "endTimestamp": 1791644400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791666000000,
+          1791669600000
+        ],
+        "brazil": [
+          1791662400000,
+          1791666000000
+        ],
+        "east-asia": [
+          1791622800000,
+          1791626400000
+        ],
+        "oceania": [
+          1791608400000,
+          1791612000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791640800000,
+      "endTimestamp": 1791644400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791666000000,
+          1791669600000
+        ],
+        "brazil": [
+          1791662400000,
+          1791666000000
+        ],
+        "east-asia": [
+          1791622800000,
+          1791626400000
+        ],
+        "oceania": [
+          1791608400000,
+          1791612000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791644400000,
+      "endTimestamp": 1791648000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791669600000,
+          1791673200000
+        ],
+        "brazil": [
+          1791666000000,
+          1791669600000
+        ],
+        "east-asia": [
+          1791626400000,
+          1791630000000
+        ],
+        "oceania": [
+          1791612000000,
+          1791615600000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791644400000,
+      "endTimestamp": 1791648000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791669600000,
+          1791673200000
+        ],
+        "brazil": [
+          1791666000000,
+          1791669600000
+        ],
+        "east-asia": [
+          1791626400000,
+          1791630000000
+        ],
+        "oceania": [
+          1791612000000,
+          1791615600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Prospecting Probes",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791644400000,
+      "endTimestamp": 1791648000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791669600000,
+          1791673200000
+        ],
+        "brazil": [
+          1791666000000,
+          1791669600000
+        ],
+        "east-asia": [
+          1791626400000,
+          1791630000000
+        ],
+        "oceania": [
+          1791612000000,
+          1791615600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791644400000,
+      "endTimestamp": 1791648000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791669600000,
+          1791673200000
+        ],
+        "brazil": [
+          1791666000000,
+          1791669600000
+        ],
+        "east-asia": [
+          1791626400000,
+          1791630000000
+        ],
+        "oceania": [
+          1791612000000,
+          1791615600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791648000000,
+      "endTimestamp": 1791651600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791673200000,
+          1791676800000
+        ],
+        "brazil": [
+          1791669600000,
+          1791673200000
+        ],
+        "east-asia": [
+          1791630000000,
+          1791633600000
+        ],
+        "oceania": [
+          1791615600000,
+          1791619200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791648000000,
+      "endTimestamp": 1791651600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791673200000,
+          1791676800000
+        ],
+        "brazil": [
+          1791669600000,
+          1791673200000
+        ],
+        "east-asia": [
+          1791630000000,
+          1791633600000
+        ],
+        "oceania": [
+          1791615600000,
+          1791619200000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791648000000,
+      "endTimestamp": 1791651600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791673200000,
+          1791676800000
+        ],
+        "brazil": [
+          1791669600000,
+          1791673200000
+        ],
+        "east-asia": [
+          1791630000000,
+          1791633600000
+        ],
+        "oceania": [
+          1791615600000,
+          1791619200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791648000000,
+      "endTimestamp": 1791651600000,
+      "regionTimestamps": {
+        "north-america": [
+          1791673200000,
+          1791676800000
+        ],
+        "brazil": [
+          1791669600000,
+          1791673200000
+        ],
+        "east-asia": [
+          1791630000000,
+          1791633600000
+        ],
+        "oceania": [
+          1791615600000,
+          1791619200000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791651600000,
+      "endTimestamp": 1791655200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791676800000,
+          1791680400000
+        ],
+        "brazil": [
+          1791673200000,
+          1791676800000
+        ],
+        "east-asia": [
+          1791633600000,
+          1791637200000
+        ],
+        "oceania": [
+          1791619200000,
+          1791622800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791651600000,
+      "endTimestamp": 1791655200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791676800000,
+          1791680400000
+        ],
+        "brazil": [
+          1791673200000,
+          1791676800000
+        ],
+        "east-asia": [
+          1791633600000,
+          1791637200000
+        ],
+        "oceania": [
+          1791619200000,
+          1791622800000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791651600000,
+      "endTimestamp": 1791655200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791676800000,
+          1791680400000
+        ],
+        "brazil": [
+          1791673200000,
+          1791676800000
+        ],
+        "east-asia": [
+          1791633600000,
+          1791637200000
+        ],
+        "oceania": [
+          1791619200000,
+          1791622800000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791651600000,
+      "endTimestamp": 1791655200000,
+      "regionTimestamps": {
+        "north-america": [
+          1791676800000,
+          1791680400000
+        ],
+        "brazil": [
+          1791673200000,
+          1791676800000
+        ],
+        "east-asia": [
+          1791633600000,
+          1791637200000
+        ],
+        "oceania": [
+          1791619200000,
+          1791622800000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791655200000,
+      "endTimestamp": 1791658800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791680400000,
+          1791684000000
+        ],
+        "brazil": [
+          1791676800000,
+          1791680400000
+        ],
+        "east-asia": [
+          1791637200000,
+          1791640800000
+        ],
+        "oceania": [
+          1791622800000,
+          1791626400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791655200000,
+      "endTimestamp": 1791658800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791680400000,
+          1791684000000
+        ],
+        "brazil": [
+          1791676800000,
+          1791680400000
+        ],
+        "east-asia": [
+          1791637200000,
+          1791640800000
+        ],
+        "oceania": [
+          1791622800000,
+          1791626400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Spaceport",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791655200000,
+      "endTimestamp": 1791658800000,
+      "regionTimestamps": {
+        "north-america": [
+          1791680400000,
+          1791684000000
+        ],
+        "brazil": [
+          1791676800000,
+          1791680400000
+        ],
+        "east-asia": [
+          1791637200000,
+          1791640800000
+        ],
+        "oceania": [
+          1791622800000,
+          1791626400000
+        ]
+      }
+    },
+    {
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791658800000,
+      "endTimestamp": 1791662400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791684000000,
+          1791687600000
+        ],
+        "brazil": [
+          1791680400000,
+          1791684000000
+        ],
+        "east-asia": [
+          1791640800000,
+          1791644400000
+        ],
+        "oceania": [
+          1791626400000,
+          1791630000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Riven Tides",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791658800000,
+      "endTimestamp": 1791662400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791684000000,
+          1791687600000
+        ],
+        "brazil": [
+          1791680400000,
+          1791684000000
+        ],
+        "east-asia": [
+          1791640800000,
+          1791644400000
+        ],
+        "oceania": [
+          1791626400000,
+          1791630000000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791658800000,
+      "endTimestamp": 1791662400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791684000000,
+          1791687600000
+        ],
+        "brazil": [
+          1791680400000,
+          1791684000000
+        ],
+        "east-asia": [
+          1791640800000,
+          1791644400000
+        ],
+        "oceania": [
+          1791626400000,
+          1791630000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Harvester",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791658800000,
+      "endTimestamp": 1791662400000,
+      "regionTimestamps": {
+        "north-america": [
+          1791684000000,
+          1791687600000
+        ],
+        "brazil": [
+          1791680400000,
+          1791684000000
+        ],
+        "east-asia": [
+          1791640800000,
+          1791644400000
+        ],
+        "oceania": [
+          1791626400000,
+          1791630000000
+        ]
+      }
+    },
+    {
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791662400000,
+      "endTimestamp": 1791666000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791687600000,
+          1791691200000
+        ],
+        "brazil": [
+          1791684000000,
+          1791687600000
+        ],
+        "east-asia": [
+          1791644400000,
+          1791648000000
+        ],
+        "oceania": [
+          1791630000000,
+          1791633600000
+        ]
+      }
+    },
+    {
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791662400000,
+      "endTimestamp": 1791666000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791687600000,
+          1791691200000
+        ],
+        "brazil": [
+          1791684000000,
+          1791687600000
+        ],
+        "east-asia": [
+          1791644400000,
+          1791648000000
+        ],
+        "oceania": [
+          1791630000000,
+          1791633600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Matriarch",
+      "mapDisplayName": "The Blue Gate",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791662400000,
+      "endTimestamp": 1791666000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791687600000,
+          1791691200000
+        ],
+        "brazil": [
+          1791684000000,
+          1791687600000
+        ],
+        "east-asia": [
+          1791644400000,
+          1791648000000
+        ],
+        "oceania": [
+          1791630000000,
+          1791633600000
+        ]
+      }
+    },
+    {
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Dam Battlegrounds",
+      "durationInSeconds": 3600,
+      "startTimestamp": 1791662400000,
+      "endTimestamp": 1791666000000,
+      "regionTimestamps": {
+        "north-america": [
+          1791687600000,
+          1791691200000
+        ],
+        "brazil": [
+          1791684000000,
+          1791687600000
+        ],
+        "east-asia": [
+          1791644400000,
+          1791648000000
+        ],
+        "oceania": [
+          1791630000000,
+          1791633600000
+        ]
+      }
+    }
+  ],
+  "conditionItems": [
+    {
+      "name": "ARC Frigate",
+      "type": "major"
+    },
+    {
+      "name": "Beachcombing",
+      "type": "minor"
+    },
+    {
+      "name": "Bird City",
+      "type": "minor"
+    },
+    {
+      "name": "Close Scrutiny",
+      "type": "major"
+    },
+    {
+      "name": "Electromagnetic Storm",
+      "type": "major"
+    },
+    {
+      "name": "Harvester",
+      "type": "minor"
+    },
+    {
+      "name": "Hidden Bunker",
+      "type": "major"
+    },
+    {
+      "name": "Hurricane",
+      "type": "major"
+    },
+    {
+      "name": "Launch Tower Loot",
+      "type": "minor"
+    },
+    {
+      "name": "Locked Gate",
+      "type": "major"
+    },
+    {
+      "name": "Lush Blooms",
+      "type": "minor"
+    },
+    {
+      "name": "Matriarch",
+      "type": "minor"
+    },
+    {
+      "name": "Night Raid",
+      "type": "major"
+    },
+    {
+      "name": "Prospecting Probes",
+      "type": "minor"
+    },
+    {
+      "name": "Redirection",
+      "type": "minor"
+    },
+    {
+      "name": "Uncovered Caches",
+      "type": "minor"
+    }
+  ],
+  "serverNow": 1791543378710
+}
