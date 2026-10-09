@@ -12,7 +12,7 @@ with ZipFile(target,'w',ZIP_DEFLATED) as archive:
 print(target)
 source_target = root/'outputs'/('Orbiter-'+version+'-source.zip')
 source_files = files + ['package-lock.json','tsconfig.json','rollup.config.js','vite.config.js','index.html','outputs/ROADMAP.md','outputs/MAC-PREVIEW.md','outputs/Orbiter Preview.command']
-source_files += [str(p.relative_to(root)) for folder in ('src','scripts','tests') for p in (root/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts]
+source_files += [str(p.relative_to(root)) for folder in ('src','scripts','tests','distribution') for p in (root/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts]
 if (root/'pnpm-lock.yaml').exists():source_files.append('pnpm-lock.yaml')
 with ZipFile(source_target,'w',ZIP_DEFLATED) as archive:
     for file in source_files:archive.write(root/file,'Orbiter/'+file)

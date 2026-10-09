@@ -1,7 +1,9 @@
 # Orbiter custom Decky store
 
-Prepared locally; **not deployed**. The proposed public repository is
-`ozanmutludursun/orbiter-updates`. The Orbiter development repository stays private.
+The owner approved making `ozanmutludursun/Orbiter` public on 9 October 2026.
+Versioned packages, corresponding GPL source and release metadata use that same
+repository. The Worker is prepared but **not deployed**; a custom store endpoint
+still requires hosting setup.
 
 Decky Stable v3.2.9 supports custom stores and native update prompts. This Worker
 merges the live official catalogue with one Orbiter release. It does not modify
@@ -10,17 +12,17 @@ this store collects no usage statistics.
 
 ## One-time activation
 
-Public distribution and hosting require the owner's approval. Publish only the
-reviewed installation ZIP and matching GPL source ZIP, not the private repository,
-history, development data, or personal screenshots.
+Public distribution is approved. The tracked source/history was checked before
+publication; local settings, caches, credentials and personal screenshots are
+excluded. Worker deployment requires the owner's hosting account.
 
-1. Create a public `orbiter-updates` repository. Include Orbiter's LICENSE,
-   THIRD_PARTY_NOTICES.md and a README linking to the releases and source assets.
+1. Use the public `Orbiter` repository, which includes LICENSE and
+   THIRD_PARTY_NOTICES.md. Keep versioned binary and source packages together.
 2. Prepare the current release:
-   `python3 scripts/prepare_store_release.py --repo ozanmutludursun/orbiter-updates`.
+   `python3 scripts/prepare_store_release.py --repo ozanmutludursun/Orbiter`.
    It validates archive paths, identity, version and required source files, and
    stages the ZIPs, SHA-256 manifest and release notes under `work/store-release`.
-3. Publish a versioned `v0.1.13` release with the staged `orbiter.zip` and
+3. Publish a versioned release (starting with `v0.1.14`) with the staged `orbiter.zip` and
    `orbiter-source.zip`. Verify both assets download without authentication and
    compare the installation ZIP's SHA-256 with `orbiter.json`.
 4. Commit the staged `orbiter.json` to the distribution repository's `main` branch
@@ -45,8 +47,8 @@ restart may still be needed.
 ## Subsequent releases
 
 Bump `package.json`, validate/build the plugin, run `npm run package`, and repeat
-steps 2–4 with the new version. After the public repository is approved and
-initialized, `python3 scripts/publish_store_release.py --repo ozanmutludursun/orbiter-updates`
+steps 2–4 with the new version. With the public repository initialized,
+`python3 scripts/publish_store_release.py --repo ozanmutludursun/Orbiter`
 does those publishing steps: it creates a versioned prerelease, checks anonymous
 downloads of both assets, then advances the manifest. It refuses private targets,
 changed existing ZIPs and accidental version rollbacks. It uses the maintainer's

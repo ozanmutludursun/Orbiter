@@ -1,6 +1,6 @@
 # Third-party notices
 
-Orbiter original implementation: GPL-3.0-only. Copyright © 2026 Orbiter contributors.
+Orbiter original implementation: GPL-3.0-only. Copyright © 2026 Ozan Mutlu Dursun (Rageworks) and Orbiter contributors.
 
 ARC Raiders schedule, condition names and artwork are provided by Embark Studios via https://arcraiders.com/map-conditions. They are not relicensed under Orbiter's GPL and are not bundled in the plugin package. Orbiter is unofficial and not endorsed by Embark. Fetching a public page does not establish a separate API or artwork redistribution license.
 

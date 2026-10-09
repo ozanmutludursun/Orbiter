@@ -21,8 +21,6 @@ def publish(repo, version):
     metadata = json.loads(gh('api', f'repos/{repo}').stdout)
     if metadata.get('private') or metadata.get('default_branch') != 'main':
         raise ValueError('Distribution repository must be public with an initialized main branch')
-    if repo.casefold() == 'ozanmutludursun/orbiter'.casefold():
-        raise ValueError('Do not publish artifacts into the private development repository')
     staged = prepare(repo, version)
     tag = f'v{version}'
     release = gh('release', 'view', tag, '--repo', repo, '--json', 'tagName', check=False)

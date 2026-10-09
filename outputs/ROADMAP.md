@@ -1,12 +1,12 @@
 # Orbiter — uygulanabilir yol haritası
 
-Güncelleme: 9 Ekim 2026. 0.1.13 geliştirme sürümü yayımlandı; canlı takvim, ikonlar ve manuel notification testi Decky Stable v3.2.9 üzerinde gözlendi. Doğal notification akışı ve son kompakt layout için cihaz doğrulaması devam ediyor. Özel Decky update kanalı hazırlandı; henüz yayında değil.
+Güncelleme: 9 Ekim 2026. 0.1.14 public paket/update hazırlığı tamamlandı; canlı takvim, ikonlar ve manuel notification testi Decky Stable v3.2.9 üzerinde gözlendi. Doğal notification akışı ve son kompakt layout için cihaz doğrulaması devam ediyor. Özel Decky update servisi hazırlandı; henüz yayında değil.
 
 ## Netleşen kararlar
 
 - Birincil hedef Steam Deck / SteamOS Gaming Mode. Diğer Decky ortamları çalışırsa uyumlu; ilk sürümü engelleyen destek hedefleri değil.
 - Tek veri kaynağı resmî arcraiders.com takvimi. MetaForge yok. SSR içindeki yapılandırılmış takvim, bölgesel zamanlar ve condition bağlantılarındaki SVG ikonlar okunuyor. Dokümante edilmiş public API sözleşmesi değil; format değişirse release çıkarırız.
-- Orijinal kod GPL-3.0-only, temel işlevler ücretsiz; gerçek adres netleşene kadar Support alanı placeholder. Ana repo private kalacak; açık dağıtım ZIP'i ve karşılık gelen GPL kaynak paketi için ayrı repo ve kullanıcı onayı gerekiyor. Özel store, resmî kataloğu koruyarak Decky'nin yerleşik updater'ını kullanacak. GPL, fork/yeniden dağıtıma izin verir ve dağıtılan türevlerin kaynak/lisans yükümlülüklerini korur.
+- Orijinal kod GPL-3.0-only, temel işlevler ücretsiz; gerçek adres netleşene kadar Support alanı placeholder. Kullanıcı 9 Ekim'de mevcut Orbiter reposunun public yapılmasını onayladı; aynı repo kurulum ZIP'i ve karşılık gelen GPL kaynak paketini barındıracak. Özel store, resmî kataloğu koruyarak Decky'nin yerleşik updater'ını kullanacak. GPL, özel kullanım/ücretli dağıtıma izin verir; dağıtılan türevlerin kaynak/lisans yükümlülüklerini korur, kapalı kaynak olarak yeniden dağıtıma izin vermez.
 - Kompakt QAM paneli; ayarlar ayrı içerik, geniş takvim ayrı Decky route'u. Mac önizlemesi aynı React bileşenlerini ve Python çekirdeğini kullanıyor.
 - Otomatik mod ARC Raiders App ID 1808500'e bağlı. Bildirimler varsayılan kapalı, ses kapalı; bölge ilk kullanımda kullanıcı tarafından seçilir.
 
@@ -42,9 +42,9 @@ Tamamlanma ölçütü: bu akışların gerçek cihazda kaydı; özellikle contro
 
 9 Ekim 2026 kontrolünde resmî Store addition checklist'i, kodun çoğunluğunun üretken AI tarafından yazılmamış olmasını istiyor. Bu projede o beyan verilemiyor; resmî Store'a şu an gönderim yapılmayacak. Politika değişirse tekrar değerlendirilecek.
 
-`distribution/README.md`: mevcut private repoyu açmadan, ayrı public dağıtım reposunda sürümlü ZIP + GPL kaynak ZIP'i; resmî plugin kataloğu ile Orbiter'ı birleştiren CORS uyumlu Cloudflare Worker. Kullanıcı Decky'de özel store adresini bir kez girer; sonraki sürümleri Decky'nin update ekranından kurar. Diğer plugin'lerin update listeleri korunur. Paket hazırlama ve store protokol testleri mevcut; public yayın ve hosting onayı/deployment, anonim indirme/hash doğrulaması ve gerçek Deck update testi henüz tamamlanmadı.
+`distribution/README.md`: public Orbiter reposunda sürümlü ZIP + GPL kaynak ZIP'i; resmî plugin kataloğu ile Orbiter'ı birleştiren CORS uyumlu Cloudflare Worker. Kullanıcı Decky'de özel store adresini bir kez girer; sonraki sürümleri Decky'nin update ekranından kurar. Diğer plugin'lerin update listeleri korunur. Paket hazırlama ve store protokol testleri mevcut; public yayın onaylandı, hosting/deployment ve gerçek Deck update testi henüz tamamlanmadı.
 
-- Public dağıtım reposu, eşleşen GPL kaynak ZIP'i, README ve lisans/üçüncü taraf notices'i tamamla. ZIP'e ayar/live cache taşıma; güncellemeler Decky settings/runtime dizinlerini korumalı. Ana geliştirme reposu ve geçmişi private kalır.
+- Public repo, eşleşen GPL kaynak ZIP'i, README ve lisans/üçüncü taraf notices'i koru. ZIP'e ayar/live cache taşıma; güncellemeler Decky settings/runtime dizinlerini korumalı. Repo görünürlüğü kullanıcı onayıyla public olarak değiştirilecek.
 - Kaynak/lisans paketini her kurulum ZIP'i ile birlikte yayımla; ekibe soru gönderilmeyecek.
 - Güncel submission/review politikasını gönderim öncesinde tekrar oku. Otomatik anlık push yok; submodule/commit güncellemesi review'dan geçiyor.
 - Build dev bağımlılıklarının npm audit uyarılarını yeniden değerlendir. Mevcut 7 high uyarı @decky/rollup → glob/braces build zincirinde; production dependency audit temiz. Bilinen bu durumu release notlarında kaybetme.

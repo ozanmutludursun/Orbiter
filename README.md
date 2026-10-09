@@ -1,7 +1,7 @@
 # Orbiter
 
 An unofficial, minimal ARC Raiders map-condition companion for Decky Loader.
-Steam Deck / SteamOS Gaming Mode is the primary target. Version 0.1.13 is a development build. Live schedules, countdowns, official icons and the manual Steam notification test have been observed on Decky Stable v3.2.9. This build fixes the October schedule update: optional regional timestamps serialized as React's `$undefined` no longer stop schedule loading. New maps, conditions and observed pairings still come from the official page, without a bundled catalog. The 0.1.12 native layout and automatically scheduled Steam delivery still need device testing. Not yet submitted to the Store.
+Steam Deck / SteamOS Gaming Mode is the primary target. Version 0.1.14 is a development build by **Ozan Mutlu Dursun (Rageworks)**. Live schedules, countdowns, official icons and the manual Steam notification test have been observed on Decky Stable v3.2.9. This release prepares public versioned packages and native Decky updates through a custom store, retaining the October schedule fix from 0.1.13. New maps, conditions and observed pairings still come from the official page, without a bundled catalog. The 0.1.12 native layout and automatically scheduled Steam delivery still need device testing. Not submitted to the official Store.
 
 ## Try on a Mac
 
@@ -43,6 +43,8 @@ The package is generated under `outputs`. It uses the official Decky Rollup tool
 Data is read from structured SSR output in [the official page](https://arcraiders.com/map-conditions). This is not a documented public API contract. The parser joins streamed data chunks, tolerates absent optional catalog/regional fields, and validates timestamps and individual records. Missing regional overrides use the shared event times, matching the official client; unsupported explicit overrides are not guessed. New content is discovered automatically, but a fundamental website schema change can still require an update. Condition icons are sanitized SVGs from the official condition links, rendered as image masks that inherit the current text color. Missing icons use a neutral fallback. Schedule timing may change; the plugin cannot distinguish a raid from the lobby.
 
 Orbiter’s original code is licensed under **GPL-3.0-only**; see LICENSE. Third-party notices and artwork ownership are separate; see THIRD_PARTY_NOTICES.md. All core features are free. An optional support link can be configured once the maintainer provides a real profile URL; no nag screens or support notifications.
+
+You can use, modify and redistribute Orbiter, including commercially. Distributed derivatives must preserve the GPL terms and provide their corresponding source to recipients; Orbiter's GPL-covered code cannot be redistributed as a closed-source product. Private modifications do not require publication. See [GNU's license FAQ](https://www.gnu.org/licenses/gpl-faq.en.html#GPLCommercially).
 
 The Mac preview validates content and interaction; it cannot validate Steam controller focus, game detection or Steam toast placement. See `outputs/ROADMAP.md` for the device gates and subsequent work.
 

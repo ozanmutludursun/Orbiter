@@ -4,5 +4,5 @@ compatibility_date = "2026-10-09"
 workers_dev = true
 
 [vars]
-# Proposed public distribution repository; deploy only after it is approved and created.
-ORBITER_MANIFEST_URL = "https://raw.githubusercontent.com/ozanmutludursun/orbiter-updates/main/orbiter.json"
+# Packages and release metadata are public; Worker hosting is configured separately.
+ORBITER_MANIFEST_URL = "https://raw.githubusercontent.com/ozanmutludursun/Orbiter/main/orbiter.json"
